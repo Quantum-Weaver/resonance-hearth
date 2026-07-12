@@ -11,6 +11,36 @@ that food preparation methods, frozen vs can vs fresh, fried vs baked,
 texture issue tracking food sensitivities, with the same no shame system and
 methodology for weight or food sensitive vessels."*
 
+**Amendment — the Rhythm (KP, 2026-07-12 evening):** *"this could help a
+household with food traumas, which all 4 of us have, somehow find a way
+to create a rythym."* This resets the Table's design assumption from
+sensitivity-first to **trauma-first, household-wide** — and names its
+true product: not meal plans, a **rhythm**. What follows:
+
+- **Rhythm, not schedule.** The Table never prescribes; it *notices* —
+  locally, privately — which nights went gently (a meal from trusted
+  shelves, low decision-cost, nobody stretched) and offers the pattern
+  back as an option: "soup night felt right twice." A rhythm is grown
+  from evidence of gentleness, never imposed by a calendar.
+- **The decision is the trigger.** For a food-trauma household, the
+  nightly "what should we eat?" negotiation IS the wound — performing
+  preference, defending a no, one person carrying the announcing alone.
+  The Table's deepest job is absorbing that load: quiet suggestions
+  computed from trusted shelves × tonight's capacity × the pantry, so
+  the question arrives already half-answered and nobody has to be its
+  bearer.
+- **The rhythm bends, never breaks.** A skipped meal is never surfaced
+  as absence, to anyone. A trusted-shelf night is full participation in
+  the rhythm, not a fallback from it. "The trusted shelf is always
+  enough" is rhythm law, not consolation.
+- **All existing laws hold underneath:** private inputs, shared outputs,
+  provenance withheld (the dinner-table window-not-monitor); no numbers;
+  the word "picky" still does not exist; weight-sensitive default.
+- **With the Weave (DESIGN-004):** the rhythm is computed inside the
+  house graph — own, yet integrated: each vessel's private map shapes
+  suggestions it never has to explain, each unit can keep its own table
+  inside the house's, and no rhythm ever requires a confession.
+
 The design that follows from it:
 
 - **Food atoms** (Resonance Grammar: one definition, referenced everywhere):

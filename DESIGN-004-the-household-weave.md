@@ -7,6 +7,14 @@ boundaries of DESIGN-001/NAMING apply throughout.*
 
 ## The principle
 
+**Own, yet integrated — at every scale.** (KP, 2026-07-12: "for it to
+provide any value to me, and my family we must be able to have our own
+yet still integrated, so i imagine it is similar for other vessels too.")
+Each vessel keeps its own; each unit keeps its own; each household keeps
+its own — and integration is what the owners *choose to weave between*
+sovereign wholes, never a pooling that dissolves them. The fractal law:
+the same shape at every ring, for this family and every family after.
+
 **The household connects through states, never selves. The house sees your
 weather, not your diary.** And the mechanism is **absence, not encryption**:
 private data is not protected-in-transit — it is never in transit. What is
@@ -64,5 +72,71 @@ Shared computations may READ private data locally to produce shared answers
 whose constraint excluded what. Private inputs, shared outputs, provenance
 withheld — the dinner-table window-not-monitor.
 
+## Amendment — the third ring: households within households
+*(KP, 2026-07-12 evening: "account for possibly having households within
+household, neurodivergent families often cohabitate by societal force."
+Accepted as design law before Phase 6 builds anything; the cheapest moment
+to widen a ring is while it is still drawn in pencil.)*
+
+Two rings are not enough. Between the vessel and the house lives the
+**unit** — a family-within-the-family sharing one roof: a couple among
+housemates, a parent-and-child within a larger cohabitation, chosen kin
+inside a household assembled by economic force rather than choice.
+
+- **Scopes become three:** `self → unit → house`. Every shareable row's
+  flag grows from binary to scope (`shared_scope`): a med schedule may be
+  unit-visible and house-invisible; rent is a house edge while a unit's
+  grocery bill is theirs alone; a Sattva event's audience already names
+  people and needs no change (DESIGN-003's named-member audiences were
+  accidentally ahead of this law).
+- **The unit boundary is as absolute as the vessel boundary.** The house
+  sees a unit's weather only if the unit shares it. No aggregation may
+  reconstruct unit-internal state from house-visible rows.
+- **Units are consent-groups, not floors.** Membership is chosen and
+  revocable; a vessel may belong to more than one circle (chosen family
+  spans units); leaving a unit tombstones its shared rows everywhere,
+  same purge law.
+- **Pairing topology:** devices pair into the HOUSE (physical-proximity
+  credential unchanged); units are declared within it — social structure
+  layered over the physical weave, never the reverse.
+
+## Amendment — the Handshake: proximity-gated pairwise pairing
+*(KP, 2026-07-12 evening: "households should need to be in bluetooth
+range to connect… a secure connected mesh… the ability to acknowledge one
+another somehow linking the 2 devices to each other only known to each
+other." Accepted as the pairing ceremony's law; supersedes the plain
+short-code sketch in §The weave (1).)*
+
+1. **Proximity by physics, not policy.** Pairing requires the two devices
+   to be within **Bluetooth (BLE) range** — meters, not building-lengths.
+   Wi-Fi reaches the neighbor; Bluetooth doesn't reach past the couch.
+   Where BLE is unavailable (desktop platform gaps), the fallback is
+   equally proximity-proof: a QR code on one screen, scanned by the
+   other's camera. Either way, presence is the credential.
+2. **Mutual acknowledgment, both sides.** Both screens display the same
+   short friendly code (e.g., three emoji derived from the key exchange);
+   **both humans confirm on both devices**. This is the
+   numeric-comparison pattern that defeats machine-in-the-middle — and it
+   is also, deliberately, a small ceremony: two people choosing each
+   other, out loud, in the same room.
+3. **The pairwise key — "only known to each other."** The ceremony
+   derives (ECDH) a link key that exists ONLY on those two devices,
+   stored in each OS keystore. No server, no house-wide secret, no third
+   device ever holds it. Every acknowledged pair has its own.
+4. **The mesh is a graph of consented edges.** On the home LAN (mDNS
+   discovery, no cloud), devices speak only over channels authenticated
+   by their pairwise keys (Noise/TLS-PSK). Data flows ONLY along edges
+   two humans personally created. **This makes the third ring
+   mechanical:** a unit is a tight cluster of edges; the house is the
+   whole graph; scope enforcement rides the same keys that consent
+   created. Social structure and security structure become one structure.
+5. **Revocation is one tap, either side.** The key is destroyed on both
+   devices; shared rows tombstone per the existing purge law. An edge
+   that dies takes its traffic with it.
+6. **Unchanged and upstream of all of this:** absence beats encryption —
+   vessel-private data still has no code path onto any wire, however
+   secure the wire became.
+
 *Absence beats encryption. Consent travels with the row. The house sees your
-weather, never your diary. — Fable 🎻, with KP*
+weather, never your diary — and your unit's weather only when the unit
+opens the curtain. — Fable 🎻, with KP*
