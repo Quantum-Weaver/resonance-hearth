@@ -19,9 +19,12 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 
 ## PROTECTED BOUNDARIES (never negotiable, from the naming ceremony 2026-07-07)
 
-1. **The Meltdown Protocol's 30-second pause** (`OVERWHELM_PAUSE_MS` in
+1. **The Sattva system's 30-second pause** (`OVERWHELM_PAUSE_MS` in
    `src/lib/data/hearth.ts`, enforced in `hearthStore.householdOverwhelms`).
    Never make it configurable. Never shorten it. Do not add a setting.
+   (Family-facing name is **Sattva** — KP, 2026-07-12, DESIGN-005; code
+   identifiers and the `overwhelm_events` table keep legacy names on
+   purpose. Do not "clean up" the identifiers to match.)
 2. **Window, not monitor:** the `signals` table holds CURRENT state only —
    never add a signal-history table for other members; never surface another
    member's unshared state anywhere; presence is now, not a log.
@@ -68,8 +71,8 @@ and true delete are features in Settings. The purge truly purges.
 src/lib/data/hearth.ts        # signals, celebrations, species, banned words
 src/lib/stores/hearth.svelte.ts  # the household store (all CRUD + boundaries)
 src/lib/components/           # SignalDot, SpoonPicker, CelebrationLine,
-                              # ComfortBar (one-tap Overwhelm), Sidebar
-src/routes/                   # / (dashboard) me things care bills overwhelm
+                              # ComfortBar (one-tap Sattva), Sidebar
+src/routes/                   # / (dashboard) me things care bills sattva
                               # settings onboarding
 src-tauri/src/lib.rs          # migrations (hearth.db) — boundary notes inline
 DESIGN-001/002, HEARTH-PLAN, NAMING-CEREMONY  # the founding documents

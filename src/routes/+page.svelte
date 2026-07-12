@@ -87,7 +87,7 @@
 	{#each holds as h}
 		<div class="card hold">
 			<div class="hold__title">
-				{h.member?.sigil} {h.member?.label ?? 'Someone'} is overwhelmed.
+				{h.member?.sigil} {h.member?.label ?? 'Someone'} is seeking sattva.
 			</div>
 			<div class="hold__body">
 				{#if h.protocol.cardText}

@@ -366,7 +366,10 @@ async function saveProtocol(p: Protocol) {
 	await loadAll();
 }
 
-// ——— overwhelm (the Meltdown Protocol) ———
+// ——— the Sattva system (the Meltdown Protocol) ———
+// Family-facing name: Sattva (DESIGN-005). Function/table names below keep
+// their legacy 'overwhelm' spelling deliberately — installed devices carry
+// data under them, and identifiers are not UI.
 // The vessel's own protocol decides who is told; the audience is snapshotted
 // onto the event so later protocol edits never change a live event.
 async function startOverwhelm(memberId: string) {

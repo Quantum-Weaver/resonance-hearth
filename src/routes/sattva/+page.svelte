@@ -1,5 +1,7 @@
 <script lang="ts">
-	// The Meltdown Protocol — a ceremony, not a feature. (DESIGN-001 + DESIGN-003)
+	// The Sattva system (the Meltdown Protocol) — a ceremony, not a feature.
+	// (DESIGN-001 + DESIGN-003; named Sattva in DESIGN-005 — the room is named
+	// for the state it restores, not the state that opens its door.)
 	// PROTECTED BOUNDARY: the 30-second pause between the personal log and
 	// anyone's gentle knowing is enforced in the store's data logic and is
 	// not configurable. What IS personal (DESIGN-003 §2): who is told, in
@@ -119,9 +121,9 @@
 		</div>
 	{:else}
 		<div class="card center ask">
-			<h1>Overwhelmed?</h1>
-			<p class="soft">One press. Nothing else. No explanation, now or ever.</p>
-			<button class="big-soft-button" onclick={press}>I'm overwhelmed</button>
+			<h1>Sattva</h1>
+			<p class="soft">A door back to balance. One press. Nothing else. No explanation, now or ever.</p>
+			<button class="big-soft-button" onclick={press}>Sattva</button>
 			<p class="soft small">{audienceLine}</p>
 			<p class="soft small">
 				This is not an emergency system. It is a household breathing.

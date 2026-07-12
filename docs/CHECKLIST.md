@@ -34,6 +34,16 @@
 - [ ] **Tested (dwelling):** ⬜ first desktop launch by KP's hand
 - [ ] First data: household members added by the family itself
 
+### Session 2026-07-12: The Sattva Door ✅
+- [x] Overwhelm system renamed **Sattva** in all family-facing places
+      (KP's decision; DESIGN-005): ComfortBar button "Sattva", route
+      `/sattva`, dashboard "is seeking sattva", Me's "Sattva protocol",
+      Settings copy, README grammar table
+- [x] Code identifiers + `overwhelm_events` table KEEP legacy names
+      (deliberate — installed device carries data; comments say so inline)
+- [x] 30-second pause untouched (protected boundary)
+- [ ] **Tested (dwelling):** ⬜ KP presses the Sattva door on his device
+
 ### Phase 6: Integration ⬜ (later, deliberately)
 - [ ] Resonance Bridge sync (consent-based, per member, per data class)
 - [ ] Echoes reflections ↔ overwhelm recovery logs

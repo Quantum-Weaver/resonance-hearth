@@ -2,7 +2,8 @@
 	// The ComfortBar — inherited from Resonance Echoes (the parent codebase),
 	// retuned as the Hearth's gentle voice. Two laws live here:
 	//   * the greeting knows who you are only if you told this device;
-	//   * the Overwhelm door is always exactly one tap away (DESIGN-001).
+	//   * the Sattva door is always exactly one tap away (DESIGN-001; named
+	//     Sattva in DESIGN-005 — balance as the destination, not the deficit).
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { uiStore } from '$lib/stores/ui.svelte';
@@ -69,11 +70,11 @@
 				{greeting}
 			</button>
 			<button
-				class="comfort-bar__overwhelm"
-				onclick={() => goto('/overwhelm')}
-				aria-label="I'm overwhelmed"
+				class="comfort-bar__sattva"
+				onclick={() => goto('/sattva')}
+				aria-label="Sattva — a door back to balance"
 			>
-				I'm overwhelmed
+				Sattva
 			</button>
 		</div>
 	{/if}
@@ -122,8 +123,8 @@
 		color: var(--text);
 	}
 
-	/* The Overwhelm door: soft, present, never alarming — a candle, not a siren. */
-	.comfort-bar__overwhelm {
+	/* The Sattva door: soft, present, never alarming — a candle, not a siren. */
+	.comfort-bar__sattva {
 		padding: 0.45rem 0.9rem;
 		border-radius: 999px;
 		border: 1px solid var(--border-color);
@@ -136,7 +137,7 @@
 		transition: border-color 0.2s ease, color 0.2s ease;
 	}
 
-	.comfort-bar__overwhelm:hover {
+	.comfort-bar__sattva:hover {
 		border-color: var(--accent);
 		color: var(--text);
 	}

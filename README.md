@@ -25,7 +25,7 @@ The Hearth translates:
 |---|---|
 | "Do the dishes" | "The dishes might feel manageable today. Only if you have capacity." |
 | "Why haven't you answered?" | "They're in quiet mode. They'll see this when they have spoons." |
-| "You're overwhelmed again" | "They're overwhelmed. They need quiet. The household holds them." |
+| "You're overwhelmed again" | "They're seeking sattva. They need quiet. The household holds them." |
 | "You forgot" | "The task breathes. It will be here when you do." |
 
 ## What lives here

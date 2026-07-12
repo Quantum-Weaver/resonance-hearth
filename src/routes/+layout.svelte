@@ -27,7 +27,7 @@
 	const colors = $derived(getThemeColors(config));
 
 	// The Dim (DESIGN-003 §3): while THIS device's vessel has an open
-	// overwhelm, the UI eases down in color only — luminance and saturation,
+	// Sattva event, the UI eases down in color only — luminance and saturation,
 	// nothing else. No layout shift, no motion change; a changed layout is
 	// its own sensory event. It lifts as slowly as it fell, with 🌈.
 	const dimmed = $derived(

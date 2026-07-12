@@ -10,7 +10,7 @@
 	let celebration = $state<string | null>(null);
 	let spoonsShared = $state(true);
 
-	// My overwhelm protocol — authored here in calm, executed in storm.
+	// My Sattva protocol — authored here in calm, executed in storm.
 	let protoLoaded = $state(false);
 	let tellScope = $state<TellScope>('household');
 	let tellMembers = $state<string[]>([]);
@@ -155,7 +155,7 @@
 		</section>
 
 		<section class="section">
-			<h2>My overwhelm protocol</h2>
+			<h2>My Sattva protocol</h2>
 			<p class="hint">
 				Written now, in calm, so nobody has to guess in the storm — least of
 				all you. Not everyone feels safe the same way, and that's the point.

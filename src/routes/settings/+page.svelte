@@ -135,7 +135,7 @@
 					<strong>The house sees your weather, never your diary.</strong>
 					When device-to-device connection arrives, it works by
 					<em>absence, not encryption</em>: your private things — spoon
-					history, medications, personal tasks, your overwhelm notes —
+					history, medications, personal tasks, your Sattva notes —
 					are never transmitted at all. There is no code path that sends
 					them. No cloud, no server, no account, ever.
 				</p>
@@ -143,7 +143,7 @@
 					<li>Devices pair <strong>inside your home network only</strong>, by mutual consent — being in the home is the credential.</li>
 					<li>Only what you marked "shared" crosses — and only the shared <em>parts</em>: a bill can sync while its amount stays yours.</li>
 					<li>Un-share anything and every other device deletes its copy. The purge truly purges, house-wide.</li>
-					<li>Your overwhelm protocol's audience holds across devices: people outside your chosen circle never receive it at all.</li>
+					<li>Your Sattva protocol's audience holds across devices: people outside your chosen circle never receive it at all.</li>
 					<li>Presence stays presence: no device ever keeps a history of another person's signals. The window never becomes a monitor.</li>
 				</ul>
 				<p>Until then, this device is the household's shared Hearth — one fire, everyone welcome at it.</p>

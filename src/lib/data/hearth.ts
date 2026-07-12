@@ -113,9 +113,12 @@ export const speciesDef = (s: ThingSpecies): SpeciesDef =>
 // Kept here so reviews can grep for violations.
 export const BANNED_WORDS = ['overdue', 'streak', 'productivity', 'late', 'failed'];
 
-// The overwhelm ceremony's protected pause, in milliseconds.
+// The Sattva ceremony's protected pause, in milliseconds.
 // PROTECTED BOUNDARY (naming ceremony, Executioner, 2026-07-07):
 // not configurable below 30 seconds. Do not add a setting for this.
+// (Family-facing name is Sattva per DESIGN-005; this identifier and the
+// overwhelm_events table keep their legacy names deliberately — installed
+// devices carry data under them.)
 export const OVERWHELM_PAUSE_MS = 30_000;
 
 // Suggested needs for a vessel's personal protocol — starting points only;
