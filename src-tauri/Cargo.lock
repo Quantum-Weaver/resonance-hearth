@@ -3163,8 +3163,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "resonance-echoes"
-version = "1.1.0"
+name = "resonance-hearth"
+version = "0.1.0"
 dependencies = [
  "serde",
  "serde_json",
