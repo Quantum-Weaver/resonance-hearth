@@ -49,9 +49,14 @@
 ## KNOWN BUGS
 | ID | Description | Status |
 |----|-------------|--------|
-| — | none known yet | — |
+| B1 | capabilities/default.json had a UTF-8 BOM (PS 5.1 Set-Content) → tauri build "expected value at line 1 column 1" | ✅ fixed 2026-07-11, first launch night |
+
+## NEXT SITTING
+- [ ] **Hearth icon** — KP wants to create a proper one (replaces inherited
+      Echoes icons in src-tauri/icons/ + static/). His hands, his art.
+- [ ] KP's dwelling test findings from first pass → triage here.
 
 ## SESSION LOG
 | Date | What Was Done |
 |------|---------------|
-| 2026-07-11 | Cartography with KP; clone of Echoes; full gentle-core prototype; all eight rooms; check+build clean; standards docs; first commit. Boundaries: 30s pause + window-not-monitor enforced in data. |
+| 2026-07-11 | Cartography with KP; clone of Echoes; full gentle-core prototype; all eight rooms; check+build clean; standards docs; first commit 56e7c9e. Boundaries: 30s pause + window-not-monitor enforced in data. First launch by KP's hand same night; BOM bug found-and-fixed in thirty seconds (the dwelling is the test). |

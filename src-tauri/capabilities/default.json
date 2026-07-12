@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://raw.githubusercontent.com/nickknapton88/tauri-docs/dev/crates/tauri-utils/schema/capabilities.json",
   "identifier": "default",
   "description": "Default capabilities for Resonance Hearth",
