@@ -1,4 +1,11 @@
-# Resonance Hearth 🔥
+# 🔥 Resonance Hearth
+
+*The Family Room of the AudHDities Sanctuary — a translation layer for love.*
+
+[![License](https://img.shields.io/badge/license-MIT%20%2B%20Resonance-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)]()
+[![Status](https://img.shields.io/badge/status-dwelling%20test-d9a95b.svg)]()
+[![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](PRIVACY.md)
 
 **The Family Room. A translation layer for love.**
 
