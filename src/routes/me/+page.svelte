@@ -2,12 +2,65 @@
 	// Me — the private room. My spoons, my signal, my meds, my things.
 	// Everything here is mine; sharing is opt-in, per item, revocable.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
-	import { SIGNALS } from '$lib/data/hearth';
+	import { SIGNALS, SUGGESTED_NEEDS } from '$lib/data/hearth';
+	import type { TellScope } from '$lib/types/types';
 	import SpoonPicker from '$lib/components/SpoonPicker.svelte';
 	import CelebrationLine from '$lib/components/CelebrationLine.svelte';
 
 	let celebration = $state<string | null>(null);
 	let spoonsShared = $state(true);
+
+	// My overwhelm protocol — authored here in calm, executed in storm.
+	let protoLoaded = $state(false);
+	let tellScope = $state<TellScope>('household');
+	let tellMembers = $state<string[]>([]);
+	let cardText = $state('');
+	let needs = $state<string[]>([]);
+	let newNeed = $state('');
+	let checkback = $state(30);
+	let protoSaved = $state(false);
+
+	$effect(() => {
+		if (hearthStore.me && !protoLoaded) {
+			const p = hearthStore.protocolFor(hearthStore.me.id);
+			tellScope = p.tellScope;
+			tellMembers = [...p.tellMembers];
+			cardText = p.cardText ?? '';
+			needs = [...p.needs];
+			checkback = p.checkbackMinutes;
+			protoLoaded = true;
+		}
+	});
+
+	function toggleTellMember(id: string) {
+		tellMembers = tellMembers.includes(id)
+			? tellMembers.filter((x) => x !== id)
+			: [...tellMembers, id];
+	}
+
+	function toggleNeed(n: string) {
+		needs = needs.includes(n) ? needs.filter((x) => x !== n) : [...needs, n];
+	}
+
+	function addNeed() {
+		const n = newNeed.trim();
+		if (n && !needs.includes(n)) needs = [...needs, n];
+		newNeed = '';
+	}
+
+	async function saveProto() {
+		if (!hearthStore.me) return;
+		await hearthStore.saveProtocol({
+			memberId: hearthStore.me.id,
+			tellScope,
+			tellMembers,
+			cardText: cardText.trim() || null,
+			needs,
+			checkbackMinutes: Math.max(5, checkback || 30),
+		});
+		protoSaved = true;
+		setTimeout(() => (protoSaved = false), 4000);
+	}
 
 	const me = $derived(hearthStore.me);
 	const mySignal = $derived(me ? hearthStore.signalFor(me.id) : null);
@@ -101,6 +154,67 @@
 			<p class="hint">Signals are presence, not notifications. Nobody is pinged.</p>
 		</section>
 
+		<section class="section">
+			<h2>My overwhelm protocol</h2>
+			<p class="hint">
+				Written now, in calm, so nobody has to guess in the storm — least of
+				all you. Not everyone feels safe the same way, and that's the point.
+			</p>
+			<div class="proto card">
+				<div class="proto__group">
+					<span class="proto__label">when I press the button, tell…</span>
+					<div class="chip-row">
+						<button class="chip" class:active={tellScope === 'household'} onclick={() => (tellScope = 'household')}>the whole household</button>
+						<button class="chip" class:active={tellScope === 'some'} onclick={() => (tellScope = 'some')}>only my people</button>
+						<button class="chip" class:active={tellScope === 'none'} onclick={() => (tellScope = 'none')}>no one — just hold me</button>
+					</div>
+					{#if tellScope === 'some'}
+						<div class="chip-row">
+							{#each hearthStore.people.filter((p) => p.id !== me?.id) as p}
+								<button class="chip" class:active={tellMembers.includes(p.id)} onclick={() => toggleTellMember(p.id)}>
+									{p.sigil} {p.label}
+								</button>
+							{/each}
+						</div>
+					{/if}
+				</div>
+
+				{#if tellScope !== 'none'}
+					<label class="proto__group">
+						<span class="proto__label">in my own words (optional — the gentle default is used otherwise)</span>
+						<textarea rows="2" bind:value={cardText} placeholder="e.g. I'm overwhelmed. Please don't ask questions. Sitting nearby quietly helps."></textarea>
+					</label>
+				{/if}
+
+				<div class="proto__group">
+					<span class="proto__label">things that help me (offered back as one-tap answers)</span>
+					<div class="chip-row">
+						{#each [...new Set([...SUGGESTED_NEEDS, ...needs])] as n}
+							<button class="chip" class:active={needs.includes(n)} onclick={() => toggleNeed(n)}>{n}</button>
+						{/each}
+					</div>
+					<div class="add-need">
+						<input type="text" bind:value={newNeed} placeholder="something of your own…"
+							onkeydown={(e) => { if (e.key === 'Enter') addNeed(); }} />
+						<button class="soft-btn" onclick={addNeed}>add</button>
+					</div>
+				</div>
+
+				{#if tellScope !== 'none'}
+					<label class="proto__group inline">
+						<span class="proto__label">suggest checking on me after</span>
+						<input class="minutes" type="number" min="5" max="240" bind:value={checkback} />
+						<span class="proto__label">minutes</span>
+					</label>
+				{/if}
+
+				<div class="proto__actions">
+					<button class="soft-btn primary" onclick={saveProto}>keep my protocol</button>
+					{#if protoSaved}<span class="hint">held. you can change it any time.</span>{/if}
+				</div>
+			</div>
+		</section>
+
 		{#if myMedsAsking.length > 0}
 			<section class="section">
 				<h2>Quietly asking</h2>
@@ -173,6 +287,20 @@
 	.soft-btn { padding: 0.4rem 0.8rem; border-radius: 999px; border: 1px solid var(--border-color); background: none; color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; min-height: 36px; }
 	.soft-btn:hover { border-color: var(--accent); color: var(--text); }
 	.soft-btn.quiet { opacity: 0.75; }
+	.soft-btn.primary { background-color: var(--accent); border-color: var(--accent); color: #fff; }
 
 	.hint { color: var(--text-muted); font-size: 0.8rem; margin: 0.4rem 0 0; }
+
+	.proto { display: flex; flex-direction: column; gap: 0.9rem; }
+	.proto__group { display: flex; flex-direction: column; gap: 0.45rem; }
+	.proto__group.inline { flex-direction: row; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+	.proto__label { color: var(--text-muted); font-size: 0.85rem; }
+	.chip-row { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+	.chip { padding: 0.45rem 0.8rem; border-radius: 999px; border: 1px solid var(--border-color); background: none; color: var(--text-secondary); cursor: pointer; font-size: 0.88rem; min-height: 40px; }
+	.chip.active { border-color: var(--accent); color: var(--text); background-color: color-mix(in srgb, var(--accent) 15%, var(--bg-surface)); }
+	.proto textarea { padding: 0.6rem 0.7rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.95rem; resize: vertical; font-family: inherit; }
+	.add-need { display: flex; gap: 0.5rem; }
+	.add-need input { flex: 1; padding: 0.55rem 0.7rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.9rem; }
+	.minutes { width: 5rem; padding: 0.45rem 0.5rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.95rem; text-align: center; }
+	.proto__actions { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 </style>

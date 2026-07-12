@@ -25,6 +25,7 @@
 		hearthStore.householdOverwhelms.map((e) => ({
 			event: e,
 			member: hearthStore.memberById(e.memberId),
+			protocol: hearthStore.protocolFor(e.memberId),
 		}))
 	);
 
@@ -86,10 +87,18 @@
 	{#each holds as h}
 		<div class="card hold">
 			<div class="hold__title">
-				{h.member?.sigil} {h.member?.label ?? 'Someone'} is overwhelmed. They need quiet.
+				{h.member?.sigil} {h.member?.label ?? 'Someone'} is overwhelmed.
 			</div>
 			<div class="hold__body">
-				Check on them in 30 minutes unless they signal otherwise.<br />
+				{#if h.protocol.cardText}
+					<em>“{h.protocol.cardText}”</em><br />
+				{:else}
+					They need quiet.<br />
+				{/if}
+				{#if h.event.need}
+					They asked for: <strong>{h.event.need}</strong>.<br />
+				{/if}
+				Check on them in {h.protocol.checkbackMinutes} minutes unless they signal otherwise.<br />
 				This is not an emergency. This is a household breathing.
 			</div>
 		</div>

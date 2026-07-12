@@ -118,6 +118,17 @@ export const BANNED_WORDS = ['overdue', 'streak', 'productivity', 'late', 'faile
 // not configurable below 30 seconds. Do not add a setting for this.
 export const OVERWHELM_PAUSE_MS = 30_000;
 
+// Suggested needs for a vessel's personal protocol — starting points only;
+// every vessel authors their own list. (DESIGN-003 §2)
+export const SUGGESTED_NEEDS: string[] = [
+	'quiet',
+	'water',
+	'weighted blanket',
+	'presence, no words',
+	'check on the pets',
+	'time — just time',
+];
+
 // Spoon labels — 1..5 and the first-class "Not Sure".
 export const SPOON_LABELS: Record<number, string> = {
   1: 'Running on embers',

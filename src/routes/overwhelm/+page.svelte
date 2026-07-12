@@ -1,13 +1,13 @@
 <script lang="ts">
-	// The Meltdown Protocol — a ceremony, not a feature. (DESIGN-001)
+	// The Meltdown Protocol — a ceremony, not a feature. (DESIGN-001 + DESIGN-003)
 	// PROTECTED BOUNDARY: the 30-second pause between the personal log and
-	// the household's gentle knowing is enforced in the store's data logic
-	// (householdOverwhelms) and is not configurable. Do not add a setting.
+	// anyone's gentle knowing is enforced in the store's data logic and is
+	// not configurable. What IS personal (DESIGN-003 §2): who is told, in
+	// what words, and what the vessel needs — authored in calm, in Me.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { OVERWHELM_PAUSE_MS } from '$lib/data/hearth';
 	import { onMount } from 'svelte';
 
-	let share = $state(true);
 	let helped = $state('');
 	let notes = $state('');
 	let justReturned = $state(false);
@@ -20,13 +20,32 @@
 
 	const me = $derived(hearthStore.me);
 	const open = $derived(me ? hearthStore.openOverwhelm(me.id) : null);
-	const householdKnows = $derived(
+	const protocol = $derived(me ? hearthStore.protocolFor(me.id) : null);
+	const audienceKnows = $derived(
 		open ? open.shared && open.startedAt + OVERWHELM_PAUSE_MS <= tick : false
 	);
 
+	const audienceLine = $derived.by(() => {
+		if (!protocol) return '';
+		if (protocol.tellScope === 'none') return 'This stays between you and the Hearth.';
+		if (protocol.tellScope === 'household') return 'Your household will be told — gently, after a pause.';
+		const names = protocol.tellMembers
+			.map((id) => hearthStore.memberById(id)?.label)
+			.filter(Boolean)
+			.join(', ');
+		return names
+			? `${names} will be told — gently, after a pause. No one else.`
+			: 'No one is selected yet — this will stay private. Choose your people in Me.';
+	});
+
 	async function press() {
 		if (!me) return;
-		await hearthStore.startOverwhelm(me.id, share);
+		await hearthStore.startOverwhelm(me.id);
+	}
+
+	async function pickNeed(n: string) {
+		if (!open) return;
+		await hearthStore.setOverwhelmNeed(open.id, n);
 	}
 
 	async function returning() {
@@ -61,14 +80,26 @@
 			<p class="soft">Nothing is required of you. Take the time it takes.</p>
 			{#if open.shared}
 				<p class="soft small">
-					{#if householdKnows}
-						The household has been told, gently. They know to give you quiet.
+					{#if audienceKnows}
+						Your people have been told, gently. They know your protocol.
 					{:else}
-						In a few breaths, the household will be told — gently.
+						In a few breaths, your people will be told — gently.
 					{/if}
 				</p>
 			{:else}
 				<p class="soft small">This stays between you and the Hearth.</p>
+			{/if}
+
+			{#if protocol && protocol.needs.length > 0}
+				<div class="needs">
+					<p class="soft small">what do you need? (one tap — or nothing at all)</p>
+					<div class="need-row">
+						{#each protocol.needs as n}
+							<button class="need" class:picked={open.need === n} onclick={() => pickNeed(n)}>{n}</button>
+						{/each}
+					</div>
+					{#if open.need}<p class="soft small">held: {open.need}</p>{/if}
+				</div>
 			{/if}
 
 			<div class="return">
@@ -91,12 +122,10 @@
 			<h1>Overwhelmed?</h1>
 			<p class="soft">One press. Nothing else. No explanation, now or ever.</p>
 			<button class="big-soft-button" onclick={press}>I'm overwhelmed</button>
-			<label class="share-row">
-				<input type="checkbox" bind:checked={share} />
-				<span>let the household know (gently, after a pause)</span>
-			</label>
+			<p class="soft small">{audienceLine}</p>
 			<p class="soft small">
 				This is not an emergency system. It is a household breathing.
+				Your protocol is yours — shape it any time in <a href="/me">Me</a>.
 			</p>
 		</div>
 	{/if}
@@ -127,8 +156,15 @@
 		background-color: color-mix(in srgb, var(--accent) 22%, var(--bg-surface));
 	}
 
-	.share-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); cursor: pointer; }
-	.share-row input { width: 18px; height: 18px; accent-color: var(--accent); }
+	.needs { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; align-items: center; }
+	.need-row { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; }
+	.need {
+		padding: 0.5rem 0.95rem; border-radius: 999px;
+		border: 1px solid var(--border-color); background: none;
+		color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; min-height: 44px;
+	}
+	.need:hover { border-color: var(--accent); color: var(--text); }
+	.need.picked { border-color: var(--accent); color: var(--text); background-color: color-mix(in srgb, var(--accent) 14%, var(--bg-surface)); }
 
 	.return { display: flex; flex-direction: column; gap: 0.8rem; width: 100%; align-items: center; margin-top: 0.5rem; }
 	.return-btn {

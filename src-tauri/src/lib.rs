@@ -111,6 +111,30 @@ pub fn run() {
             );
         ",
         kind: MigrationKind::Up,
+    },
+    Migration {
+        version: 2,
+        description: "personal_overwhelm_protocols",
+        // DESIGN-003 SS2/SS3: each vessel authors their own Meltdown Protocol
+        // in calm, executed in storm. The 30-second pause remains protected
+        // and non-configurable; what personalizes is WHO is told and WHAT
+        // is offered -- never WHETHER there is a pause.
+        // overwhelm_events.tell snapshots the audience at start time, so a
+        // later protocol edit never retroactively changes a live event.
+        sql: "
+            CREATE TABLE IF NOT EXISTS protocols (
+                member_id TEXT PRIMARY KEY REFERENCES members(id),
+                tell_scope TEXT NOT NULL DEFAULT 'household',
+                    -- household | some | none
+                tell_members TEXT NOT NULL DEFAULT '[]',
+                card_text TEXT,
+                needs TEXT NOT NULL DEFAULT '[]',
+                checkback_minutes INTEGER NOT NULL DEFAULT 30
+            );
+            ALTER TABLE overwhelm_events ADD COLUMN need TEXT;
+            ALTER TABLE overwhelm_events ADD COLUMN tell TEXT;
+        ",
+        kind: MigrationKind::Up,
     }];
 
     tauri::Builder::default()

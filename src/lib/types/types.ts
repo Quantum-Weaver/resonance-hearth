@@ -95,6 +95,8 @@ export interface MedTake {
 
 // The Meltdown Protocol's record. The 30-second pause between start and
 // household visibility is enforced where this is displayed.
+// `tell` snapshots the audience at start ('all' | JSON array of member ids |
+// null = legacy 'all'); `need` is the one-tap answer to "what do you need?".
 export interface OverwhelmEvent {
   id: string;
   memberId: string;
@@ -103,4 +105,20 @@ export interface OverwhelmEvent {
   helped?: string | null;
   notes?: string | null;
   shared: boolean;
+  need?: string | null;
+  tell?: string | null;
+}
+
+// A vessel's personal Meltdown Protocol — authored in calm, executed in
+// storm (DESIGN-003 §2). The 30-second pause is NOT part of this type on
+// purpose: it is not personal; it is protected.
+export type TellScope = 'household' | 'some' | 'none';
+
+export interface Protocol {
+  memberId: string;
+  tellScope: TellScope;
+  tellMembers: string[]; // member ids, when tellScope === 'some'
+  cardText?: string | null; // their own words for the hold card, optional
+  needs: string[]; // their pre-authored needs list
+  checkbackMinutes: number; // default 30
 }

@@ -11,6 +11,8 @@ import type {
 	MedTake,
 	MedTakeStatus,
 	OverwhelmEvent,
+	Protocol,
+	TellScope,
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
@@ -27,6 +29,7 @@ let things = $state<Thing[]>([]);
 let meds = $state<Med[]>([]);
 let medTakes = $state<MedTake[]>([]);
 let overwhelms = $state<OverwhelmEvent[]>([]);
+let protocols = $state<Protocol[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
@@ -110,7 +113,23 @@ const toOverwhelm = (r: Record<string, unknown>): OverwhelmEvent => ({
 	helped: (r.helped as string) ?? null,
 	notes: (r.notes as string) ?? null,
 	shared: !!r.shared,
+	need: (r.need as string) ?? null,
+	tell: (r.tell as string) ?? null,
 });
+const toProtocol = (r: Record<string, unknown>): Protocol => {
+	let tellMembers: string[] = [];
+	let needs: string[] = [];
+	try { tellMembers = JSON.parse((r.tell_members as string) || '[]'); } catch {}
+	try { needs = JSON.parse((r.needs as string) || '[]'); } catch {}
+	return {
+		memberId: r.member_id as string,
+		tellScope: (r.tell_scope as TellScope) ?? 'household',
+		tellMembers,
+		cardText: (r.card_text as string) ?? null,
+		needs,
+		checkbackMinutes: (r.checkback_minutes as number) ?? 30,
+	};
+};
 
 // ——— init & load ———
 async function initDB() {
@@ -137,6 +156,7 @@ async function loadAll() {
 		meds = (await q('SELECT * FROM meds ORDER BY created_at')).map(toMed);
 		medTakes = (await q('SELECT * FROM med_takes ORDER BY ts DESC LIMIT 500')).map(toTake);
 		overwhelms = (await q('SELECT * FROM overwhelm_events ORDER BY started_at DESC LIMIT 100')).map(toOverwhelm);
+		protocols = (await q('SELECT * FROM protocols')).map(toProtocol);
 	} catch (e) {
 		console.error('[hearthStore] loadAll failed:', e);
 	} finally {
@@ -318,16 +338,56 @@ function medTakenToday(medId: string): boolean {
 	return medTakes.some((t) => t.medId === medId && t.ts >= start.getTime());
 }
 
-// ——— overwhelm (the Meltdown Protocol) ———
-async function startOverwhelm(memberId: string, shared: boolean) {
+// ——— personal protocols (DESIGN-003 §2) ———
+function protocolFor(memberId: string): Protocol {
+	return (
+		protocols.find((p) => p.memberId === memberId) ?? {
+			memberId,
+			tellScope: 'household',
+			tellMembers: [],
+			cardText: null,
+			needs: [],
+			checkbackMinutes: 30,
+		}
+	);
+}
+
+async function saveProtocol(p: Protocol) {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	await db.execute(
+		`INSERT OR REPLACE INTO protocols
+			(member_id, tell_scope, tell_members, card_text, needs, checkback_minutes)
+		 VALUES ($1,$2,$3,$4,$5,$6)`,
+		[
+			p.memberId, p.tellScope, JSON.stringify(p.tellMembers),
+			p.cardText ?? null, JSON.stringify(p.needs), p.checkbackMinutes,
+		]
+	);
+	await loadAll();
+}
+
+// ——— overwhelm (the Meltdown Protocol) ———
+// The vessel's own protocol decides who is told; the audience is snapshotted
+// onto the event so later protocol edits never change a live event.
+async function startOverwhelm(memberId: string) {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	const p = protocolFor(memberId);
+	const shared = p.tellScope !== 'none';
+	const tell = p.tellScope === 'household' ? 'all' : JSON.stringify(p.tellMembers);
 	const id = generateId();
 	await db.execute(
-		'INSERT INTO overwhelm_events (id, member_id, started_at, shared) VALUES ($1,$2,$3,$4)',
-		[id, memberId, Date.now(), shared ? 1 : 0]
+		'INSERT INTO overwhelm_events (id, member_id, started_at, shared, tell) VALUES ($1,$2,$3,$4,$5)',
+		[id, memberId, Date.now(), shared ? 1 : 0, tell]
 	);
 	await loadAll();
 	return id;
+}
+
+// The one-tap answer to "what do you need?" — from the vessel's own list.
+async function setOverwhelmNeed(eventId: string, need: string) {
+	if (!db) return;
+	await db.execute('UPDATE overwhelm_events SET need=$1 WHERE id=$2', [need, eventId]);
+	await loadAll();
 }
 
 async function returnFromOverwhelm(eventId: string, helped?: string, notes?: string) {
@@ -347,7 +407,7 @@ async function exportAll(): Promise<string> {
 		{
 			exported_at: new Date().toISOString(),
 			app: 'resonance-hearth',
-			members, signals, spoonLogs, things, meds, medTakes, overwhelms,
+			members, signals, spoonLogs, things, meds, medTakes, overwhelms, protocols,
 		},
 		null,
 		2
@@ -444,11 +504,23 @@ export const hearthStore = {
 
 	// PROTECTED BOUNDARY — the 30-second pause, enforced in data:
 	// the household sees a shared overwhelm only after the pause has passed.
+	// Personal protocols (DESIGN-003 §2) additionally scope WHO sees it:
+	// the event's snapshotted audience ('all' or a member-id list) filters
+	// against this device's member. The pause itself is never personal.
 	get householdOverwhelms(): OverwhelmEvent[] {
-		return overwhelms.filter(
-			(e) => e.shared && !e.returnedAt && e.startedAt + OVERWHELM_PAUSE_MS <= now
-		);
+		return overwhelms.filter((e) => {
+			if (!e.shared || e.returnedAt || e.startedAt + OVERWHELM_PAUSE_MS > now) return false;
+			if (e.memberId === deviceMemberId) return false; // the vessel has their own room
+			if (!e.tell || e.tell === 'all') return true;
+			try {
+				const list: string[] = JSON.parse(e.tell);
+				return deviceMemberId != null && list.includes(deviceMemberId);
+			} catch { return true; }
+		});
 	},
+
+	get protocols() { return protocols; },
+	protocolFor,
 
 	initDB,
 	loadAll,
@@ -465,7 +537,9 @@ export const hearthStore = {
 	removeMed,
 	takeMed,
 	startOverwhelm,
+	setOverwhelmNeed,
 	returnFromOverwhelm,
+	saveProtocol,
 	exportAll,
 	purgeAll,
 };

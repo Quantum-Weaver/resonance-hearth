@@ -26,6 +26,14 @@
 	const config = $derived(themeStore.config);
 	const colors = $derived(getThemeColors(config));
 
+	// The Dim (DESIGN-003 §3): while THIS device's vessel has an open
+	// overwhelm, the UI eases down in color only — luminance and saturation,
+	// nothing else. No layout shift, no motion change; a changed layout is
+	// its own sensory event. It lifts as slowly as it fell, with 🌈.
+	const dimmed = $derived(
+		!!hearthStore.me && !!hearthStore.openOverwhelm(hearthStore.me.id)
+	);
+
 	// rem units are relative to <html>, not .app-shell — must update root font-size
 	$effect(() => {
 		const fs = themeStore.config.fontSize;
@@ -36,6 +44,7 @@
 
 <div
 	class="app-shell"
+	class:dimmed
 	style="
 		--bg: {colors.background};
 		--accent: {colors.accent};
@@ -67,6 +76,18 @@
 		overflow: hidden;
 		background-color: var(--bg);
 		color: var(--text);
+		/* The Dim: color-gradient only, easing over several slow breaths. */
+		transition: filter 6s ease;
+	}
+
+	.app-shell.dimmed {
+		filter: saturate(0.55) brightness(0.72) sepia(0.12);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.app-shell {
+			transition: filter 0.5s ease;
+		}
 	}
 
 	.main-content {
