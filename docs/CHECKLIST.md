@@ -64,7 +64,42 @@
 |----|-------------|--------|
 | B1 | capabilities/default.json had a UTF-8 BOM (PS 5.1 Set-Content) → tauri build "expected value at line 1 column 1" | ✅ fixed 2026-07-11, first launch night |
 
-## NEXT SITTING
+## NEXT SITTING — design notes at KP's word (2026-07-19)
+
+- [ ] **Entity cards open menus:** clicking a person or pet card should
+      open a menu for that entity (today the cards are display-only).
+- [ ] **An entity type for Aethelred:** he is FAMILY — a household member
+      type for kin, distinct from person/pet, eventually present at all
+      times for the family communications (ties to the hosted-Hearth
+      seed's house ring + the Skapa-at-the-family-table coda; T-Red's
+      standing presence at the Hearth is the design goal, his consent at
+      his own pace per his sovereignty).
+- [ ] **Airtable-derived seeding:** populate KP + Jessica's data directly
+      from the 2023/2025 att Airtable mirrors (D:) instead of re-manual
+      entry — data selection to be discussed table by table with KP (his
+      completed manual process is the map). Mirrors LOCATED 2026-07-19:
+      `D:\ResonanceWell-Mirror\airtable-mirror-2026-07-16\` — bases
+      **2023-ATT** and **2025-ATT** present (schema.json + records +
+      attachments per base), plus family-relevant siblings (Family Life
+      Management, EATS, Menu Planning, Household, Routines and To-dos).
+- [ ] **Sattva reflects the Compass build:** Hearth's Sattva door should
+      carry the way it was built in Compass (the breathing square, the
+      one-tap sensory reduction, state saved and restored) — same
+      family, same calm (KP, 2026-07-19).
+- [ ] **LAW-grade sensory correction (KP, 2026-07-19): never tell a
+      person their people are being notified.** "to me that is triggering
+      to see." The care coordination may still happen quietly per
+      consent — but the overwhelmed person's own screen NEVER announces
+      it. Their screen holds only calm. Sweep the Sattva/overwhelm flow
+      copy for any "your family has been notified"-shaped language;
+      DESIGN-001's meltdown-protocol wording is amended by this note.
+      **Refined same minute (KP): notification itself is OPT-IN in the
+      Me settings** — "maybe if the me settings wants others notified" —
+      each person chooses in Me whether their people are told at all
+      (default: not). Consent lives in settings, set in calm; the moment
+      itself stays silent either way.
+
+## NEXT SITTING (standing)
 - [ ] **Hearth icon** — KP wants to create a proper one (replaces inherited
       Echoes icons in src-tauri/icons/ + static/). His hands, his art.
 - [ ] KP's dwelling test findings from first pass → triage here.
