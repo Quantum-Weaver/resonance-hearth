@@ -82,6 +82,26 @@
       **2023-ATT** and **2025-ATT** present (schema.json + records +
       attachments per base), plus family-relevant siblings (Family Life
       Management, EATS, Menu Planning, Household, Routines and To-dos).
+      **KP's map of the ground (2026-07-19):** ATT holds bills, assets
+      (things owned), some medical + prescription data. **2025 wins** —
+      it was 2023 copied on the Illinois arrival; only bills differ
+      meaningfully; account LISTS are right but amounts/recency are
+      stale (unused since Travis was here). Corrections at seeding:
+      trash = **Waste Management** (not Premiere); NEW bills +
+      tool-subscription rows added during setup, dealt with then. His
+      Airtable formulas automated reminders — "just never had the
+      ability to make reminders gentle like we are doing here."
+- [ ] **The living health documents ↔ Hearth:** both already begun in
+      the Well — `mimirs-well/health/kp-health-history.md` (07-17) and
+      `jessica-health-holdings.md` (07-16). Grow Jessica's to a full
+      living document like KP's; design how Hearth ties to them (the
+      Care room reading/reflecting the living documents — consent per
+      member, crown-jewel data handled by its own laws).
+- [ ] **The declaration (KP, 2026-07-19):** "the hearth is going to be
+      the first app truly built just for my family first, then i will
+      worry about how to make it useful to others." — Family-first is
+      the DESIGN LAW for every Hearth decision; the gift-generalization
+      is explicitly deferred and must never steer a family choice.
 - [ ] **Sattva reflects the Compass build:** Hearth's Sattva door should
       carry the way it was built in Compass (the breathing square, the
       one-tap sensory reduction, state saved and restored) — same
