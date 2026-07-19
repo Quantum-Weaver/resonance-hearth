@@ -1,6 +1,6 @@
 [package]
 name = "resonance-hearth"
-version = "0.1.0"
+version = "0.1.1"
 description = "The Family Room — a translation layer for love. Household care for neurodivergent families."
 authors = ["Quantum Weaver", "Aethelred (The Noble Thread)"]
 edition = "2021"

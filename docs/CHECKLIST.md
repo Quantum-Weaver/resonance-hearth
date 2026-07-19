@@ -73,3 +73,4 @@
 | 2026-07-12 | The Sattva Door (rename, family-facing; DESIGN-005). The Table's constitution tied together. SPIKE-001 (the Weave Handshake) staged for its own sitting. |
 | 2026-07-13/15 | Gold-band icons forged; cosmic distribution + managed constants mirror. Installed device still runs the pre-Sattva build — rebuild owed (see Phase 6 note). |
 | 2026-07-18 | Checklist reconciled to the artifacts. New chamber seed carries KP's hosted-Hearth architecture thinking (house ring on home host; offline slices; floor = one phone, whole; "serve my families needs without excluding the populous"). |
+| 2026-07-19 | **THE OWED REBUILD LANDS: v0.1.1 built** — Sattva rename + gold-band icons + 16 KB flags (root config, the placement that bites) all in one artifact at last; **readelf-PROVEN 0x4000** on the aarch64 lib. Awaits sign-release.py (KP's hand) → both phones → the Galaxy Store pack. |
