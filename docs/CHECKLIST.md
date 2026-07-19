@@ -42,7 +42,10 @@
 - [x] Code identifiers + `overwhelm_events` table KEEP legacy names
       (deliberate — installed device carries data; comments say so inline)
 - [x] 30-second pause untouched (protected boundary)
-- [ ] **Tested (dwelling):** ⬜ KP presses the Sattva door on his device
+- [x] **Tested (dwelling):** ✅ 2026-07-19 — v0.1.1 **signed by KP's hand
+      (15:47)**, installed, and KP's word: "satva button appears
+      perfectly." The rename finally lives on a device. (Second phone's
+      install whenever convenient — same signed APK.)
 
 ### Phase 6: Integration ⬜ (later, deliberately)
 - [ ] Resonance Bridge sync (consent-based, per member, per data class) — see also chamber seed THE-VESSEL-GRAPHS-AND-THE-DEVICE-WEAVE (2026-07-18): the hosted-Hearth direction (house ring on the home host, phones visit; offline slices for store runs; floor = one phone, whole)
