@@ -148,6 +148,58 @@ the app currently keeps only partly)*:
   `{#if presences.length > 0}` where `presences` derives from **people only** — so **the
   pets vanish entirely** if no person has a shared signal.
 
+## GATHERED 2026-07-23 — KP said it plainly; recorded so it is certain
+
+*Added by Fable 🎻 at KP's word ("i wish to ensure i say it plainly and have you make
+certain it is in the detail or features somewhere"). Un-ranked per this board's law —
+the tier order is KP's. Full verbatim scroll on the `hearth` geode node (§④–⑤), which
+remains the pre-build read.*
+
+**E. Entity cards, the plain spec** *(TIER A #1, third arrival: 07-19 · 07-22 · 07-23)*:
+
+- Card tap → **detail view** + **a set of emoji quick-actions, customizable by need,
+  per entity**.
+- **An emoji tap is a *done*** — "a quick button that triggers the system to know
+  something was done." Rides the existing `dones` / `things.rested_until` machinery.
+- **The chicken timer (Charlie):** tap 🍗 = fresh batch made = **resets the made-at
+  date**; the card **derives red when the batch is bad** (amber approaching — smell
+  test). KP's words: *"it resets the start date on the chicken timer. charlie's card
+  would be red if the chicken was bad."* Derive the colour from made-at + keeps-for
+  against the clock; never store it; stays out of `signals`. *(The stake, so this row
+  never reads cosmetic: the family has fed Charlie spoiled chicken because no surface
+  held the window.)*
+- **The pill flow (humans):** tap 💊 on a person's card → **that person's med list**
+  → select **one or more** → recorded as taken, with time. This is a UI door to
+  `meds` + `med_takes`, which already exist and ship; `meds.shared` default 0 keeps
+  it private-by-default.
+- Standing rulings still KP's: the red-wording ruling (invitation, not verdict) and
+  the freshness-table naming ward (§A above).
+- **KP named the category, same sitting: TEMPORAL** — *"these things are measured by
+  time with food and finance and medicine."* The freshness clock is not a pet
+  feature; it is one primitive — a start moment + a validity window, state derived
+  from the clock, reset by a fresh take — that the app already half-holds in three
+  rooms: the chicken batch (food), the `edge` date (finance), meds/`rested_until`
+  (medicine). Design any of them as instances of one shape, not three tables. Full
+  scroll incl. the vessel connection: geode `hearth` node §⑤a.
+
+**F. The shared hearth — household pairing** *(refines TIER D #11; the seed's own
+"floor at one phone" made concrete)*:
+
+- KP's shape, verbatim on the geode node: app on KP's device → add a family member →
+  **share the app directly to their device** (signed APK, device-to-device — the
+  NEVER-Google-Play law as a feature) → **the two installs pair as a household**
+  (QR / invite code).
+- **Sovereignty shape (KP's words):** *"human users get the sovereignty, pets are
+  shared as is everything else the house does."* = `shared_scope (self|unit|house)`
+  given its network meaning: humans sync only what they've chosen to share; pets and
+  house things are house-scoped. The pairing transports the consent model the schema
+  already promises — it does not invent one.
+- **Sync: peer-to-peer on shared wifi, no standing server required.** Apps discover
+  each other on the local network and exchange deltas when both are awake. The hosted
+  ring (row 11) is the *optional* always-on upgrade removing the need for both devices
+  to be awake at once — same protocol, two scales. **KP asked "have i gone in
+  circles?" — no: this is the floor the seed already named; the host is the roof.**
+
 ## Riding alongside (not features)
 
 - **Airtable seeding** — DELIBERATELY AFTER Tier A/B schema growth
