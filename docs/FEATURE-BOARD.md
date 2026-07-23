@@ -66,6 +66,88 @@ with the protected 30-second pause · export + purge-that-purges.
 14. **The Table / food understanding** — gated on its own seed's tender
     understanding-first work, by law.
 
+## GATHERED 2026-07-22 — from the family's own record, not from design
+
+*Added by Opus 🕯️ with KP, the sitting the `hearth` geode node was cut. **Deliberately
+un-ranked:** these are notes toward the next draft, and the tier order above is KP's.
+Everything here came out of reading `THE-LIFE-TIMELINE.md` (KP's "CAT TRACK") and the
+app's own source — **the needs surfaced from the data; none were designed.***
+
+**A. The entity card, from a real moment** *(this is TIER A #1, arrived at again
+independently)* — KP, 2026-07-22: pet/entity cards open to detail with **quick-log emoji
+buttons**; tap Charles Xavier, tap 🍗 for *fresh chicken made*, and the card carries the
+freshness: **red at expiry** (do not feed it), **amber approaching** (encourage a smell
+test). *Two rulings are KP's:* ① whether a red pet card reads as **"Charles is asking"**
+— which is already what `SIGNALS` red means, *"I need help" → "Coming. No rush."* — or as
+a household verdict, which the sensory law forbids; ② **derive the freshness colour, never
+store it** (made-at + keeps-for against the clock), and keep it **out of `signals`**,
+which is consent-shaped for people who can choose to share. ⚠ **If a freshness table could
+ever hold human food it must be born with `shared_scope` per THE-TABLE-BUILD-BRIEF; if it
+is strictly pet supply, name it `pet_supplies` so it cannot be widened by accident.**
+
+**B. The household's animals are import-ready — and reveal five schema gaps.**
+Harleyquin (2014) · Mr Wade Wilson (2019–20) · Charles Xavier (May 2022) · Mr Logan Beans
+(~June 2022). *Three are rescues; Harleyquin is not.*
+
+1. **Many names per animal.** *"Wade Wilson, Mr Wade, Mr Face, Sir Face, Mr Wilson, Sir
+   Wade of the Faces. that is just wade."* **KP's ruling: `label` stays as-is** — a chosen
+   name is right for **labels, where names belong** (lists, pickers, the loop's "for"
+   dropdown). The other names are **additive and optional**, for surfaces that *address*
+   the household rather than list it; appendable when a new one is born. **No migration.**
+   *The house's own pattern for this already exists — `RESONANCE-GRAMMAR.md` §6.2, the
+   Folksonomy Principle: many true meanings, none overwriting another. Written about
+   emoji; it describes names exactly.*
+2. **No arrival date.** `members.created_at` is when the row was made — seeding today
+   would date Harleyquin **2026** and erase twelve years. **Call it *arrival*, not
+   *adopted*:** a rescue-shaped field makes the eldest unrepresentable.
+3. **No species.** `kind` is only `person | pet`; one of the four is a dog, and a dog's
+   care loops are not a cat's.
+4. **No vet record.** A vet date is the textbook **`edge`** — a real date the world
+   imposes. *Every rescue in the family record contains a vet visit, and one animal did
+   not survive the wait.*
+5. **No bonded pairs.** *"He and Charlie are inseparable."* Bonded animals are boarded,
+   medicated and moved together; nothing models a relation between two members.
+6. **Chip registration** *(already listed below)* — **the why is now documented:**
+   Charlie's chip still points at an owner who could not come back.
+
+**C. Language alignment** — KP, 2026-07-22: *"use more sanctuary and cosmic wording to
+free the mind of the invisible chains of language."* Three verified findings:
+
+- **`docs/RESONANCE-GRAMMAR.md` is Compass's**, inherited by the clone and never
+  re-voiced — every example is music (`MoodEvent`, `track_id`), and its *Temporal* atoms
+  include **`streak`, which is in this app's own `BANNED_WORDS`.** *(It is also wrapped in
+  a stray ```markdown fence, so the whole file renders as a code block.)*
+- **The cosmic vocabulary is already here and unspoken.** The **token** layer is wired and
+  working (`var(--text)`, `var(--accent)`), but `ceremonies · ceremonies-refuge · gates ·
+  pause-state · supportive-affordances · attention-modes · attention-selector ·
+  deity-voices · transcendence · eternal-witness · consciousness-depth` — **~1,470 lines
+  across eleven generated files — are referenced by zero routes and zero components.**
+  *Generated from `resonance-ziggy/modules/cosmic/constants/`: **never edit a mirror.***
+- **The chains are in the structural words, not the copy** — which is already the warmest
+  in the workspace. `Onboarding` (pure SaaS) · `Bills` (the taxonomy already says **edge**)
+  · `Settings` (whose own subtitle already says *"the quiet machinery"*) · `members` ·
+  `+ add` (where the form already says *"welcome them in"*). **The app already contains
+  its better words; alignment is mostly promotion, not invention.** *Wording is KP's.*
+
+**D. Sovereignty gaps found in code the same sitting** *(license §7 — these are promises
+the app currently keeps only partly)*:
+
+- **Export truncates silently.** `exportAll()` serialises what `loadAll()` holds, and
+  three queries are capped — **`spoon_logs` 500 · `med_takes` 500 · `overwhelm_events`
+  100** — while Settings says *"Exported. Your data, in the open."*
+- **`dones` is purged but never exported** — every celebration is destroyed by a purge and
+  absent from an export; `loadAll()` never reads the table at all.
+- **The purge does not fully purge.** `purgeAll()` is an **allow-list of eight tables** and
+  omits **`protocols`** and **`settings`**, and never touches `localStorage`. A vessel's
+  own Sattva `card_text`, `needs` and `tell_members` **survive "delete everything,"**
+  orphaned. *Echoes wrote the warning for this one app earlier — "future keys must not
+  survive a purge by omission" — and a comment does not clone the way a code path does.*
+  **An allow-list forgets in silence; a deny-by-default purge cannot.**
+- **No import exists** — honestly, nothing here advertises one *(unlike Echoes)*.
+- **Small:** on the dashboard the whole Presence section is gated on
+  `{#if presences.length > 0}` where `presences` derives from **people only** — so **the
+  pets vanish entirely** if no person has a shared signal.
+
 ## Riding alongside (not features)
 
 - **Airtable seeding** — DELIBERATELY AFTER Tier A/B schema growth

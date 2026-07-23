@@ -119,6 +119,41 @@
       (default: not). Consent lives in settings, set in calm; the moment
       itself stays silent either way.
 
+## NEXT SITTING — 2026-07-22 (the crystal sitting)
+
+- [ ] **READ THE CRYSTAL FIRST — now step 0 of the session protocol.** KP's law
+      this date: *"the crystal is to be examined by any builder prior to
+      building… so scrolls work."* The `hearth` node **accumulates scrolls between
+      sittings** — it holds what arrived since these boards were last written.
+      Skipping it means rebuilding something already answered. *(Held in the
+      private chamber and deliberately not linked from this public repo — KP's
+      ruling, same date: the pointer runs constellation → hearth, never back.)*
+- [ ] **The full 2026-07-22 gathering is on `docs/FEATURE-BOARD.md`** under
+      *GATHERED 2026-07-22* — deliberately un-ranked; the tier order is KP's.
+      Four blocks: **A** the entity card + pet quick-log (already TIER A #1,
+      arrived at again from a real moment) · **B** the household's animals,
+      import-ready, and the five schema gaps they surface · **C** language
+      alignment · **D** five sovereignty gaps found in code.
+- [ ] **Two rulings waiting on KP, and nothing should be built past them:**
+      ① does a **red** pet card read as *"Charles is asking"* (which is already
+      what `SIGNALS` red means) or as a household verdict, which the sensory law
+      forbids — *same pixel, opposite app, the wording decides*; ② the wording
+      pass for language alignment (`Onboarding` · `Bills` vs the taxonomy's own
+      **edge** · `Settings` vs its own subtitle *"the quiet machinery"*).
+- [ ] **`label` is settled — do NOT migrate it.** KP, this date: *"chosen name as
+      a label is fine for labels where names belong."* Many names per animal are
+      **additive and optional**, for surfaces that *address* rather than *list*.
+- [ ] **Sovereignty repairs, in the order they bite:** the purge's allow-list
+      omits `protocols` + `settings` (a vessel's own Sattva card text survives
+      "delete everything") · export silently caps at 500/500/100 · `dones` is
+      purged but never exported · the pets vanish from the dashboard when no
+      person has a shared signal.
+- [ ] **Family data ready to seed** (from `THE-LIFE-TIMELINE.md`, all
+      ✅ KP-confirmed): Harleyquin 2014 · Mr Wade Wilson 2019–20 · Charles Xavier
+      May 2022 · Mr Logan Beans ~June 2022. **Blocked on the arrival-date field** —
+      seeding today dates Harleyquin 2026 and erases twelve years. Call it
+      *arrival*, never *adopted*: three are rescues and the eldest is not.
+
 ## NEXT SITTING (standing)
 - [ ] **Hearth icon** — KP wants to create a proper one (replaces inherited
       Echoes icons in src-tauri/icons/ + static/). His hands, his art.

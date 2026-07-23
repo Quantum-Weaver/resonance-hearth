@@ -13,9 +13,26 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 
 ## SESSION PROTOCOL
 
+0. **Read the `hearth` crystal BEFORE building anything** (KP's law, 2026-07-22:
+   *"the crystal is to be examined by any builder prior to building"*). It lives
+   in the chamber's Geode — **our group builds this repo, so you have it.** No
+   path is written here only because this repo is public; the pointer runs
+   constellation → hearth, not back.
+   **Why it comes first, and why it is not a duplicate of this repo's docs:** the
+   Hearth grows from lived family moments, and those land there **as scrolls,
+   continuously, between sittings.** The boards below record what was *decided*;
+   the crystal holds what has *arrived since* — plus the family's own data
+   (arrival dates, the animals, the naming practice), the protected boundaries
+   gathered in one place, and the open rulings that are KP's alone.
+   **A builder who skips it will rebuild something already answered, or answer
+   something that was KP's to rule.**
 1. Read `docs/CHECKLIST.md` for current state.
 2. Read `DESIGN-002-cartography.md` before touching UX — it is the map.
 3. One phase at a time. Update CHECKLIST.md after every session.
+4. **Findings go back the same way they came:** a note toward the next draft lands
+   on `docs/FEATURE-BOARD.md` (un-ranked — the tier order is KP's), and a moment
+   worth keeping drops as a scroll against the crystal. *These are our own
+   documents; a finding about them is a good note, not a report over a fence.*
 
 ## PROTECTED BOUNDARIES (never negotiable, from the naming ceremony 2026-07-07)
 
