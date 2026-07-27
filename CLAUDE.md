@@ -68,7 +68,10 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 ## PRIVACY (license §7 — structural, not aspirational)
 
 Local-first, absolutely. No network calls anywhere in v1. Export (open JSON)
-and true delete are features in Settings. The purge truly purges.
+and true delete are features in Settings. The purge truly purges — as LAW;
+the build has geode-verified gaps owed their fix (silent export caps
+500/500/100 · dones purged-never-exported · purge misses protocols/settings/
+localStorage). Close them before any claim of full compliance.
 
 ## Android: Tauri v2 Capabilities (CRITICAL, inherited from Echoes)
 
