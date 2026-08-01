@@ -26,6 +26,9 @@
 	let canvasEl = $state<HTMLCanvasElement | null>(null);
 	let phaseWord = $state<'in' | 'out'>('in');
 	let count = $state(1);
+	// KP's ruling (2026-07-31): the Sattva shows NO numbers by default —
+	// the breathing square is enough; counts are a toggle, off unless chosen.
+	let showCounts = $state(false);
 	let reducedMotion = $state(false);
 
 	onMount(() => {
@@ -97,11 +100,18 @@
 
 			<div class="breath">
 				<canvas bind:this={canvasEl} width="220" height="220" aria-hidden="true"></canvas>
-				<p class="soft small breath__word" aria-live="off">{phaseWord === 'in' ? 'breathe in' : 'breathe out'} · {count}</p>
+				<p class="soft small breath__word" aria-live="off">
+					{phaseWord === 'in' ? 'breathe in' : 'breathe out'}{showCounts ? ` · ${count}` : ''}
+				</p>
 				<div class="need-row" role="group" aria-label="Breathing pace">
-					{#each ['4-4', '4-6', '4-8', '5-5'] as d}
-						<button class="need" class:picked={breathDuration === d} onclick={() => (breathDuration = d as BreathDuration)}>{d}</button>
+					{#each [['4-4', 'gentle'], ['4-6', 'settling'], ['4-8', 'deep'], ['5-5', 'even']] as [d, word]}
+						<button class="need" class:picked={breathDuration === d} title={showCounts ? d : undefined} onclick={() => (breathDuration = d as BreathDuration)}>
+							{showCounts ? d : word}
+						</button>
 					{/each}
+					<button class="need" class:picked={showCounts} onclick={() => (showCounts = !showCounts)} aria-pressed={showCounts}>
+						counts
+					</button>
 				</div>
 			</div>
 
