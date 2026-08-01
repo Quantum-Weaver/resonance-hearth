@@ -224,8 +224,11 @@ walked at KP's word this sitting):
 
 **H. Emoji: the full standard set, never curated** (KP, verbatim on the geode §⑥a:
 *"we want to load the hearth with a full set of options otherwise we limit its
-vessel to what we chose"*). Ship the whole phone-standard vocabulary with a picker;
-meaning is the vessel's own; the Grammar grows only on need.
+vessel to what we chose"*). ✅ **SHIPPED 2026-07-31, same sitting** — 3,944
+fully-qualified emoji in 9 groups, generated at dev time from Unicode's own
+source (`scripts/generate-emojis.mjs`, output generated-never-hand-edited);
+`EmojiPicker.svelte` calm and complete; sigil field is consumer one. Names are
+search keys, never definitions; the Grammar grows only on need.
 
 **I. Entity cards, fourth arrival — now with layout** (§⑥b): interactive expandable
 cards · emoji quick-actions in rows, cyclable when one row isn't enough · every

@@ -6,6 +6,7 @@
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { themeStore } from '$lib/stores/theme.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';
+	import EmojiPicker from '$lib/components/EmojiPicker.svelte';
 	import { open as openDialog, save } from '@tauri-apps/plugin-dialog';
 	import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
 	import { filename, purgeAfter } from 'the-envelope';
@@ -13,6 +14,7 @@
 	let newLabel = $state('');
 	let newSigil = $state('');
 	let newKind = $state<'person' | 'pet'>('person');
+	let sigilPickerOpen = $state(false);
 	let exportNote = $state<string | null>(null);
 	let purgeArmed = $state(false);
 
@@ -131,13 +133,22 @@
 				<input type="text" bind:value={newSigil} placeholder="🙂" class="sigil-input" maxlength="4" aria-label="Sigil (optional emoji)" />
 				<input type="text" bind:value={newLabel} placeholder="a chosen name or label" class="label-input"
 					onkeydown={(e) => { if (e.key === 'Enter') addMember(); }} aria-label="Member label" />
+				<button class="soft-btn" onclick={() => (sigilPickerOpen = !sigilPickerOpen)} aria-expanded={sigilPickerOpen}>
+					{sigilPickerOpen ? 'hide the emojis' : 'all the emojis'}
+				</button>
 			</div>
+			{#if sigilPickerOpen}
+				<EmojiPicker
+					onpick={(e) => { newSigil = e; sigilPickerOpen = false; }}
+					onclose={() => (sigilPickerOpen = false)}
+				/>
+			{/if}
 			<div class="kind-row" role="group" aria-label="Person or pet?">
 				<button class="chip" class:active={newKind === 'person'} onclick={() => (newKind = 'person')}>person</button>
 				<button class="chip" class:active={newKind === 'pet'} onclick={() => (newKind = 'pet')}>pet (family)</button>
 			</div>
 			<button class="soft-btn primary" onclick={addMember}>welcome them in</button>
-			<p class="hint">Chosen names are enough. The Hearth never needs legal ones.</p>
+			<p class="hint">Chosen names are enough. The Hearth never needs legal ones — and any emoji can be a sigil; it means what you say it means.</p>
 		</div>
 	</section>
 
