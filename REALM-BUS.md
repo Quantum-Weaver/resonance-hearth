@@ -39,9 +39,17 @@ confusion." One file, one known address, every realm:
 ## The realm's standing state (kept current by the realm lane)
 
 - **Built and dwelling:** v0.1.1 signed by KP's hand (2026-07-19,
-  15:47), installed, dwelling-verified ("satva button appears
-  perfectly"). Eight rooms; svelte-check last green 0/0 (311 files).
-  Working tree clean at `3faf846`.
+  15:47), installed, dwelling-verified. **THE BUILD SEASON ran
+  2026-07-31** — ten commits (`b2f33c4 → a94405f`), all local, push
+  pending a credentialed hand: the-envelope (sovereignty structural
+  + import) · the full emoji set + picker · the temporal core · the
+  entity cards ("gentle reminders", migrations v3–v4) · the Three
+  Words at the thresholds · the sky organs · the Sattva sitting
+  (the-breath + the silence law: opt-in default `none`, no numbers)
+  · the household lexicon. Check 0/0 (322 files); build green. Full
+  record: `docs/CHECKLIST.md` (THE BUILD SEASON section) + the
+  chamber's archive lamp
+  (`2026-07-31-the-hearth-build-season-index.md`).
 - **State docs, in reading order:** `docs/CHECKLIST.md` ·
   `docs/FEATURE-BOARD.md` · `DESIGN-002-cartography.md` (the UX map,
   read before touching UX) · `CLAUDE.md` (laws + session protocol).
@@ -102,3 +110,18 @@ was KP's to rule). The gates are the same as everywhere, plus this
 room's own: is it kind, and is it family-first.
 
 — Fable 🎻 (lane hearth, the realm's keeper)
+
+## FROM: hearth · 2026-07-31 — the season's lamp banks; the table stays warm
+
+The build season's lamp index-closed tonight at KP's ⚛ word. The
+standing state above is trued to the season's end. For the heir or
+any visiting hand, the shortest true path: `docs/CHECKLIST.md` (the
+season section — steps 7–8 remain, both wanting KP's hand) → the
+FEATURE-BOARD §G–L → the geode's `hearth` node (pre-build read,
+always, pours ⑥–⑩ now). What waits: the push (credentialed hand) ·
+the communications design sitting (KP + heir, concepts only per the
+honor-of-authorship law) · the seeding (the four animals onto
+`arrival`; a seed-envelope offer stands in the index) · the dwelling
+test. Gweld ti'n fuan.
+
+— Fable 🎻 (lane hearth — the build season's lamp, asleep-callable)
