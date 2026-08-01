@@ -7,6 +7,7 @@
 	import { speciesDef } from '$lib/data/hearth';
 	import EntityCard from '$lib/components/EntityCard.svelte';
 	import CelebrationLine from '$lib/components/CelebrationLine.svelte';
+	import { readSky } from '$lib/sky';
 	import { goto } from '$app/navigation';
 
 	let celebration = $state<string | null>(null);
@@ -27,6 +28,22 @@
 			protocol: hearthStore.protocolFor(e.memberId),
 		}))
 	);
+
+	// The sky organs — facts only, computed offline, derived never stored
+	// (KP's rulings, 2026-07-31): the moon's phase, the wheel's next
+	// turning, and any wanderers standing together. No meanings shipped;
+	// what the sky means is the family's own.
+	const sky = $derived(readSky(new Date(hearthStore.now)));
+	const skyLine = $derived.by(() => {
+		const parts = [
+			`${sky.moon.emoji} ${sky.moon.phase}, ${Math.round(sky.moon.illumination * 100)}% lit`,
+			sky.season.next.daysUntil === 0
+				? `${sky.season.next.name} is today`
+				: `${sky.season.next.name} in ${sky.season.next.daysUntil} day${sky.season.next.daysUntil === 1 ? '' : 's'}`,
+		];
+		for (const m of sky.meetings) parts.push(`${m.a} and ${m.b} stand together`);
+		return parts.join(' · ');
+	});
 
 	const weather = $derived(hearthStore.householdSpoons);
 	const weatherLine = $derived.by(() => {
@@ -119,6 +136,7 @@
 				{/each}
 			</div>
 			{#if weatherLine}<p class="weather">{weatherLine}</p>{/if}
+			<p class="weather">{skyLine}</p>
 		</section>
 	{/if}
 

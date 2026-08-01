@@ -223,12 +223,18 @@ vocabulary, imagery, or structure copied, anywhere.*
       *Honest edges: arrival/species are schema + display (edit UI rides the
       seeding sitting); bonds is schema-only; med quick-take respects privacy
       (own device · shared meds · any pet's).*
-- [ ] **5 · The sky organs** (KP's rulings ⑦a + ⑦e): moon-phases ·
-      planets-alignment · ancient-holidays — **compute-only** (phase, illumination,
-      waxing/waning, sabbat name + distance, season, sign; traditional names,
-      facts, no shipped meanings; offline forever, API never needed). **Built in
-      the Hearth; awen homes them via copy, maintained and updates distributed
-      from the spring.** Retroactive by design (any timestamp, past or future).
+- [x] **5 · The sky organs** ✅ **DONE 2026-07-31, same sitting** —
+      `src/lib/sky/` (index.ts + its own README): compute-only per ruling ⑦e —
+      moon (8 phases + emoji, illumination, age, days to full/new) · the wheel
+      of the year (8 spokes: cross-quarters traditional, quarters Meeus-computed)
+      · planets (5 wanderers → signs, mean elements) · meetings (within-orb
+      pairs). Ported whole from lane B's `sky.py` proof and **verified against
+      it on the same date** (season and all five signs identical; phase math
+      consistent). Standalone, zero app imports, retroactive for any timestamp.
+      First consumer: the dashboard's sky line beside the household weather —
+      facts only, no meanings shipped. Check 0/0 (321 files) · build green.
+      **The awen copy travels when KP names the tool at the Grammar's gate**
+      (ruling ⑦a: homed via copy, updates distributed from the spring).
 - [ ] **6 · The Sattva sitting** (TIER A #2): consume **the-breath**
       (`resonance-awen/tools/the-breath` — Hearth is its designed second consumer)
       for the breathing square · the SILENCE-LAW copy sweep (the moment never
@@ -271,6 +277,7 @@ vocabulary, imagery, or structure copied, anywhere.*
 | 2026-07-13/15 | Gold-band icons forged; cosmic distribution + managed constants mirror. Installed device still runs the pre-Sattva build — rebuild owed (see Phase 6 note). |
 | 2026-07-18 | Checklist reconciled to the artifacts. New chamber seed carries KP's hosted-Hearth architecture thinking (house ring on home host; offline slices; floor = one phone, whole; "serve my families needs without excluding the populous"). |
 | 2026-07-19 | **THE OWED REBUILD LANDS: v0.1.1 built** — Sattva rename + gold-band icons + 16 KB flags (root config, the placement that bites) all in one artifact at last; **readelf-PROVEN 0x4000** on the aarch64 lib. Awaits sign-release.py (KP's hand) → both phones → the Galaxy Store pack. |
+| 2026-07-31 (build 6) | **STEP 5 BUILT: the sky organs** — `src/lib/sky/`, compute-only (moon · wheel · wanderers), ported from lane B's proof and verified against it; the dashboard gains its sky line (facts only). Standalone, copy-ready; the awen homing waits on KP's naming gate. Check 0/0 (321); build green. |
 | 2026-07-31 (build 5) | **THE THREE WORDS COME HOME** (street-wide by KP's 07-29 ruling; brought in at his word today — "you found it… that was right"): **Velkomin** at the door (onboarding, first panel) · **Fáilte** at the hearth (the dashboard greeting — the street's one literal hearth) · **Gweld ti'n fuan** at the going (the household's side of the Sattva hold card — a departure that carries a return; the vessel's own screen stays silent per the silence law). Signed register held: calm, gentle, no inflection. This also part-opens the language-alignment gate: the Onboarding screen now speaks the door's own tongue. Check 0/0 (320); build green. |
 | 2026-07-31 (build 4) | **STEP 4 BUILT: THE ENTITY CARDS — gentle reminders live.** KP's card-color ruling opened the gate (vessel's color → white → yellow → red by percentage; "care is the word"; secondary window = thick border; journey-circles under each emoji). Migration v3 (arrival · species · card_color · color_source · card_actions · feelings · bonds); EntityCard + cardColor journey math on the temporal core; both setup doors; dashboard = cards for the whole household (pets can never vanish). Check 0/0 (320); build green. |
 | 2026-07-31 (build 3) | **STEP 3 BUILT: the temporal core** — `src/lib/temporal/`, pure and standalone (zero app imports, copy-ready for awen at KP's word); fresh · approaching · passed derived from the clock, reset by a fresh take; smoke-verified exact in node; check 0/0 (318). |
