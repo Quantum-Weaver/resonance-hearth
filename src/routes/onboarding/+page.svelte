@@ -28,8 +28,12 @@
 	{#if step === 0}
 		<div class="panel">
 			<div class="flame">🔥</div>
-			<h1>Resonance Hearth</h1>
-			<p class="lead">The Family Room. A translation layer for love.</p>
+			<!-- The Three Words are street-wide (KP's ruling, 2026-07-29):
+			     Velkomin at every door, Fáilte at every hearth, Gweld ti'n
+			     fuan at every going — the signed register: calm, gentle,
+			     no inflection. This is the door. -->
+			<h1>Velkomin</h1>
+			<p class="lead">Welcome. This is Resonance Hearth — the Family Room. A translation layer for love.</p>
 			<p class="body">
 				This is a home for the household's real life — the bills, the meds,
 				the pets, the endless things — spoken in invitation instead of demand.

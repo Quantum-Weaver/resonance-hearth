@@ -70,8 +70,10 @@
 
 <div class="page">
 	<header class="page__head">
+		<!-- The second of the Three Words: Fáilte at every hearth — and of
+		     every app on the street, this hearth is the literal one. -->
 		<h1>The Hearth</h1>
-		<p class="sub">The household, breathing together. Only what each of us chose to share.</p>
+		<p class="sub">Fáilte — the hearth is warm. The household, breathing together; only what each of us chose to share.</p>
 	</header>
 
 	{#if hearthStore.dbError}
@@ -98,7 +100,12 @@
 					They asked for: <strong>{h.event.need}</strong>.<br />
 				{/if}
 				Check on them in {h.protocol.checkbackMinutes} minutes unless they signal otherwise.<br />
-				This is not an emergency. This is a household breathing.
+				This is not an emergency. This is a household breathing.<br />
+				<!-- The third word, at the going — the only departure that
+				     carries a return inside it. Spoken to the household about
+				     the one who stepped away; their own screen stays silent,
+				     per the silence law. -->
+				<em>Gweld ti'n fuan — see you soon.</em>
 			</div>
 		</div>
 	{/each}
