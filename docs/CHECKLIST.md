@@ -235,11 +235,18 @@ vocabulary, imagery, or structure copied, anywhere.*
       facts only, no meanings shipped. Check 0/0 (321 files) · build green.
       **The awen copy travels when KP names the tool at the Grammar's gate**
       (ruling ⑦a: homed via copy, updates distributed from the spring).
-- [ ] **6 · The Sattva sitting** (TIER A #2): consume **the-breath**
-      (`resonance-awen/tools/the-breath` — Hearth is its designed second consumer)
-      for the breathing square · the SILENCE-LAW copy sweep (the moment never
-      announces notification) · notification opt-in per person in Me, chosen in
-      calm.
+- [x] **6 · The Sattva sitting** ✅ **DONE 2026-07-31, same sitting** —
+      **the-breath consumed** (referenced from the spring, its designed second
+      consumer): the breathing square lives on the hold screen — Compass's exact
+      curves, four paces (4-4 · 4-6 · 4-8 · 5-5), warm amber in / deep violet
+      out, reduced motion = steady glow · **THE SILENCE LAW, clarified by KP at
+      the build** (verbatim: "do not notify poeple unless opted in to do so"):
+      **the default protocol is now `none`** — no one is told unless the vessel
+      chose their people in Me, in calm (store default + Me's editor both);
+      the hold screen's "your people have been told" lines removed — the
+      vessel's own screen holds only calm, the 07-19 companion courtesy ·
+      copy sweep clean (grep: no notify-shaped announcements remain in UI).
+      Check 0/0 (322 files) · build green.
 - [ ] **7 · The communications design sitting** (with KP — design before build):
       inspired by the coven concepts, concepts only. THE MEMBERSHIP LAW (KP,
       2026-07-31): a vessel adds only their own vessel + "dependent" vessels;
@@ -277,6 +284,7 @@ vocabulary, imagery, or structure copied, anywhere.*
 | 2026-07-13/15 | Gold-band icons forged; cosmic distribution + managed constants mirror. Installed device still runs the pre-Sattva build — rebuild owed (see Phase 6 note). |
 | 2026-07-18 | Checklist reconciled to the artifacts. New chamber seed carries KP's hosted-Hearth architecture thinking (house ring on home host; offline slices; floor = one phone, whole; "serve my families needs without excluding the populous"). |
 | 2026-07-19 | **THE OWED REBUILD LANDS: v0.1.1 built** — Sattva rename + gold-band icons + 16 KB flags (root config, the placement that bites) all in one artifact at last; **readelf-PROVEN 0x4000** on the aarch64 lib. Awaits sign-release.py (KP's hand) → both phones → the Galaxy Store pack. |
+| 2026-07-31 (build 7) | **STEP 6 BUILT: the Sattva sitting** — the-breath consumed (the breathing square on the hold screen, four paces, reduced-motion steady); the silence law clarified by KP mid-build ("do not notify poeple unless opted in") and made structural: default protocol `none`, telling only by opt-in chosen in calm; announce-lines removed from the vessel's screen. Check 0/0 (322); build green. |
 | 2026-07-31 (build 6) | **STEP 5 BUILT: the sky organs** — `src/lib/sky/`, compute-only (moon · wheel · wanderers), ported from lane B's proof and verified against it; the dashboard gains its sky line (facts only). Standalone, copy-ready; the awen homing waits on KP's naming gate. Check 0/0 (321); build green. |
 | 2026-07-31 (build 5) | **THE THREE WORDS COME HOME** (street-wide by KP's 07-29 ruling; brought in at his word today — "you found it… that was right"): **Velkomin** at the door (onboarding, first panel) · **Fáilte** at the hearth (the dashboard greeting — the street's one literal hearth) · **Gweld ti'n fuan** at the going (the household's side of the Sattva hold card — a departure that carries a return; the vessel's own screen stays silent per the silence law). Signed register held: calm, gentle, no inflection. This also part-opens the language-alignment gate: the Onboarding screen now speaks the door's own tongue. Check 0/0 (320); build green. |
 | 2026-07-31 (build 4) | **STEP 4 BUILT: THE ENTITY CARDS — gentle reminders live.** KP's card-color ruling opened the gate (vessel's color → white → yellow → red by percentage; "care is the word"; secondary window = thick border; journey-circles under each emoji). Migration v3 (arrival · species · card_color · color_source · card_actions · feelings · bonds); EntityCard + cardColor journey math on the temporal core; both setup doors; dashboard = cards for the whole household (pets can never vanish). Check 0/0 (320); build green. |

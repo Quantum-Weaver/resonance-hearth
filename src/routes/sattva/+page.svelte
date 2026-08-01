@@ -7,38 +7,52 @@
 	// not configurable. What IS personal (DESIGN-003 §2): who is told, in
 	// what words, and what the vessel needs — authored in calm, in Me.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
-	import { OVERWHELM_PAUSE_MS } from '$lib/data/hearth';
 	import { onMount } from 'svelte';
+	import { createBreath, drawSquarePulse, type BreathDuration } from 'the-breath';
 
 	let helped = $state('');
 	let notes = $state('');
 	let justReturned = $state(false);
-	// A gentle 1-second clock, only for this room's phrasing.
-	let tick = $state(Date.now());
+
+	// THE SILENCE LAW (KP, 2026-07-19, LAW-grade): never tell a person their
+	// people are being notified — "to me that is triggering to see." The
+	// audience machinery runs quietly per the protocol chosen in calm (Me);
+	// THIS screen holds only calm. No audience lines, before or during.
+
+	// The breathing square — the-breath, the awen spring's engine (Hearth is
+	// its designed second consumer; the curves are Compass's, carried whole).
+	// Reduced motion turns the pulse into a steady glow, as the origin does.
+	let breathDuration = $state<BreathDuration>('4-4');
+	let canvasEl = $state<HTMLCanvasElement | null>(null);
+	let phaseWord = $state<'in' | 'out'>('in');
+	let count = $state(1);
+	let reducedMotion = $state(false);
+
 	onMount(() => {
-		const t = setInterval(() => (tick = Date.now()), 1000);
-		return () => clearInterval(t);
+		reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		let raf = 0;
+		let breath = createBreath(breathDuration);
+		let lastDuration = breathDuration;
+		const frame = (now: number) => {
+			if (canvasEl) {
+				if (breathDuration !== lastDuration) {
+					breath = createBreath(breathDuration);
+					lastDuration = breathDuration;
+				}
+				const s = breath.sample(now);
+				phaseWord = s.phase;
+				count = s.count;
+				drawSquarePulse(canvasEl, s.color, reducedMotion ? 0.14 : s.borderAlpha);
+			}
+			raf = requestAnimationFrame(frame);
+		};
+		raf = requestAnimationFrame(frame);
+		return () => cancelAnimationFrame(raf);
 	});
 
 	const me = $derived(hearthStore.me);
 	const open = $derived(me ? hearthStore.openOverwhelm(me.id) : null);
 	const protocol = $derived(me ? hearthStore.protocolFor(me.id) : null);
-	const audienceKnows = $derived(
-		open ? open.shared && open.startedAt + OVERWHELM_PAUSE_MS <= tick : false
-	);
-
-	const audienceLine = $derived.by(() => {
-		if (!protocol) return '';
-		if (protocol.tellScope === 'none') return 'This stays between you and the Hearth.';
-		if (protocol.tellScope === 'household') return 'Your household will be told — gently, after a pause.';
-		const names = protocol.tellMembers
-			.map((id) => hearthStore.memberById(id)?.label)
-			.filter(Boolean)
-			.join(', ');
-		return names
-			? `${names} will be told — gently, after a pause. No one else.`
-			: 'No one is selected yet — this will stay private. Choose your people in Me.';
-	});
 
 	async function press() {
 		if (!me) return;
@@ -80,17 +94,16 @@
 		<div class="card center holding">
 			<h1>You are held.</h1>
 			<p class="soft">Nothing is required of you. Take the time it takes.</p>
-			{#if open.shared}
-				<p class="soft small">
-					{#if audienceKnows}
-						Your people have been told, gently. They know your protocol.
-					{:else}
-						In a few breaths, your people will be told — gently.
-					{/if}
-				</p>
-			{:else}
-				<p class="soft small">This stays between you and the Hearth.</p>
-			{/if}
+
+			<div class="breath">
+				<canvas bind:this={canvasEl} width="220" height="220" aria-hidden="true"></canvas>
+				<p class="soft small breath__word" aria-live="off">{phaseWord === 'in' ? 'breathe in' : 'breathe out'} · {count}</p>
+				<div class="need-row" role="group" aria-label="Breathing pace">
+					{#each ['4-4', '4-6', '4-8', '5-5'] as d}
+						<button class="need" class:picked={breathDuration === d} onclick={() => (breathDuration = d as BreathDuration)}>{d}</button>
+					{/each}
+				</div>
+			</div>
 
 			{#if protocol && protocol.needs.length > 0}
 				<div class="needs">
@@ -124,7 +137,6 @@
 			<h1>Sattva</h1>
 			<p class="soft">A door back to balance. One press. Nothing else. No explanation, now or ever.</p>
 			<button class="big-soft-button" onclick={press}>Sattva</button>
-			<p class="soft small">{audienceLine}</p>
 			<p class="soft small">
 				This is not an emergency system. It is a household breathing.
 				Your protocol is yours — shape it any time in <a href="/me">Me</a>.
@@ -157,6 +169,10 @@
 	.big-soft-button:hover {
 		background-color: color-mix(in srgb, var(--accent) 22%, var(--bg-surface));
 	}
+
+	.breath { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+	.breath canvas { max-width: 220px; max-height: 220px; }
+	.breath__word { min-height: 1.2em; }
 
 	.needs { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; align-items: center; }
 	.need-row { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; }

@@ -373,11 +373,15 @@ function medTakenToday(medId: string): boolean {
 }
 
 // ——— personal protocols (DESIGN-003 §2) ———
+// Notification is OPT-IN (KP's refinement, 2026-07-19: "maybe if the me
+// settings wants others notified" — each person chooses in Me whether
+// their people are told at all; DEFAULT: not). Consent lives in settings,
+// set in calm; the moment itself stays silent either way.
 function protocolFor(memberId: string): Protocol {
 	return (
 		protocols.find((p) => p.memberId === memberId) ?? {
 			memberId,
-			tellScope: 'household',
+			tellScope: 'none',
 			tellMembers: [],
 			cardText: null,
 			needs: [],

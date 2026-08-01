@@ -11,8 +11,10 @@
 	let spoonsShared = $state(true);
 
 	// My Sattva protocol — authored here in calm, executed in storm.
+	// Telling is OPT-IN (KP's law, 2026-07-19): the default is that no one
+	// is told; each person chooses their people here, in calm.
 	let protoLoaded = $state(false);
-	let tellScope = $state<TellScope>('household');
+	let tellScope = $state<TellScope>('none');
 	let tellMembers = $state<string[]>([]);
 	let cardText = $state('');
 	let needs = $state<string[]>([]);
