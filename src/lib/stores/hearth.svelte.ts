@@ -18,6 +18,7 @@ import type {
 	CardAction,
 	CardActionKind,
 	Feeling,
+	EmojiMeaning,
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
@@ -37,6 +38,7 @@ let overwhelms = $state<OverwhelmEvent[]>([]);
 let protocols = $state<Protocol[]>([]);
 let cardActions = $state<CardAction[]>([]);
 let feelings = $state<Feeling[]>([]);
+let emojiMeanings = $state<EmojiMeaning[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
@@ -81,6 +83,13 @@ const toCardAction = (r: Record<string, unknown>): CardAction => ({
 	approachAt: r.approach_at == null ? null : (r.approach_at as number),
 	startedAt: r.started_at == null ? null : (r.started_at as number),
 	position: (r.position as number) ?? 0,
+});
+const toEmojiMeaning = (r: Record<string, unknown>): EmojiMeaning => ({
+	id: r.id as string,
+	emoji: r.emoji as string,
+	memberId: (r.member_id as string) ?? null,
+	meaning: r.meaning as string,
+	ts: r.ts as number,
 });
 const toFeeling = (r: Record<string, unknown>): Feeling => ({
 	id: r.id as string,
@@ -191,6 +200,7 @@ async function loadAll() {
 		cardActions = (await q('SELECT * FROM card_actions ORDER BY member_id, position')).map(toCardAction);
 		// A working view only (export reads the full table live).
 		feelings = (await q('SELECT * FROM feelings ORDER BY ts DESC LIMIT 200')).map(toFeeling);
+		emojiMeanings = (await q('SELECT * FROM emoji_meanings ORDER BY emoji, ts')).map(toEmojiMeaning);
 	} catch (e) {
 		console.error('[hearthStore] loadAll failed:', e);
 	} finally {
@@ -481,6 +491,28 @@ function actionsFor(memberId: string): CardAction[] {
 	return cardActions.filter((c) => c.memberId === memberId);
 }
 
+// ——— the household lexicon (the emoji folksonomy, at home) ———
+// Append-only by the Folksonomy Principle: a new meaning is a new row;
+// nothing overwrites; removing is only ever one's own hand on one's own word.
+async function addEmojiMeaning(emoji: string, meaning: string, memberId: string | null) {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	await db.execute(
+		'INSERT INTO emoji_meanings (id, emoji, member_id, meaning, ts) VALUES ($1,$2,$3,$4,$5)',
+		[generateId(), emoji, memberId, meaning.trim(), Date.now()]
+	);
+	await loadAll();
+}
+
+async function removeEmojiMeaning(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM emoji_meanings WHERE id=$1', [id]);
+	await loadAll();
+}
+
+function meaningsFor(emoji: string): EmojiMeaning[] {
+	return emojiMeanings.filter((m) => m.emoji === emoji);
+}
+
 // ——— the Sattva system (the Meltdown Protocol) ———
 // Family-facing name: Sattva (DESIGN-005). Function/table names below keep
 // their legacy 'overwhelm' spelling deliberately — installed devices carry
@@ -753,7 +785,9 @@ export const hearthStore = {
 
 	get cardActions() { return cardActions; },
 	get feelings() { return feelings; },
+	get emojiMeanings() { return emojiMeanings; },
 	actionsFor,
+	meaningsFor,
 	// Meds visible on a member's card: their own on their own device, a
 	// pet's for any hand (someone must give them), a person's only if that
 	// med is shared. Private meds never surface on another's screen.
@@ -789,6 +823,8 @@ export const hearthStore = {
 	removeCardAction,
 	tapCardAction,
 	setMemberCard,
+	addEmojiMeaning,
+	removeEmojiMeaning,
 	exportAll,
 	importAll,
 	purgeAll,

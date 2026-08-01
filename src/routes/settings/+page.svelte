@@ -19,6 +19,28 @@
 	let exportNote = $state<string | null>(null);
 	let purgeArmed = $state(false);
 
+	// The household lexicon — the emoji folksonomy, at home (KP's ask,
+	// 2026-07-31). Many true meanings, none overwriting another.
+	let lexEmoji = $state('');
+	let lexMeaning = $state('');
+	let lexWho = $state<string | null>(null);
+	let lexPickerOpen = $state(false);
+
+	async function addMeaning() {
+		if (!lexEmoji || !lexMeaning.trim()) return;
+		await hearthStore.addEmojiMeaning(lexEmoji, lexMeaning, lexWho);
+		lexMeaning = '';
+	}
+
+	const lexiconByEmoji = $derived.by(() => {
+		const map = new Map<string, typeof hearthStore.emojiMeanings>();
+		for (const m of hearthStore.emojiMeanings) {
+			if (!map.has(m.emoji)) map.set(m.emoji, []);
+			map.get(m.emoji)!.push(m);
+		}
+		return [...map.entries()];
+	});
+
 	async function addMember() {
 		if (!newLabel.trim()) return;
 		await hearthStore.addMember(newLabel.trim(), newSigil.trim(), newKind);
@@ -168,6 +190,52 @@
 	</section>
 
 	<section class="section">
+		<h2>Our lexicon (what the emojis mean to us)</h2>
+		<div class="card form">
+			<div class="add-row">
+				<button class="soft-btn" onclick={() => (lexPickerOpen = !lexPickerOpen)} aria-expanded={lexPickerOpen}>
+					{lexEmoji || 'pick an emoji'}
+				</button>
+				<input type="text" bind:value={lexMeaning} placeholder="what it means, in your own words"
+					class="label-input" onkeydown={(e) => { if (e.key === 'Enter') addMeaning(); }}
+					aria-label="Your meaning for this emoji" />
+			</div>
+			{#if lexPickerOpen}
+				<EmojiPicker onpick={(e) => { lexEmoji = e; lexPickerOpen = false; }} onclose={() => (lexPickerOpen = false)} />
+			{/if}
+			<div class="kind-row" role="group" aria-label="Whose meaning is this?">
+				<button class="chip" class:active={lexWho === null} onclick={() => (lexWho = null)}>the household's</button>
+				{#each hearthStore.people as p (p.id)}
+					<button class="chip" class:active={lexWho === p.id} onclick={() => (lexWho = p.id)}>{p.sigil} {p.label}</button>
+				{/each}
+			</div>
+			<button class="soft-btn primary" onclick={addMeaning} disabled={!lexEmoji || !lexMeaning.trim()}>
+				keep this meaning
+			</button>
+			<p class="hint">
+				No emoji has a single meaning — every definition is kept, and none
+				overwrites another. Sir Wade of the Faces lives here.
+			</p>
+		</div>
+		{#if lexiconByEmoji.length > 0}
+			<div class="stack">
+				{#each lexiconByEmoji as [emoji, meanings] (emoji)}
+					<div class="member" style="flex-wrap: wrap;">
+						<span class="member__sigil">{emoji}</span>
+						<span class="member__label" style="flex: 1; font-weight: 400;">
+							{#each meanings as m, i (m.id)}
+								{#if i > 0}&nbsp;·&nbsp;{/if}<em>{m.meaning}</em>
+								<span class="member__kind">({m.memberId ? (hearthStore.memberById(m.memberId)?.label ?? 'someone') : 'the household'})</span>
+								<button class="lex-remove" title="let this one go" aria-label="Remove this meaning" onclick={() => hearthStore.removeEmojiMeaning(m.id)}>×</button>
+							{/each}
+						</span>
+					</div>
+				{/each}
+			</div>
+		{/if}
+	</section>
+
+	<section class="section">
 		<h2>Light &amp; type</h2>
 		<div class="chip-row">
 			{#each Object.entries(PRESET_THEMES) as [key, preset]}
@@ -268,6 +336,9 @@
 	.soft-btn.danger:hover { border-color: #c96f6f; color: #c96f6f; }
 
 	.hint { color: var(--text-muted); font-size: 0.8rem; margin: 0; line-height: 1.5; }
+
+	.lex-remove { margin-left: 0.3rem; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--border-color); background: none; color: var(--text-muted); cursor: pointer; line-height: 1; font-size: 0.75rem; }
+	.lex-remove:hover { border-color: var(--accent); color: var(--text); }
 
 	.weave { color: var(--text-muted); font-size: 0.85rem; }
 	.weave summary { cursor: pointer; padding: 0.4rem 0; color: var(--text-secondary); }

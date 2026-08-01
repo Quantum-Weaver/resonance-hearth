@@ -202,6 +202,31 @@ pub fn run() {
             );
         ",
         kind: MigrationKind::Up,
+    },
+    Migration {
+        version: 4,
+        description: "the_household_lexicon",
+        // The emoji folksonomy, at home (KP's ask, 2026-07-31: an "own
+        // definition" layer for the emojis). The Folksonomy Principle
+        // governs (Grammar 6.2): no emoji has a single meaning; ALL
+        // definitions are preserved; none overwrites another. Meanings are
+        // per-vessel (whose word it is) and append-only by law - a new
+        // meaning is a new row, never an edit of someone else's. Local
+        // always; the personal-definition law of the-lexicon rides: a
+        // vessel's definitions live in their app, on their device, never
+        // in any canon unless poured there by KP's own hand.
+        sql: "
+            CREATE TABLE IF NOT EXISTS emoji_meanings (
+                id TEXT PRIMARY KEY,
+                emoji TEXT NOT NULL,
+                member_id TEXT REFERENCES members(id),
+                meaning TEXT NOT NULL,
+                ts INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_emoji_meanings
+                ON emoji_meanings(emoji, ts);
+        ",
+        kind: MigrationKind::Up,
     }];
 
     tauri::Builder::default()

@@ -47,6 +47,17 @@ export interface CardAction {
   position: number;
 }
 
+// One meaning of one emoji, in one vessel's words — the household lexicon.
+// The Folksonomy Principle governs: no emoji has a single meaning; all
+// definitions are preserved; none overwrites another.
+export interface EmojiMeaning {
+  id: string;
+  emoji: string;
+  memberId?: string | null; // whose word it is (null = the household's)
+  meaning: string;
+  ts: number;
+}
+
 // A feeling logged — private by default, like meds.
 export interface Feeling {
   id: string;
