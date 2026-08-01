@@ -67,11 +67,15 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 
 ## PRIVACY (license §7 — structural, not aspirational)
 
-Local-first, absolutely. No network calls anywhere in v1. Export (open JSON)
-and true delete are features in Settings. The purge truly purges — as LAW;
-the build has geode-verified gaps owed their fix (silent export caps
-500/500/100 · dones purged-never-exported · purge misses protocols/settings/
-localStorage). Close them before any claim of full compliance.
+Local-first, absolutely. No network calls anywhere in v1. Export (open JSON),
+import (non-destructive), and true delete are features in Settings, riding
+`the-envelope` (referenced from the awen spring — never absorbed, never
+re-derived). The purge truly purges — as LAW and, since 2026-07-31, as
+structure: export reads full tables live with counts on the envelope; purge
+is deny-by-default (every table from sqlite_master + localStorage) and can
+await the export in hand; import is INSERT OR IGNORE (an existing row is the
+household's current mind) with the 07-11 legacy shape honored. The
+geode-verified gaps of 2026-07 are closed; dwelling verification pending.
 
 ## Android: Tauri v2 Capabilities (CRITICAL, inherited from Echoes)
 

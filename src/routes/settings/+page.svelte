@@ -1,12 +1,14 @@
 <script lang="ts">
 	// Settings — the household's quiet machinery. Members, this device,
-	// light and type, and the two license-§7 features that are features,
-	// not promises: export everything, delete everything.
+	// light and type, and the three license-§7 features that are features,
+	// not promises: export everything, bring an export home, delete
+	// everything. The three laws ride the-envelope (the awen spring).
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { themeStore } from '$lib/stores/theme.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';
-	import { save } from '@tauri-apps/plugin-dialog';
-	import { writeTextFile } from '@tauri-apps/plugin-fs';
+	import { open as openDialog, save } from '@tauri-apps/plugin-dialog';
+	import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
+	import { filename, purgeAfter } from 'the-envelope';
 
 	let newLabel = $state('');
 	let newSigil = $state('');
@@ -21,31 +23,80 @@
 		newSigil = '';
 	}
 
+	// One export path for both doors. Returns false if the save dialog was
+	// closed — the caller decides what that means (for the purge: everything).
+	async function exportToFile(): Promise<boolean> {
+		const json = await hearthStore.exportAll();
+		const path = await save({
+			title: 'Export the Hearth (open JSON — yours, always)',
+			defaultPath: filename('resonance-hearth'),
+			filters: [{ name: 'JSON', extensions: ['json'] }],
+		});
+		if (!path) return false;
+		await writeTextFile(path, json);
+		return true;
+	}
+
 	async function exportAll() {
 		exportNote = null;
 		try {
-			const json = await hearthStore.exportAll();
-			const path = await save({
-				title: 'Export the Hearth (open JSON — yours, always)',
-				defaultPath: `hearth-export-${new Date().toISOString().slice(0, 10)}.json`,
-				filters: [{ name: 'JSON', extensions: ['json'] }],
-			});
-			if (!path) return;
-			await writeTextFile(path, json);
-			exportNote = 'Exported. Your data, in the open, wherever you take it.';
+			if (await exportToFile()) {
+				exportNote = 'Exported. Your data, in the open, wherever you take it.';
+			}
 		} catch (e) {
 			exportNote = `Export hit a snag: ${e instanceof Error ? e.message : e}`;
 		}
 	}
 
-	async function purge() {
-		if (!purgeArmed) {
-			purgeArmed = true;
-			return;
+	async function importAll() {
+		exportNote = null;
+		try {
+			const path = await openDialog({
+				title: 'Bring a Hearth export home',
+				filters: [{ name: 'JSON', extensions: ['json'] }],
+				multiple: false,
+			});
+			if (!path) return;
+			const json = await readTextFile(path as string);
+			const r = await hearthStore.importAll(json);
+			const parts = [`${r.added} new ${r.added === 1 ? 'entry' : 'entries'} welcomed in`];
+			if (r.kept) parts.push(`${r.kept} already lived here and stayed exactly as they are`);
+			if (r.heldBack) parts.push(`${r.heldBack} from an older shape were held back unchanged`);
+			exportNote = parts.join(' · ') + '.';
+		} catch (e) {
+			exportNote = `${e instanceof Error ? e.message : e} Nothing here was changed.`;
 		}
-		await hearthStore.purgeAll();
-		purgeArmed = false;
-		exportNote = 'Purged. The purge truly purges — nothing was kept.';
+	}
+
+	// The purge awaits the export: law 2, straight from the-envelope.
+	// Canceling the save dialog cancels the purge — no export in hand,
+	// nothing deletes.
+	async function purgeWithExport() {
+		exportNote = null;
+		try {
+			await purgeAfter(
+				async () => {
+					if (!(await exportToFile())) throw new Error('The purge waited — no export landed, so nothing was deleted.');
+				},
+				() => hearthStore.purgeAll()
+			);
+			purgeArmed = false;
+			exportNote = 'Exported, then purged. Your copy is in hand; nothing else was kept.';
+		} catch (e) {
+			purgeArmed = false;
+			exportNote = e instanceof Error ? e.message : String(e);
+		}
+	}
+
+	async function purgeWithout() {
+		try {
+			await purgeAfter(null, () => hearthStore.purgeAll());
+			purgeArmed = false;
+			exportNote = 'Purged. The purge truly purges — nothing was kept.';
+		} catch (e) {
+			purgeArmed = false;
+			exportNote = `The purge stopped early: ${e instanceof Error ? e.message : e}`;
+		}
 	}
 </script>
 
@@ -116,13 +167,21 @@
 		<h2>Your data (yours, structurally)</h2>
 		<div class="chip-row">
 			<button class="soft-btn" onclick={exportAll}>export everything (open JSON)</button>
-			<button class="soft-btn danger" onclick={purge}>
-				{purgeArmed ? 'press again to truly purge' : 'delete everything'}
-			</button>
-			{#if purgeArmed}
+			<button class="soft-btn" onclick={importAll}>bring an export home</button>
+			{#if !purgeArmed}
+				<button class="soft-btn danger" onclick={() => (purgeArmed = true)}>delete everything</button>
+			{:else}
+				<button class="soft-btn" onclick={purgeWithExport}>export first, then purge</button>
+				<button class="soft-btn danger" onclick={purgeWithout}>purge without exporting</button>
 				<button class="soft-btn" onclick={() => (purgeArmed = false)}>never mind</button>
 			{/if}
 		</div>
+		{#if purgeArmed}
+			<p class="hint">
+				Deleting truly deletes — every table and this device's settings, nothing
+				kept by omission. An export in hand first is the gentle path.
+			</p>
+		{/if}
 		{#if exportNote}<p class="hint">{exportNote}</p>{/if}
 		<p class="hint">
 			Local-first, always: nothing here ever leaves this device unless you

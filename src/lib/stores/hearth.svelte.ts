@@ -1,5 +1,7 @@
 import Database from '@tauri-apps/plugin-sql';
 import { browser } from '$app/environment';
+import { seal, open as openEnvelope } from 'the-envelope';
+import { version as APP_VERSION } from '../../../package.json';
 import type {
 	Member,
 	Signal,
@@ -404,27 +406,138 @@ async function returnFromOverwhelm(eventId: string, helped?: string, notes?: str
 	await loadAll();
 }
 
-// ——— export & delete (license §7 — features, not promises) ———
-async function exportAll(): Promise<string> {
-	return JSON.stringify(
-		{
-			exported_at: new Date().toISOString(),
-			app: 'resonance-hearth',
-			members, signals, spoonLogs, things, meds, medTakes, overwhelms, protocols,
-		},
-		null,
-		2
+// ——— export, import & delete (license §7 — features, not promises) ———
+// The three laws ride the family's shared library (the-envelope, referenced
+// from the awen spring, never absorbed): counts on the outside · the export
+// complete IN HAND before anything deletes · import non-destructive by law.
+
+const APP_ID = 'resonance-hearth';
+
+// Every app table, discovered live — never a curated list. The parent's own
+// warning ("future keys must not survive a purge by omission") applies to
+// export equally: a table this list can't see is a table the vessel can't
+// take with them. sqlite_% is the engine's; _% (the _sqlx_migrations ledger)
+// is the plugin's machinery — deleting it re-runs migrations into existing
+// tables and breaks the app; neither is household data.
+async function appTables(): Promise<string[]> {
+	const rows = await db!.select<{ name: string }[]>(
+		"SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '\\_%' ESCAPE '\\' ORDER BY name"
 	);
+	return rows.map((r) => r.name);
+}
+
+// Full tables, straight from the base — never the in-memory arrays, whose
+// working caps (recent spoons/takes/events) are a view, not the vessel's data.
+async function exportAll(): Promise<string> {
+	if (!db) throw new Error('Database not ready — nothing was exported.');
+	const data: Record<string, Record<string, unknown>[]> = {};
+	const counts: Record<string, number> = {};
+	for (const t of await appTables()) {
+		const rows = await db.select<Record<string, unknown>[]>(`SELECT * FROM "${t}"`);
+		data[t] = rows;
+		counts[t] = rows.length;
+	}
+	return JSON.stringify(seal(APP_ID, APP_VERSION, data, counts), null, 2);
+}
+
+// The 07-11 era export (pre-envelope): one object, camelCase arrays, no dones.
+// A vessel's old backup must never be told it's worthless — carried whole.
+function legacyObjectToTables(raw: Record<string, unknown>): Record<string, Record<string, unknown>[]> {
+	const arr = (k: string) => (Array.isArray(raw[k]) ? (raw[k] as Record<string, unknown>[]) : []);
+	const b = (v: unknown) => (v ? 1 : 0);
+	return {
+		members: arr('members').map((m) => ({
+			id: m.id, label: m.label, sigil: m.sigil ?? '', kind: m.kind ?? 'person', created_at: m.createdAt,
+		})),
+		signals: arr('signals').map((s) => ({
+			member_id: s.memberId, state: s.state, shared: b(s.shared), updated_at: s.updatedAt,
+		})),
+		spoon_logs: arr('spoonLogs').map((l) => ({
+			id: l.id, member_id: l.memberId, value: l.value ?? null, shared: b(l.shared), ts: l.ts,
+		})),
+		things: arr('things').map((t) => ({
+			id: t.id, title: t.title, species: t.species, notes: t.notes ?? null,
+			spoon_cost: t.spoonCost ?? null, edge_date: t.edgeDate ?? null,
+			amount_cents: t.amountCents ?? null, amount_shared: b(t.amountShared),
+			autopay: b(t.autopay), holder_member_id: t.holderMemberId ?? null,
+			loop_rule: t.loopRule ?? null, pool: b(t.pool), member_id: t.memberId ?? null,
+			pet_id: t.petId ?? null, shared: b(t.shared), rested_until: t.restedUntil ?? null,
+			created_at: t.createdAt,
+		})),
+		meds: arr('meds').map((m) => ({
+			id: m.id, member_id: m.memberId, label: m.label, schedule: m.schedule,
+			shared: b(m.shared), created_at: m.createdAt,
+		})),
+		med_takes: arr('medTakes').map((t) => ({ id: t.id, med_id: t.medId, ts: t.ts, status: t.status })),
+		overwhelm_events: arr('overwhelms').map((e) => ({
+			id: e.id, member_id: e.memberId, started_at: e.startedAt,
+			returned_at: e.returnedAt ?? null, helped: e.helped ?? null, notes: e.notes ?? null,
+			shared: b(e.shared), need: e.need ?? null, tell: e.tell ?? null,
+		})),
+		protocols: arr('protocols').map((p) => ({
+			member_id: p.memberId, tell_scope: p.tellScope ?? 'household',
+			tell_members: JSON.stringify(p.tellMembers ?? []), card_text: p.cardText ?? null,
+			needs: JSON.stringify(p.needs ?? []), checkback_minutes: p.checkbackMinutes ?? 30,
+		})),
+	};
+}
+
+// Import — non-destructive by law: an existing row is the household's current
+// mind and is never overwritten by a file. New rows are welcomed in; rows a
+// changed schema can't hold are counted honestly, never guessed at.
+async function importAll(json: string): Promise<{ added: number; kept: number; heldBack: number }> {
+	if (!db) throw new Error('Database not ready — nothing was imported.');
+	const parsed: unknown = JSON.parse(json);
+	let tables: Record<string, Record<string, unknown>[]>;
+	if (
+		parsed && typeof parsed === 'object' && !Array.isArray(parsed) &&
+		!('envelope' in (parsed as Record<string, unknown>)) &&
+		(parsed as Record<string, unknown>).app === APP_ID
+	) {
+		tables = legacyObjectToTables(parsed as Record<string, unknown>);
+	} else {
+		const reading = openEnvelope<Record<string, Record<string, unknown>[]>>(parsed, APP_ID);
+		if (reading.kind !== 'envelope') {
+			throw new Error('This file is older than any Hearth export — nothing was changed.');
+		}
+		tables = reading.data;
+	}
+	let added = 0, kept = 0, heldBack = 0;
+	const live = new Set(await appTables());
+	for (const [t, rows] of Object.entries(tables)) {
+		if (!live.has(t) || !Array.isArray(rows)) { heldBack += Array.isArray(rows) ? rows.length : 0; continue; }
+		const info = await db.select<{ name: string }[]>(`PRAGMA table_info("${t}")`);
+		const liveCols = new Set(info.map((c) => c.name));
+		for (const row of rows) {
+			if (!row || typeof row !== 'object') continue;
+			const cols = Object.keys(row).filter((c) => liveCols.has(c));
+			if (!cols.length) { heldBack++; continue; }
+			try {
+				const res = await db.execute(
+					`INSERT OR IGNORE INTO "${t}" (${cols.map((c) => `"${c}"`).join(',')}) VALUES (${cols.map((_, i) => `$${i + 1}`).join(',')})`,
+					cols.map((c) => (row as Record<string, unknown>)[c] ?? null)
+				);
+				if (res.rowsAffected > 0) added++;
+				else kept++;
+			} catch {
+				heldBack++;
+			}
+		}
+	}
+	await loadAll();
+	return { added, kept, heldBack };
 }
 
 async function purgeAll() {
 	if (!db) throw new Error('Database not ready — nothing was purged');
-	for (const table of [
-		'dones', 'med_takes', 'meds', 'overwhelm_events', 'spoon_logs',
-		'signals', 'things', 'members',
-	]) {
-		await db.execute(`DELETE FROM ${table}`);
+	// Deny-by-default: every app table, discovered live (see appTables) —
+	// a curated list forgets in silence; this one cannot. localStorage
+	// rides too (device selection, theme): everything means everything.
+	for (const t of await appTables()) {
+		await db.execute(`DELETE FROM "${t}"`);
 	}
+	try { localStorage.clear(); } catch {}
+	deviceMemberId = null;
 	await loadAll();
 }
 
@@ -544,5 +657,6 @@ export const hearthStore = {
 	returnFromOverwhelm,
 	saveProtocol,
 	exportAll,
+	importAll,
 	purgeAll,
 };

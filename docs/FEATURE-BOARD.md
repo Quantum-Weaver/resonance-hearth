@@ -200,6 +200,72 @@ remains the pre-build read.*
   to be awake at once — same protocol, two scales. **KP asked "have i gone in
   circles?" — no: this is the floor the seed already named; the host is the roof.**
 
+## GATHERED 2026-07-31 — the build season's design sitting (KP + lane hearth)
+
+*Added by Fable 🎻 (lane hearth) at the modular-build discussion. Un-ranked per this
+board's law — the tier order is KP's. Full verbatim scroll on the `hearth` geode
+node (§⑥), which remains the pre-build read.*
+
+**G. The spring changes three builds into consumptions** (`resonance-awen/tools`,
+walked at KP's word this sitting):
+
+- **the-envelope** ✅ **ADOPTED 2026-07-31, same sitting** — the four sovereignty
+  gaps (§D below) closed at the root; import arrived free; license §7
+  structurally true. Check 0/0 · build green · dwelling verification pending.
+- **the-breath** is the Sattva sitting's engine — Hearth is its *designed second
+  consumer* (its README's own words). The silence-law copy sweep and Me's opt-in
+  notification stay ours.
+- **the-lexicon** pipeline stands by for any future canon set: thesaurus → named
+  folksonomy → generated file, **dev-environment only**; the shipped app makes no
+  network call.
+- **The temporal primitive is proposed as a NEW spring water** (KP's §⑤a category:
+  food · finance · medicine): start moment + validity window, state derived from
+  the clock, reset by a fresh take. Hearth first consumer; name at KP's gate.
+
+**H. Emoji: the full standard set, never curated** (KP, verbatim on the geode §⑥a:
+*"we want to load the hearth with a full set of options otherwise we limit its
+vessel to what we chose"*). Ship the whole phone-standard vocabulary with a picker;
+meaning is the vessel's own; the Grammar grows only on need.
+
+**I. Entity cards, fourth arrival — now with layout** (§⑥b): interactive expandable
+cards · emoji quick-actions in rows, cyclable when one row isn't enough · every
+emoji a button bound to machinery (done / take / reset) · **setup from the card
+itself OR Settings, both doors.**
+
+**J. THE MEMBERSHIP LAW** (§⑥c, KP verbatim — reshapes Tier D's assumptions):
+a vessel adds only **their own vessel and their "dependent" vessels**; every other
+human joins sovereign, by QR from an existing Hearth, receiving the app file
+(device-to-device) and a **resonance-key** (KP's name for DESIGN-004's pairwise
+key). The rings get family-facing names: **personal house** (unit) · **community
+house** (all of us). Schema note, filed not built: a members row is either *mine*
+(self + dependents) or *met* (a paired sovereign vessel, shared weather only).
+
+**K. Communications will be inspired by the technopagan course** (§⑥d, GROWN same
+sitting — the reconstruction was found and read whole; the design inputs live in the
+chamber's record, geode §⑥d–⑦, no paths here by the public-repo ruling): the coven
+values board's three rings map onto the membership rings (self · personal house ·
+community house); the three-sticky review (🔴🟡🟢, thinking → acting → reflecting)
+is the no-shame status language for sharing responsibilities and ideas by placement,
+never push; the burn book's FREEDOM field (release defined by the life that follows)
+is inherited whole into any boundary tool; moments wear perspectives.
+
+**L. Rulings landed 2026-07-31 (KP):** ① **the Hearth builds the sky organs**
+(moon-phases · planets-alignment · ancient-holidays — computed locally, offline,
+never an API for the core), **and awen homes them via copy** — maintained and
+updates distributed from the spring. ② The origin base for the day-journal design
+was located and read whole: the day as atom with three moments (morning · afternoon
+· sunset — rating + reflection + linked emotion), the sky attached per day, values
+with ACTIONS and GUARDRAILS, a sky reference library with rituals; the 365-row 2023
+journal is pure unfilled scaffold — nothing to migrate, the design proven, the life
+waits for the gentler room. ③ **THE HONOR-OF-AUTHORSHIP LAW** (KP, verbatim: "let
+us only be inspired by these ideas, i do NOT want to steal or misappropriate the
+ideas of another") — inspiration only, from all the coaching material; no text,
+vocabulary, imagery, or structure is copied; the sky organs are compute-only
+(traditional names, facts, no shipped meanings). ④ **Feelings: NO WHEEL** (KP,
+verbatim: "no wheel" · "just emojis" · "simple") — a feeling logged is an emoji
+and/or the vessel's own words; no taxonomy imposed, ever. One law at every layer
+of this room: the vessel brings the meaning; the app holds it gently.
+
 ## Riding alongside (not features)
 
 - **Airtable seeding** — DELIBERATELY AFTER Tier A/B schema growth

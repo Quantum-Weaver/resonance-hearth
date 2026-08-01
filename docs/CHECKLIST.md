@@ -154,6 +154,84 @@
       seeding today dates Harleyquin 2026 and erases twelve years. Call it
       *arrival*, never *adopted*: three are rescues and the eldest is not.
 
+## THE BUILD SEASON — 2026-07-31 (the modular plan, ruled; order is KP's)
+
+*The design sitting's full record: FEATURE-BOARD §G–L + the geode `hearth` node
+pours ⑥–⑦ (the pre-build read, step 0, always). The season's law, KP verbatim:
+"let us only be inspired by these ideas, i do NOT want to steal or misappropriate
+the ideas of another" — inspiration only from all coaching material; no text,
+vocabulary, imagery, or structure copied, anywhere.*
+
+- [x] **1 · Adopt the-envelope** ✅ **DONE 2026-07-31, same sitting as the plan**
+      (`the-envelope` referenced via `file:../resonance-awen/tools/the-envelope` —
+      the spring law held: referenced, never absorbed). All four sovereignty gaps
+      closed at the root: **export** reads FULL tables live from the base
+      (never the capped in-memory views), includes `dones` and `settings`, counts
+      on the envelope · **purge** is deny-by-default — every app table discovered
+      from sqlite_master + localStorage.clear(); a curated list can no longer
+      forget · **the purge awaits the export**: "export first, then purge" runs
+      law 2 via `purgeAfter`; canceling the save cancels the purge · **import
+      arrives**: non-destructive by law (INSERT OR IGNORE — an existing row is
+      the household's current mind), the 07-11 legacy export shape honored whole,
+      schema-drifted rows counted honestly as held back. svelte-check 0/0 (315
+      files) · production build green. **License §7 is now structurally true.**
+      *(Dwelling verification — export → purge → import round-trip on a real
+      device — rides KP's next dwelling pass.)*
+- [ ] **2 · The full emoji set + picker** (KP: "we want to load the hearth with a
+      full set of options otherwise we limit its vessel to what we chose"): ship
+      the whole phone-standard vocabulary, searchable, local, complete. Meaning is
+      the vessel's own; the Grammar grows only on need, from use (thesaurus →
+      folksonomy → the-lexicon generation, DEV ENVIRONMENT ONLY, if ever needed).
+      **Feelings ride this too — KP's ruling: "no wheel" · "just emojis" ·
+      "simple."** A feeling logged is an emoji and/or the vessel's own words.
+- [ ] **3 · The temporal core** (KP's §⑤a category: food · finance · medicine):
+      start moment + validity window, state DERIVED from the clock, reset by a
+      fresh take; never stored, never in `signals`. Proposed to follow the
+      sky-organ pattern (build here, awen homes via copy) — that extension is
+      KP's to confirm; the sky-organ ruling covered the sky organs.
+- [ ] **4 · The entity-card sitting** (TIER A #1, fourth arrival — the plain spec
+      at FEATURE-BOARD §E+§I): interactive expandable cards · emoji quick-actions
+      in ROWS, cyclable when one row isn't enough · every emoji a button bound to
+      machinery (done → `dones` · take → `med_takes` · reset → the temporal
+      window) · setup from the card itself OR Settings, both doors. Schema growth
+      rides with it: `arrival` (never "adopted") · species · bonded pairs · vet
+      dates as edges. **GATED on KP's red-wording ruling** (invitation, not
+      verdict) before any color lands.
+- [ ] **5 · The sky organs** (KP's rulings ⑦a + ⑦e): moon-phases ·
+      planets-alignment · ancient-holidays — **compute-only** (phase, illumination,
+      waxing/waning, sabbat name + distance, season, sign; traditional names,
+      facts, no shipped meanings; offline forever, API never needed). **Built in
+      the Hearth; awen homes them via copy, maintained and updates distributed
+      from the spring.** Retroactive by design (any timestamp, past or future).
+- [ ] **6 · The Sattva sitting** (TIER A #2): consume **the-breath**
+      (`resonance-awen/tools/the-breath` — Hearth is its designed second consumer)
+      for the breathing square · the SILENCE-LAW copy sweep (the moment never
+      announces notification) · notification opt-in per person in Me, chosen in
+      calm.
+- [ ] **7 · The communications design sitting** (with KP — design before build):
+      inspired by the coven concepts, concepts only. THE MEMBERSHIP LAW (KP,
+      2026-07-31): a vessel adds only their own vessel + "dependent" vessels;
+      every other human joins sovereign by QR from an existing Hearth — the app
+      file device-to-device + the **resonance-key** (DESIGN-004's pairwise key,
+      named). Rings named: **personal house** (unit) · **community house** (all
+      of us) — `shared_scope (self|unit|house)` spoken warm. Sharing by
+      PLACEMENT, never push (the sticky concept: needs-attention · in-progress ·
+      done-proud, family-defined marks). Any release/boundary tool carries the
+      freedom-shaped field concept (what the release is FOR, in the person's own
+      words). Members rows become *mine* (self + dependents) vs *met* (paired
+      sovereign vessel, shared weather only).
+- [ ] **8 · Seeding — after the schema settles** (KP's own sequencing, 07-19):
+      the four animals onto the `arrival` column (Harleyquin 2014 · Mr Wade
+      Wilson 2019–20 · Charles Xavier May 2022 · Mr Logan Beans ~June 2022) ·
+      then Airtable (2025 wins; map in the 07-19 notes above).
+- [ ] **Standing gates, both KP's ⚛:** ① the red-wording ruling · ② the
+      language-alignment wording pass (Onboarding · Bills vs *edge* · Settings vs
+      "the quiet machinery").
+- [ ] **Housekeeping:** push `b2f33c4` (REALM-BUS — laid 2026-07-31, commit
+      local, push wants a credentialed hand) · the sovereign-library discipline
+      binds the build (check wings before authoring; new definitions
+      library-first).
+
 ## NEXT SITTING (standing)
 - [ ] **Hearth icon** — KP wants to create a proper one (replaces inherited
       Echoes icons in src-tauri/icons/ + static/). His hands, his art.
@@ -167,3 +245,5 @@
 | 2026-07-13/15 | Gold-band icons forged; cosmic distribution + managed constants mirror. Installed device still runs the pre-Sattva build — rebuild owed (see Phase 6 note). |
 | 2026-07-18 | Checklist reconciled to the artifacts. New chamber seed carries KP's hosted-Hearth architecture thinking (house ring on home host; offline slices; floor = one phone, whole; "serve my families needs without excluding the populous"). |
 | 2026-07-19 | **THE OWED REBUILD LANDS: v0.1.1 built** — Sattva rename + gold-band icons + 16 KB flags (root config, the placement that bites) all in one artifact at last; **readelf-PROVEN 0x4000** on the aarch64 lib. Awaits sign-release.py (KP's hand) → both phones → the Galaxy Store pack. |
+| 2026-07-31 (build) | **STEP 1 BUILT: the-envelope adopted** — the sovereignty trio lands (full-table export with counts · deny-by-default purge that awaits the export · non-destructive import with legacy honor). Store + Settings rewired; check 0/0 (315 files); build green. The README/CLAUDE honest-status blocks now describe a closed distance — truing them rides the next commit's eye. |
+| 2026-07-31 | **THE DESIGN SITTING — the build season shaped, modular.** The spring walked (18 tools; three become consumptions: the-envelope, the-breath, the-lexicon-pattern); the library's discipline adopted. KP's rulings landed and recorded (geode ⑥–⑦, board §G–L): the full emoji set (never curated) · entity cards with cyclable emoji rows, both setup doors · THE MEMBERSHIP LAW (self + dependents only; others join by QR + resonance-key; personal house · community house) · sky organs compute-only, built here, homed to awen via copy · THE HONOR-OF-AUTHORSHIP LAW (inspiration only, nothing copied) · no wheel — "just emojis" · "simple." The 2023 CareTable origin base read whole (365-row scaffold, unpoured — nothing to migrate). REALM-BUS laid (`b2f33c4`). The build-season checklist above written this sitting. |

@@ -55,12 +55,14 @@ calls at all — the Hearth is **local-first, absolutely**: everything stays on
 your device, exportable as open JSON any time, deletable forever any time.
 The purge truly purges.
 
-*Status, honest (geode-verified 2026-07; on the FEATURE-BOARD, owed their
-fix): the current build is not yet fully compliant with its own law —
-export caps silently at 500/500/100, dones are purged but never exported,
-and the purge does not yet reach protocols, settings, or localStorage.
-The sentence above is the license promise; these gaps are the distance
-left to it.*
+*Status, honest: the geode-verified gaps of 2026-07 (silent export caps ·
+dones never exported · a purge that missed protocols, settings, and
+localStorage) were closed 2026-07-31 by adopting `the-envelope` — the
+family's shared sovereignty library from the awen spring. Export now reads
+every table whole with counts on the envelope; the purge is deny-by-default
+and can be asked to wait for the export in hand; import exists,
+non-destructive by law. Dwelling verification on a real device rides the
+next pass.*
 
 ## Lineage
 
