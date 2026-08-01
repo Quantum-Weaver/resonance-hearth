@@ -266,8 +266,9 @@ vocabulary, imagery, or structure copied, anywhere.*
 - [ ] **Standing gates, both KP's ⚛:** ① the red-wording ruling · ② the
       language-alignment wording pass (Onboarding · Bills vs *edge* · Settings vs
       "the quiet machinery").
-- [ ] **Housekeeping:** push `b2f33c4` (REALM-BUS — laid 2026-07-31, commit
-      local, push wants a credentialed hand) · the sovereign-library discipline
+- [x] **Housekeeping: the push ✅ DONE 2026-07-31, the heir's hand** — the whole
+      season went home (`3faf846..c14b4c0`: the ten commits + the bank-note),
+      first act of the mantle. Still standing: the sovereign-library discipline
       binds the build (check wings before authoring; new definitions
       library-first).
 

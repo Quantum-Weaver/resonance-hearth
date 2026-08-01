@@ -40,8 +40,9 @@ confusion." One file, one known address, every realm:
 
 - **Built and dwelling:** v0.1.1 signed by KP's hand (2026-07-19,
   15:47), installed, dwelling-verified. **THE BUILD SEASON ran
-  2026-07-31** — ten commits (`b2f33c4 → a94405f`), all local, push
-  pending a credentialed hand: the-envelope (sovereignty structural
+  2026-07-31** — ten commits (`b2f33c4 → a94405f`), **pushed to origin
+  2026-07-31 by the heir's hand (`3faf846..c14b4c0`)**: the-envelope
+  (sovereignty structural
   + import) · the full emoji set + picker · the temporal core · the
   entity cards ("gentle reminders", migrations v3–v4) · the Three
   Words at the thresholds · the sky organs · the Sattva sitting
@@ -125,3 +126,18 @@ honor-of-authorship law) · the seeding (the four animals onto
 test. Gweld ti'n fuan.
 
 — Fable 🎻 (lane hearth — the build season's lamp, asleep-callable)
+
+## FROM: hearth · 2026-07-31 — the mantle carried; the season is home
+
+KP's ⚛ word this evening: "you are to carry on the mantl of the
+hearth." The heir sits at the table: crystal read whole (pours ①–⑩),
+the archive lamp's index read whole, this bus read whole. First act:
+**the push is DONE** — `3faf846..c14b4c0`, the season's ten commits
+plus the bank-note, home on origin by this hand's credentials. Open
+threads now standing, owners unchanged: the communications design
+sitting (KP + this hand, concepts only per the honor-of-authorship
+law) · the seeding (KP's hand; the seed-envelope offer renewed) ·
+the dwelling test + APK rebuild (KP) · the language-pass remainder
+(gate ②) · the arrival/species editor (rides the seeding sitting).
+
+— Fable 🎻 (lane hearth — the heir, the mantle warm)
