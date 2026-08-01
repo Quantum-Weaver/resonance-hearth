@@ -190,11 +190,18 @@ vocabulary, imagery, or structure copied, anywhere.*
       build green. **Feelings ride this vocabulary — KP's ruling: "no wheel" ·
       "just emojis" · "simple"** — the logging surface lands with the entity
       cards (step 4), where the tap lives.
-- [ ] **3 · The temporal core** (KP's §⑤a category: food · finance · medicine):
-      start moment + validity window, state DERIVED from the clock, reset by a
-      fresh take; never stored, never in `signals`. Proposed to follow the
-      sky-organ pattern (build here, awen homes via copy) — that extension is
-      KP's to confirm; the sky-organ ruling covered the sky organs.
+- [x] **3 · The temporal core** ✅ **DONE 2026-07-31, same sitting** —
+      `src/lib/temporal/` (index.ts + its own README): pure, framework-free,
+      ZERO app imports — born copy-ready for the spring. `readWindow` (state:
+      fresh · approaching · passed — a passed window is information, never a
+      verdict; nothing here names a color, the wording stays KP's) ·
+      `freshTake` (the 🍗 reset) · configurable approach point (default 0.75) ·
+      `describeWindow` gentle sentences, no banned words. **Smoke-verified live
+      in node: all five readings exact** (0.25→fresh with 2.00d until
+      approaching · 0.80→approaching · passed at −1.00d · reset clean · the
+      sentence kind). Check 0/0 (318 files). *Held for KP's word: the awen copy
+      (the sky-organ homing pattern extended to this module) + the tool's name
+      at the Grammar's gate.*
 - [ ] **4 · The entity-card sitting** (TIER A #1, fourth arrival — the plain spec
       at FEATURE-BOARD §E+§I): interactive expandable cards · emoji quick-actions
       in ROWS, cyclable when one row isn't enough · every emoji a button bound to
@@ -251,6 +258,7 @@ vocabulary, imagery, or structure copied, anywhere.*
 | 2026-07-13/15 | Gold-band icons forged; cosmic distribution + managed constants mirror. Installed device still runs the pre-Sattva build — rebuild owed (see Phase 6 note). |
 | 2026-07-18 | Checklist reconciled to the artifacts. New chamber seed carries KP's hosted-Hearth architecture thinking (house ring on home host; offline slices; floor = one phone, whole; "serve my families needs without excluding the populous"). |
 | 2026-07-19 | **THE OWED REBUILD LANDS: v0.1.1 built** — Sattva rename + gold-band icons + 16 KB flags (root config, the placement that bites) all in one artifact at last; **readelf-PROVEN 0x4000** on the aarch64 lib. Awaits sign-release.py (KP's hand) → both phones → the Galaxy Store pack. |
+| 2026-07-31 (build 3) | **STEP 3 BUILT: the temporal core** — `src/lib/temporal/`, pure and standalone (zero app imports, copy-ready for awen at KP's word); fresh · approaching · passed derived from the clock, reset by a fresh take; smoke-verified exact in node; check 0/0 (318). |
 | 2026-07-31 (build 2) | **STEP 2 BUILT: the full emoji vocabulary** — 3,944 emoji / 9 groups generated from Unicode's own source (dev-time fetch, static ship); EmojiPicker born (search + groups, calm, 48px, honest counts); sigil field is the first consumer. Check 0/0 (317); build green. |
 | 2026-07-31 (build) | **STEP 1 BUILT: the-envelope adopted** — the sovereignty trio lands (full-table export with counts · deny-by-default purge that awaits the export · non-destructive import with legacy honor). Store + Settings rewired; check 0/0 (315 files); build green. The README/CLAUDE honest-status blocks now describe a closed distance — truing them rides the next commit's eye. |
 | 2026-07-31 | **THE DESIGN SITTING — the build season shaped, modular.** The spring walked (18 tools; three become consumptions: the-envelope, the-breath, the-lexicon-pattern); the library's discipline adopted. KP's rulings landed and recorded (geode ⑥–⑦, board §G–L): the full emoji set (never curated) · entity cards with cyclable emoji rows, both setup doors · THE MEMBERSHIP LAW (self + dependents only; others join by QR + resonance-key; personal house · community house) · sky organs compute-only, built here, homed to awen via copy · THE HONOR-OF-AUTHORSHIP LAW (inspiration only, nothing copied) · no wheel — "just emojis" · "simple." The 2023 CareTable origin base read whole (365-row scaffold, unpoured — nothing to migrate). REALM-BUS laid (`b2f33c4`). The build-season checklist above written this sitting. |
