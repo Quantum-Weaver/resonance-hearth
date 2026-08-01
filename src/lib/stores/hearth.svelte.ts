@@ -15,6 +15,9 @@ import type {
 	OverwhelmEvent,
 	Protocol,
 	TellScope,
+	CardAction,
+	CardActionKind,
+	Feeling,
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
@@ -32,6 +35,8 @@ let meds = $state<Med[]>([]);
 let medTakes = $state<MedTake[]>([]);
 let overwhelms = $state<OverwhelmEvent[]>([]);
 let protocols = $state<Protocol[]>([]);
+let cardActions = $state<CardAction[]>([]);
+let feelings = $state<Feeling[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
@@ -60,6 +65,30 @@ const toMember = (r: Record<string, unknown>): Member => ({
 	sigil: (r.sigil as string) ?? '',
 	kind: (r.kind as Member['kind']) ?? 'person',
 	createdAt: r.created_at as number,
+	arrival: r.arrival == null ? null : (r.arrival as number),
+	species: (r.species as string) ?? null,
+	cardColor: (r.card_color as string) ?? null,
+	colorSource: (r.color_source as string) ?? 'first',
+});
+const toCardAction = (r: Record<string, unknown>): CardAction => ({
+	id: r.id as string,
+	memberId: r.member_id as string,
+	emoji: r.emoji as string,
+	label: (r.label as string) ?? null,
+	kind: (r.kind as CardActionKind) ?? 'done',
+	thingId: (r.thing_id as string) ?? null,
+	keepsFor: r.keeps_for == null ? null : (r.keeps_for as number),
+	approachAt: r.approach_at == null ? null : (r.approach_at as number),
+	startedAt: r.started_at == null ? null : (r.started_at as number),
+	position: (r.position as number) ?? 0,
+});
+const toFeeling = (r: Record<string, unknown>): Feeling => ({
+	id: r.id as string,
+	memberId: r.member_id as string,
+	emoji: r.emoji as string,
+	word: (r.word as string) ?? null,
+	shared: !!r.shared,
+	ts: r.ts as number,
 });
 const toSignal = (r: Record<string, unknown>): Signal => ({
 	memberId: r.member_id as string,
@@ -159,6 +188,9 @@ async function loadAll() {
 		medTakes = (await q('SELECT * FROM med_takes ORDER BY ts DESC LIMIT 500')).map(toTake);
 		overwhelms = (await q('SELECT * FROM overwhelm_events ORDER BY started_at DESC LIMIT 100')).map(toOverwhelm);
 		protocols = (await q('SELECT * FROM protocols')).map(toProtocol);
+		cardActions = (await q('SELECT * FROM card_actions ORDER BY member_id, position')).map(toCardAction);
+		// A working view only (export reads the full table live).
+		feelings = (await q('SELECT * FROM feelings ORDER BY ts DESC LIMIT 200')).map(toFeeling);
 	} catch (e) {
 		console.error('[hearthStore] loadAll failed:', e);
 	} finally {
@@ -366,6 +398,83 @@ async function saveProtocol(p: Protocol) {
 		]
 	);
 	await loadAll();
+}
+
+// ——— the entity cards: gentle reminders (KP's rulings, 2026-07-31) ———
+// An emoji is a button that does a thing. Windows derive from the clock,
+// never stored; the fresh take resets the start. The card's color journey
+// (vessel's color → white → yellow → red) lives in $lib/data/cardColor.
+
+async function addCardAction(a: {
+	memberId: string; emoji: string; label?: string | null; kind: CardActionKind;
+	thingId?: string | null; keepsForDays?: number | null; approachAt?: number | null;
+}) {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	const id = generateId();
+	const position = cardActions.filter((c) => c.memberId === a.memberId).length;
+	const keepsFor = a.kind === 'reset' && a.keepsForDays ? Math.round(a.keepsForDays * 86_400_000) : null;
+	await db.execute(
+		`INSERT INTO card_actions (id, member_id, emoji, label, kind, thing_id, keeps_for, approach_at, started_at, position)
+		 VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
+		[
+			id, a.memberId, a.emoji, a.label ?? null, a.kind, a.thingId ?? null,
+			keepsFor, a.approachAt ?? null,
+			a.kind === 'reset' ? Date.now() : null, // a new window begins fresh
+			position,
+		]
+	);
+	await loadAll();
+	return id;
+}
+
+async function removeCardAction(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM card_actions WHERE id=$1', [id]);
+	// If this emoji was leading a card's color, the card returns to 'first'.
+	await db.execute("UPDATE members SET color_source='first' WHERE color_source=$1", [id]);
+	await loadAll();
+}
+
+// The tap. done → the thing's machinery + celebration · reset → the fresh
+// take · feeling → a private feeling row. ('take' opens the med list in
+// the UI; each selected med rides takeMed as always.)
+async function tapCardAction(id: string, byMemberId: string | null): Promise<string | null> {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	const a = cardActions.find((c) => c.id === id);
+	if (!a) return null;
+	if (a.kind === 'done' && a.thingId) {
+		return await doneThing(a.thingId, byMemberId);
+	}
+	if (a.kind === 'reset') {
+		await db.execute('UPDATE card_actions SET started_at=$1 WHERE id=$2', [Date.now(), id]);
+		await loadAll();
+		return pickCelebration();
+	}
+	if (a.kind === 'feeling') {
+		await db.execute(
+			'INSERT INTO feelings (id, member_id, emoji, word, shared, ts) VALUES ($1,$2,$3,$4,0,$5)',
+			[generateId(), a.memberId, a.emoji, null, Date.now()]
+		);
+		await loadAll();
+		return 'Felt, and held. Yours alone unless you share it.';
+	}
+	return null;
+}
+
+async function setMemberCard(id: string, patch: { cardColor?: string | null; colorSource?: string }) {
+	if (!db) return;
+	const m = members.find((x) => x.id === id);
+	if (!m) return;
+	await db.execute('UPDATE members SET card_color=$1, color_source=$2 WHERE id=$3', [
+		patch.cardColor === undefined ? (m.cardColor ?? null) : patch.cardColor,
+		patch.colorSource === undefined ? m.colorSource : patch.colorSource,
+		id,
+	]);
+	await loadAll();
+}
+
+function actionsFor(memberId: string): CardAction[] {
+	return cardActions.filter((c) => c.memberId === memberId);
 }
 
 // ——— the Sattva system (the Meltdown Protocol) ———
@@ -638,6 +747,22 @@ export const hearthStore = {
 	get protocols() { return protocols; },
 	protocolFor,
 
+	get cardActions() { return cardActions; },
+	get feelings() { return feelings; },
+	actionsFor,
+	// Meds visible on a member's card: their own on their own device, a
+	// pet's for any hand (someone must give them), a person's only if that
+	// med is shared. Private meds never surface on another's screen.
+	cardMeds(memberId: string): Med[] {
+		const m = members.find((x) => x.id === memberId);
+		if (!m) return [];
+		return meds.filter(
+			(md) =>
+				md.memberId === memberId &&
+				(m.kind === 'pet' || memberId === deviceMemberId || md.shared)
+		);
+	},
+
 	initDB,
 	loadAll,
 	addMember,
@@ -656,6 +781,10 @@ export const hearthStore = {
 	setOverwhelmNeed,
 	returnFromOverwhelm,
 	saveProtocol,
+	addCardAction,
+	removeCardAction,
+	tapCardAction,
+	setMemberCard,
 	exportAll,
 	importAll,
 	purgeAll,

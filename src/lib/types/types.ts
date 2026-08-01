@@ -18,6 +18,43 @@ export interface Member {
   sigil: string; // optional emoji
   kind: MemberKind;
   createdAt: number;
+  arrival?: number | null; // when they joined the family — history, not a row timestamp
+  species?: string | null; // the vessel's own word, free text, optional
+  cardColor?: string | null; // the card's base color — the vessel's choice
+  colorSource: string; // 'first' (all compete) | a CardAction id (one emoji leads)
+}
+
+// An emoji is a button that does a thing (KP, 2026-07-31 — the entity
+// cards' plain spec, geode `hearth` §⑥b/⑧). Kinds:
+//  done    — completes a thing (rides `dones` + rest machinery)
+//  take    — opens the member's meds; each selected take is recorded
+//  reset   — a fresh take on a temporal window (chicken timer machinery:
+//            state derived from the clock, never stored)
+//  feeling — logs a feeling: an emoji and/or the vessel's own word
+//            ("no wheel" · "just emojis" · "simple")
+export type CardActionKind = 'done' | 'take' | 'reset' | 'feeling';
+
+export interface CardAction {
+  id: string;
+  memberId: string;
+  emoji: string;
+  label?: string | null; // optional word under the emoji — theirs
+  kind: CardActionKind;
+  thingId?: string | null; // done: the thing it completes
+  keepsFor?: number | null; // reset: the window (ms)
+  approachAt?: number | null; // reset: 0..1, default 0.75
+  startedAt?: number | null; // reset: the last fresh take
+  position: number;
+}
+
+// A feeling logged — private by default, like meds.
+export interface Feeling {
+  id: string;
+  memberId: string;
+  emoji: string;
+  word?: string | null; // optional, the vessel's own
+  shared: boolean;
+  ts: number;
 }
 
 // The Safe Word System — presence, not notification.

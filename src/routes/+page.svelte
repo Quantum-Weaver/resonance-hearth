@@ -5,21 +5,20 @@
 	// never history; nothing on this page demands anything of anyone.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { speciesDef } from '$lib/data/hearth';
-	import SignalDot from '$lib/components/SignalDot.svelte';
+	import EntityCard from '$lib/components/EntityCard.svelte';
 	import CelebrationLine from '$lib/components/CelebrationLine.svelte';
 	import { goto } from '$app/navigation';
 
 	let celebration = $state<string | null>(null);
 
 	const people = $derived(hearthStore.people);
-	const pets = $derived(hearthStore.pets);
 
-	// Only members whose signal is shared appear on the window.
-	const presences = $derived(
-		people
-			.map((m) => ({ member: m, signal: hearthStore.signalFor(m.id) }))
-			.filter((p) => p.signal?.shared !== false)
-	);
+	// Every member gets a card — the entity cards ARE the household view
+	// now (gentle reminders, KP's 2026-07-31 rulings). The pets appear
+	// unconditionally: presence gating applies to signals, never to being
+	// family. A person's shared signal rides ON their card; unshared
+	// signals simply don't appear (window, not monitor — unchanged).
+	const household = $derived(hearthStore.members);
 
 	const holds = $derived(
 		hearthStore.householdOverwhelms.map((e) => ({
@@ -104,19 +103,12 @@
 		</div>
 	{/each}
 
-	{#if presences.length > 0}
+	{#if household.length > 0}
 		<section class="section">
-			<h2>Presence</h2>
+			<h2>The household</h2>
 			<div class="stack">
-				{#each presences as p}
-					<SignalDot member={p.member} signal={p.signal} />
-				{/each}
-				{#each pets as pet}
-					<div class="pet-row">
-						<span class="pet-sigil">{pet.sigil || '🐾'}</span>
-						<span>{pet.label}</span>
-						<span class="pet-note">family</span>
-					</div>
+				{#each household as m (m.id)}
+					<EntityCard member={m} />
 				{/each}
 			</div>
 			{#if weatherLine}<p class="weather">{weatherLine}</p>{/if}
@@ -172,7 +164,7 @@
 		</section>
 	{/if}
 
-	{#if presences.length === 0 && loops.length === 0 && edges.length === 0 && breathing.length === 0 && holds.length === 0}
+	{#if household.length === 0 && loops.length === 0 && edges.length === 0 && breathing.length === 0 && holds.length === 0}
 		<div class="card empty">
 			The hearth is warm. Nothing needs you right now.
 			{#if people.length === 0}
@@ -199,10 +191,6 @@
 	.hold { border-color: color-mix(in srgb, var(--accent) 45%, var(--border-color)); }
 	.hold__title { color: var(--text); font-weight: 600; margin-bottom: 0.4rem; }
 	.hold__body { font-size: 0.9rem; line-height: 1.5; }
-
-	.pet-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.75rem; border-radius: 10px; background-color: var(--bg-surface); border: 1px dashed var(--border-color); color: var(--text-secondary); min-height: 44px; }
-	.pet-sigil { font-size: 1.05rem; }
-	.pet-note { margin-left: auto; font-size: 0.8rem; color: var(--text-muted); }
 
 	.weather { color: var(--text-muted); font-size: 0.85rem; margin: 0.5rem 0 0; }
 

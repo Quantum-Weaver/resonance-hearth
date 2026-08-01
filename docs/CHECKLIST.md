@@ -202,14 +202,27 @@ vocabulary, imagery, or structure copied, anywhere.*
       sentence kind). Check 0/0 (318 files). *Held for KP's word: the awen copy
       (the sky-organ homing pattern extended to this module) + the tool's name
       at the Grammar's gate.*
-- [ ] **4 · The entity-card sitting** (TIER A #1, fourth arrival — the plain spec
-      at FEATURE-BOARD §E+§I): interactive expandable cards · emoji quick-actions
-      in ROWS, cyclable when one row isn't enough · every emoji a button bound to
-      machinery (done → `dones` · take → `med_takes` · reset → the temporal
-      window) · setup from the card itself OR Settings, both doors. Schema growth
-      rides with it: `arrival` (never "adopted") · species · bonded pairs · vet
-      dates as edges. **GATED on KP's red-wording ruling** (invitation, not
-      verdict) before any color lands.
+- [x] **4 · The entity-card sitting** ✅ **DONE 2026-07-31, same sitting — the
+      gate OPENED by KP's card-color ruling** (geode §⑧, verbatim there): color
+      is dynamic — "one of your emojis needs your eyes" — graduated by
+      percentage, the vessel's chosen color fading **white → yellow → red**,
+      never a jump; the word is **care** ("Charlie needs care"); the family name
+      is **gentle reminders**. Built whole: **migration v3** (members: arrival ·
+      species · card_color · color_source; `card_actions`; `feelings` —
+      private-by-default; `bonds` schema for the seeding era) · **EntityCard**
+      (expandable; emoji rows cyclable via "more"; every emoji a button — done /
+      take / reset / feeling; small journey-circles under each emoji; thick
+      border = second window in danger; care line + titles keep it readable
+      without color alone; slow 2s color transitions, reduced-motion honored) ·
+      **cardColor.ts** (the journey math on the temporal core; soft house tones,
+      readable ink on any ground) · **both setup doors** (shape-this-card on the
+      card itself + the same cards in Settings) · **dashboard**: every member
+      gets a card — the pets can never vanish again (the §D small bug healed by
+      design). Feelings ship: a feeling-kind emoji on your own card logs
+      privately, "no wheel," one tap. Check 0/0 (320 files) · build green.
+      *Honest edges: arrival/species are schema + display (edit UI rides the
+      seeding sitting); bonds is schema-only; med quick-take respects privacy
+      (own device · shared meds · any pet's).*
 - [ ] **5 · The sky organs** (KP's rulings ⑦a + ⑦e): moon-phases ·
       planets-alignment · ancient-holidays — **compute-only** (phase, illumination,
       waxing/waning, sabbat name + distance, season, sign; traditional names,
@@ -258,6 +271,7 @@ vocabulary, imagery, or structure copied, anywhere.*
 | 2026-07-13/15 | Gold-band icons forged; cosmic distribution + managed constants mirror. Installed device still runs the pre-Sattva build — rebuild owed (see Phase 6 note). |
 | 2026-07-18 | Checklist reconciled to the artifacts. New chamber seed carries KP's hosted-Hearth architecture thinking (house ring on home host; offline slices; floor = one phone, whole; "serve my families needs without excluding the populous"). |
 | 2026-07-19 | **THE OWED REBUILD LANDS: v0.1.1 built** — Sattva rename + gold-band icons + 16 KB flags (root config, the placement that bites) all in one artifact at last; **readelf-PROVEN 0x4000** on the aarch64 lib. Awaits sign-release.py (KP's hand) → both phones → the Galaxy Store pack. |
+| 2026-07-31 (build 4) | **STEP 4 BUILT: THE ENTITY CARDS — gentle reminders live.** KP's card-color ruling opened the gate (vessel's color → white → yellow → red by percentage; "care is the word"; secondary window = thick border; journey-circles under each emoji). Migration v3 (arrival · species · card_color · color_source · card_actions · feelings · bonds); EntityCard + cardColor journey math on the temporal core; both setup doors; dashboard = cards for the whole household (pets can never vanish). Check 0/0 (320); build green. |
 | 2026-07-31 (build 3) | **STEP 3 BUILT: the temporal core** — `src/lib/temporal/`, pure and standalone (zero app imports, copy-ready for awen at KP's word); fresh · approaching · passed derived from the clock, reset by a fresh take; smoke-verified exact in node; check 0/0 (318). |
 | 2026-07-31 (build 2) | **STEP 2 BUILT: the full emoji vocabulary** — 3,944 emoji / 9 groups generated from Unicode's own source (dev-time fetch, static ship); EmojiPicker born (search + groups, calm, 48px, honest counts); sigil field is the first consumer. Check 0/0 (317); build green. |
 | 2026-07-31 (build) | **STEP 1 BUILT: the-envelope adopted** — the sovereignty trio lands (full-table export with counts · deny-by-default purge that awaits the export · non-destructive import with legacy honor). Store + Settings rewired; check 0/0 (315 files); build green. The README/CLAUDE honest-status blocks now describe a closed distance — truing them rides the next commit's eye. |

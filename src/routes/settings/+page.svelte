@@ -7,6 +7,7 @@
 	import { themeStore } from '$lib/stores/theme.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';
 	import EmojiPicker from '$lib/components/EmojiPicker.svelte';
+	import EntityCard from '$lib/components/EntityCard.svelte';
 	import { open as openDialog, save } from '@tauri-apps/plugin-dialog';
 	import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
 	import { filename, purgeAfter } from 'the-envelope';
@@ -150,6 +151,20 @@
 			<button class="soft-btn primary" onclick={addMember}>welcome them in</button>
 			<p class="hint">Chosen names are enough. The Hearth never needs legal ones — and any emoji can be a sigil; it means what you say it means.</p>
 		</div>
+	</section>
+
+	<section class="section">
+		<h2>The cards (the other door — same as tapping them on the Hearth)</h2>
+		<div class="stack">
+			{#each hearthStore.members as m (m.id)}
+				<EntityCard member={m} />
+			{/each}
+		</div>
+		<p class="hint">
+			Every card can be shaped from here or from the Hearth itself — an
+			emoji is a button that does a thing, and the card's color walks
+			gently toward care when a window ages.
+		</p>
 	</section>
 
 	<section class="section">

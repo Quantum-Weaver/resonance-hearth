@@ -233,7 +233,16 @@ search keys, never definitions; the Grammar grows only on need.
 **I. Entity cards, fourth arrival — now with layout** (§⑥b): interactive expandable
 cards · emoji quick-actions in rows, cyclable when one row isn't enough · every
 emoji a button bound to machinery (done / take / reset) · **setup from the card
-itself OR Settings, both doors.**
+itself OR Settings, both doors.** ✅ **BUILT 2026-07-31, same sitting**, under
+KP's card-color ruling (geode §⑧): dynamic color — "one of your emojis needs your
+eyes" — the vessel's chosen color fading **white → yellow → red** by percentage,
+never a jump; secondary window speaks through a **thick border**; open card wears
+a **journey-circle under each emoji**; the word is **care** ("Charlie needs
+care"); the family name is **gentle reminders**. Feelings ship on the cards
+("no wheel" · "just emojis"): one tap on your own card, private by default.
+Migration v3 carries arrival · species · card_color · color_source ·
+card_actions · feelings · bonds. The §D pets-vanish bug healed by design —
+every member gets a card, unconditionally.
 
 **J. THE MEMBERSHIP LAW** (§⑥c, KP verbatim — reshapes Tier D's assumptions):
 a vessel adds only **their own vessel and their "dependent" vessels**; every other

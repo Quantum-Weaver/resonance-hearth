@@ -135,6 +135,73 @@ pub fn run() {
             ALTER TABLE overwhelm_events ADD COLUMN tell TEXT;
         ",
         kind: MigrationKind::Up,
+    },
+    Migration {
+        version: 3,
+        description: "entity_cards_and_gentle_reminders",
+        // The entity-card season (KP's rulings, 2026-07-31 — the geode's
+        // hearth node holds them verbatim):
+        //   - members.arrival: family history, never a database timestamp
+        //     ("arrival, never adopted" — three of the four animals are
+        //     rescues and the eldest is not).
+        //   - members.species: the vessel's own word, free text, optional.
+        //   - members.card_color / color_source: the card begins as a color
+        //     of the vessel's choice and fades white -> yellow -> red as a
+        //     window elapses ("gentle reminders"; the word is "care").
+        //     color_source: 'first' = all emojis compete, whichever enters
+        //     the danger zone first drives the card; or a card_actions.id =
+        //     one chosen emoji drives it.
+        //   - card_actions: an emoji is a button that does a thing.
+        //     kind 'done' completes a thing | 'take' opens the member's
+        //     meds | 'reset' is a fresh take on a temporal window (state
+        //     DERIVED from the clock, never stored) | 'feeling' logs a
+        //     feeling ("no wheel" - "just emojis" - "simple").
+        //   - feelings: an emoji and/or the vessel's own word. PRIVATE by
+        //     default, like meds.
+        //   - bonds: inseparable pairs ("He and Charlie are inseparable") -
+        //     schema for the seeding era; boarded, medicated, moved together.
+        // ASCII-only defaults (the Android JNI law).
+        sql: "
+            ALTER TABLE members ADD COLUMN arrival INTEGER;
+            ALTER TABLE members ADD COLUMN species TEXT;
+            ALTER TABLE members ADD COLUMN card_color TEXT;
+            ALTER TABLE members ADD COLUMN color_source TEXT NOT NULL DEFAULT 'first';
+
+            CREATE TABLE IF NOT EXISTS card_actions (
+                id TEXT PRIMARY KEY,
+                member_id TEXT NOT NULL REFERENCES members(id),
+                emoji TEXT NOT NULL,
+                label TEXT,
+                kind TEXT NOT NULL DEFAULT 'done',
+                    -- done | take | reset | feeling
+                thing_id TEXT REFERENCES things(id),
+                keeps_for INTEGER,      -- ms window (reset kind)
+                approach_at REAL,       -- 0..1; app default 0.75
+                started_at INTEGER,     -- last fresh take (reset kind)
+                position INTEGER NOT NULL DEFAULT 0
+            );
+            CREATE INDEX IF NOT EXISTS idx_card_actions_member
+                ON card_actions(member_id, position);
+
+            CREATE TABLE IF NOT EXISTS feelings (
+                id TEXT PRIMARY KEY,
+                member_id TEXT NOT NULL REFERENCES members(id),
+                emoji TEXT NOT NULL,
+                word TEXT,
+                shared INTEGER NOT NULL DEFAULT 0,
+                ts INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_feelings_member_ts
+                ON feelings(member_id, ts);
+
+            CREATE TABLE IF NOT EXISTS bonds (
+                a_member_id TEXT NOT NULL REFERENCES members(id),
+                b_member_id TEXT NOT NULL REFERENCES members(id),
+                note TEXT,
+                PRIMARY KEY (a_member_id, b_member_id)
+            );
+        ",
+        kind: MigrationKind::Up,
     }];
 
     tauri::Builder::default()
