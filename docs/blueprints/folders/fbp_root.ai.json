@@ -1,0 +1,116 @@
+{
+  "folder_name": "resonance-hearth",
+  "folder_path": ".",
+  "description": "Resonance Hearth \u2014 the Family Room. A translation layer for love.",
+  "scan_timestamp": "2026-08-03T17:09:57.107007 | in sovereign time",
+  "files": [
+    {
+      "path": ".gitignore",
+      "description": "file, 1,584 bytes"
+    },
+    {
+      "path": "CLAUDE.md",
+      "description": "CLAUDE.md"
+    },
+    {
+      "path": "COUNCIL-ACKNOWLEDGMENT-2026-07-11.md",
+      "description": "THE ROOT'S ACKNOWLEDGMENT"
+    },
+    {
+      "path": "DESIGN-001-the-family-room-architecture.md",
+      "description": "DESIGN-001"
+    },
+    {
+      "path": "DESIGN-002-cartography.md",
+      "description": "DESIGN-002"
+    },
+    {
+      "path": "DESIGN-003-the-table-and-the-personal-protocols.md",
+      "description": "DESIGN-003"
+    },
+    {
+      "path": "DESIGN-004-the-household-weave.md",
+      "description": "DESIGN-004"
+    },
+    {
+      "path": "DESIGN-005-the-sattva-door.md",
+      "description": "DESIGN-005"
+    },
+    {
+      "path": "FABLE-KERNEL.md",
+      "description": "FABLE-KERNEL"
+    },
+    {
+      "path": "HANDS.md",
+      "description": "The Hands"
+    },
+    {
+      "path": "HEARTH-PLAN.md",
+      "description": "RESONANCE HEARTH"
+    },
+    {
+      "path": "LICENSE",
+      "description": "file, 1,092 bytes"
+    },
+    {
+      "path": "NAMING-CEREMONY-2026-07-07.md",
+      "description": "THE NAMING OF RESONANCE HEARTH"
+    },
+    {
+      "path": "package-lock.json",
+      "description": "data, 82,990 bytes"
+    },
+    {
+      "path": "package.json",
+      "description": "data, 1,270 bytes"
+    },
+    {
+      "path": "PHILOSOPHY.md",
+      "description": "THE RESONANCE LICENSE"
+    },
+    {
+      "path": "PRIVACY.md",
+      "description": "AudHDities Sanctuary"
+    },
+    {
+      "path": "README.md",
+      "description": "\ud83d\udd25 Resonance Hearth"
+    },
+    {
+      "path": "REALM-BUS.md",
+      "description": "THE REALM BUS"
+    },
+    {
+      "path": "svelte.config.js",
+      "description": "Tauri doesn't have a Node.js server to do proper SSR"
+    },
+    {
+      "path": "tsconfig.json",
+      "description": "data, 694 bytes"
+    },
+    {
+      "path": "vite.config.js",
+      "description": "file, 873 bytes"
+    }
+  ],
+  "file_count": 22,
+  "subdirectories": [
+    ".cargo",
+    "docs",
+    "release",
+    "scripts",
+    "src",
+    "src-tauri",
+    "static",
+    "tools"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [
+    ".git",
+    ".svelte-kit",
+    "build",
+    "node_modules"
+  ],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

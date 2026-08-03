@@ -1,0 +1,34 @@
+{
+  "folder_name": "sattva",
+  "folder_path": "src/routes/sattva",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.163696 | in sovereign time",
+  "files": [
+    {
+      "path": "src/routes/sattva/+page.svelte",
+      "description": "surface, 8,746 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 223,
+      "uses_runes": [
+        "$derived",
+        "$state"
+      ],
+      "imports": [
+        "$lib/stores/hearth.svelte",
+        "svelte",
+        "the-breath"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

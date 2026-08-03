@@ -1,0 +1,42 @@
+{
+  "folder_name": "release",
+  "folder_path": "release",
+  "description": "7 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.113693 | in sovereign time",
+  "files": [
+    {
+      "path": "release/Resonance Hearth_0.1.1_x64_en-US.msi",
+      "description": "file, 14,934,016 bytes"
+    },
+    {
+      "path": "release/resonance-hearth-v0.1.0.aab",
+      "description": "file, 61,760,158 bytes"
+    },
+    {
+      "path": "release/resonance-hearth-v0.1.0.apk",
+      "description": "file, 81,909,703 bytes"
+    },
+    {
+      "path": "release/resonance-hearth-v0.1.0.apk.idsig",
+      "description": "file, 658,030 bytes"
+    },
+    {
+      "path": "release/resonance-hearth-v0.1.1.aab",
+      "description": "file, 61,532,666 bytes"
+    },
+    {
+      "path": "release/resonance-hearth-v0.1.1.apk",
+      "description": "file, 81,692,615 bytes"
+    },
+    {
+      "path": "release/resonance-hearth-v0.1.1.apk.idsig",
+      "description": "file, 653,934 bytes"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

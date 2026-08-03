@@ -1,0 +1,15 @@
+{
+  "report": "declared versus present",
+  "law": "Findings are REPORTED, never repaired. A PROTECTED BOUNDARY is never negotiable.",
+  "checked_against": [
+    "CLAUDE.md PROTECTED BOUNDARIES",
+    "THE SENSORY LAW",
+    "PRIVACY (license \u00a77)",
+    "Android capabilities"
+  ],
+  "total_findings": 0,
+  "by_kind": {},
+  "findings": [],
+  "note": "Zero findings is a real result, not an empty section.",
+  "scan_timestamp": "2026-08-03T17:09:59.357297 | in sovereign time"
+}

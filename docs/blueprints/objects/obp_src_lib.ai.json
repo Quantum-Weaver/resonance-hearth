@@ -1,0 +1,96 @@
+{
+  "object_name": "src_lib",
+  "object_path": "src/lib",
+  "description": "the store, the components, the boundaries in data",
+  "integration_timestamp": "2026-08-03T17:09:57.205698 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib.ai.json",
+      "folder_path": "src/lib",
+      "description": "the store, the components, the boundaries in data",
+      "file_count": 0,
+      "subdirectory_count": 9
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_components.ai.json",
+      "folder_path": "src/lib/components",
+      "description": "8 files, 1 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_components_icons.ai.json",
+      "folder_path": "src/lib/components/icons",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_cosmic.ai.json",
+      "folder_path": "src/lib/cosmic",
+      "description": "11 files, 0 subfolders",
+      "file_count": 11,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_data.ai.json",
+      "folder_path": "src/lib/data",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_sky.ai.json",
+      "folder_path": "src/lib/sky",
+      "description": "2 files, 0 subfolders",
+      "file_count": 2,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_stores.ai.json",
+      "folder_path": "src/lib/stores",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_styles.ai.json",
+      "folder_path": "src/lib/styles",
+      "description": "1 files, 1 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_styles_generated.ai.json",
+      "folder_path": "src/lib/styles/generated",
+      "description": "21 files, 0 subfolders",
+      "file_count": 21,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_temporal.ai.json",
+      "folder_path": "src/lib/temporal",
+      "description": "2 files, 0 subfolders",
+      "file_count": 2,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_theme.ai.json",
+      "folder_path": "src/lib/theme",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_lib_types.ai.json",
+      "folder_path": "src/lib/types",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 12,
+  "total_files": 61,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only."
+}

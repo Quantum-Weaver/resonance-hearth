@@ -1,0 +1,25 @@
+{
+  "folder_name": "src",
+  "folder_path": "src",
+  "description": "the frontend \u2014 the family room's surfaces, store and boundaries",
+  "scan_timestamp": "2026-08-03T17:09:57.116375 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app.css",
+      "description": "stylesheet, 3,957 bytes"
+    },
+    {
+      "path": "src/app.html",
+      "description": "file, 703 bytes"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/lib",
+    "src/routes"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

@@ -1,0 +1,165 @@
+{
+  "folder_name": "components",
+  "folder_path": "src/lib/components",
+  "description": "8 files, 1 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.123211 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/components/CelebrationLine.svelte",
+      "description": "surface, 1,140 bytes"
+    },
+    {
+      "path": "src/lib/components/ComfortBar.svelte",
+      "description": "surface, 5,411 bytes"
+    },
+    {
+      "path": "src/lib/components/EmojiPicker.svelte",
+      "description": "surface, 4,485 bytes"
+    },
+    {
+      "path": "src/lib/components/EntityCard.svelte",
+      "description": "surface, 13,683 bytes"
+    },
+    {
+      "path": "src/lib/components/GradientPulse.svelte",
+      "description": "surface, 1,005 bytes"
+    },
+    {
+      "path": "src/lib/components/Sidebar.svelte",
+      "description": "surface, 4,984 bytes"
+    },
+    {
+      "path": "src/lib/components/SignalDot.svelte",
+      "description": "surface, 1,909 bytes"
+    },
+    {
+      "path": "src/lib/components/SpoonPicker.svelte",
+      "description": "surface, 2,613 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [
+    "src/lib/components/icons"
+  ],
+  "code_analysis": {
+    "CelebrationLine.svelte": {
+      "language": "svelte",
+      "lines": 44,
+      "uses_runes": [
+        "$effect",
+        "$props",
+        "$state"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "ComfortBar.svelte": {
+      "language": "svelte",
+      "lines": 217,
+      "uses_runes": [
+        "$derived",
+        "$effect",
+        "$state"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$app/state",
+        "$lib/stores/hearth.svelte",
+        "$lib/stores/ui.svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "EmojiPicker.svelte": {
+      "language": "svelte",
+      "lines": 156,
+      "uses_runes": [
+        "$derived",
+        "$props",
+        "$state"
+      ],
+      "imports": [
+        "$lib/data/emojis.gen"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "EntityCard.svelte": {
+      "language": "svelte",
+      "lines": 335,
+      "uses_runes": [
+        "$derived",
+        "$props",
+        "$state"
+      ],
+      "imports": [
+        "$lib/components/EmojiPicker.svelte",
+        "$lib/data/cardColor",
+        "$lib/data/hearth",
+        "$lib/stores/hearth.svelte",
+        "$lib/types/types"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "GradientPulse.svelte": {
+      "language": "svelte",
+      "lines": 55,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [
+        "svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "Sidebar.svelte": {
+      "language": "svelte",
+      "lines": 199,
+      "uses_runes": [
+        "$effect",
+        "$state"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$app/state",
+        "$lib/components/icons/Icons.svelte",
+        "$lib/stores/ui.svelte",
+        "svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "SignalDot.svelte": {
+      "language": "svelte",
+      "lines": 82,
+      "uses_runes": [
+        "$derived",
+        "$props"
+      ],
+      "imports": [
+        "$lib/data/hearth",
+        "$lib/types/types"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "SpoonPicker.svelte": {
+      "language": "svelte",
+      "lines": 103,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [
+        "$lib/data/hearth"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

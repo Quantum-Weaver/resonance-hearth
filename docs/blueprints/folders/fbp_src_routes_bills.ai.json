@@ -1,0 +1,33 @@
+{
+  "folder_name": "bills",
+  "folder_path": "src/routes/bills",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.157981 | in sovereign time",
+  "files": [
+    {
+      "path": "src/routes/bills/+page.svelte",
+      "description": "surface, 7,102 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 168,
+      "uses_runes": [
+        "$derived",
+        "$state"
+      ],
+      "imports": [
+        "$lib/components/CelebrationLine.svelte",
+        "$lib/stores/hearth.svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

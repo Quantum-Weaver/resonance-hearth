@@ -1,0 +1,23 @@
+{
+  "folder_name": "lib",
+  "folder_path": "src/lib",
+  "description": "the store, the components, the boundaries in data",
+  "scan_timestamp": "2026-08-03T17:09:57.118125 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/lib/components",
+    "src/lib/cosmic",
+    "src/lib/data",
+    "src/lib/sky",
+    "src/lib/stores",
+    "src/lib/styles",
+    "src/lib/temporal",
+    "src/lib/theme",
+    "src/lib/types"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

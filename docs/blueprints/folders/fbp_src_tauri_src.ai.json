@@ -1,0 +1,52 @@
+{
+  "folder_name": "src",
+  "folder_path": "src-tauri/src",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.191153 | in sovereign time",
+  "files": [
+    {
+      "path": "src-tauri/src/lib.rs",
+      "description": "rust, 11,392 bytes"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "description": "Prevents additional console window on Windows in release, DO NOT REMOVE!!"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "lib.rs": {
+      "language": "rust",
+      "lines": 245,
+      "tables_created": [
+        "members",
+        "spoon_logs",
+        "signals",
+        "things",
+        "dones",
+        "meds",
+        "med_takes",
+        "overwhelm_events",
+        "settings",
+        "protocols",
+        "card_actions",
+        "feelings",
+        "bonds",
+        "emoji_meanings"
+      ],
+      "sql_default_count": 22,
+      "non_ascii_defaults": []
+    },
+    "main.rs": {
+      "language": "rust",
+      "lines": 7,
+      "tables_created": [],
+      "sql_default_count": 0,
+      "non_ascii_defaults": []
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

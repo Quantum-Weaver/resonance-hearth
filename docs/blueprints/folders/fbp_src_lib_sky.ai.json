@@ -1,0 +1,51 @@
+{
+  "folder_name": "sky",
+  "folder_path": "src/lib/sky",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.140340 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/sky/index.ts",
+      "description": "The sky organs"
+    },
+    {
+      "path": "src/lib/sky/README.md",
+      "description": "the sky organs"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "index.ts": {
+      "language": "typescript",
+      "lines": 227,
+      "exported_functions": [
+        "julianDay",
+        "moonPhase",
+        "equinoxSolstice",
+        "wheelOfYear",
+        "season",
+        "planets",
+        "meetings",
+        "readSky"
+      ],
+      "exported_consts": [
+        "MOON_PHASES",
+        "MOON_EMOJI",
+        "ZODIAC_SIGNS"
+      ],
+      "types": [
+        "MoonReading",
+        "WheelSpoke",
+        "SeasonReading",
+        "PlanetReading",
+        "Meeting",
+        "SkyReading"
+      ],
+      "imports": []
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

@@ -1,0 +1,93 @@
+{
+  "folder_name": "icons",
+  "folder_path": "src-tauri/icons",
+  "description": "19 files, 2 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.173799 | in sovereign time",
+  "files": [
+    {
+      "path": "src-tauri/icons/128x128.png",
+      "description": "image, 24,730 bytes"
+    },
+    {
+      "path": "src-tauri/icons/128x128@2x.png",
+      "description": "image, 79,955 bytes"
+    },
+    {
+      "path": "src-tauri/icons/32x32.png",
+      "description": "image, 2,378 bytes"
+    },
+    {
+      "path": "src-tauri/icons/64x64.png",
+      "description": "image, 7,722 bytes"
+    },
+    {
+      "path": "src-tauri/icons/icon.icns",
+      "description": "file, 1,668,332 bytes"
+    },
+    {
+      "path": "src-tauri/icons/icon.ico",
+      "description": "file, 97,335 bytes"
+    },
+    {
+      "path": "src-tauri/icons/icon.png",
+      "description": "image, 265,539 bytes"
+    },
+    {
+      "path": "src-tauri/icons/resonance-echoes-icon.png",
+      "description": "image, 758,901 bytes"
+    },
+    {
+      "path": "src-tauri/icons/source.png",
+      "description": "image, 53,185 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square107x107Logo.png",
+      "description": "image, 18,338 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square142x142Logo.png",
+      "description": "image, 29,421 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square150x150Logo.png",
+      "description": "image, 32,408 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square284x284Logo.png",
+      "description": "image, 95,755 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square30x30Logo.png",
+      "description": "image, 2,164 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square310x310Logo.png",
+      "description": "image, 111,253 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square44x44Logo.png",
+      "description": "image, 4,083 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square71x71Logo.png",
+      "description": "image, 9,244 bytes"
+    },
+    {
+      "path": "src-tauri/icons/Square89x89Logo.png",
+      "description": "image, 13,491 bytes"
+    },
+    {
+      "path": "src-tauri/icons/StoreLogo.png",
+      "description": "image, 5,100 bytes"
+    }
+  ],
+  "file_count": 19,
+  "subdirectories": [
+    "src-tauri/icons/android",
+    "src-tauri/icons/ios"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

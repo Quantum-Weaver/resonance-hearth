@@ -1,0 +1,68 @@
+{
+  "object_name": "src_routes",
+  "object_path": "src/routes",
+  "description": "the surfaces \u2014 dashboard, me, things, care, bills, sattva",
+  "integration_timestamp": "2026-08-03T17:09:57.207552 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes.ai.json",
+      "folder_path": "src/routes",
+      "description": "the surfaces \u2014 dashboard, me, things, care, bills, sattva",
+      "file_count": 3,
+      "subdirectory_count": 7
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_bills.ai.json",
+      "folder_path": "src/routes/bills",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_care.ai.json",
+      "folder_path": "src/routes/care",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_me.ai.json",
+      "folder_path": "src/routes/me",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_onboarding.ai.json",
+      "folder_path": "src/routes/onboarding",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_sattva.ai.json",
+      "folder_path": "src/routes/sattva",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_settings.ai.json",
+      "folder_path": "src/routes/settings",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_routes_things.ai.json",
+      "folder_path": "src/routes/things",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 8,
+  "total_files": 10,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only."
+}

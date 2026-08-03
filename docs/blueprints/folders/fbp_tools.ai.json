@@ -1,0 +1,22 @@
+{
+  "folder_name": "tools",
+  "folder_path": "tools",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.203303 | in sovereign time",
+  "files": [
+    {
+      "path": "tools/blueprint_forge.py",
+      "description": "file, 31,686 bytes"
+    },
+    {
+      "path": "tools/journal.md",
+      "description": "blueprint-forge journal"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

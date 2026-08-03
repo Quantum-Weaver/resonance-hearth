@@ -1,0 +1,52 @@
+{
+  "folder_name": "docs",
+  "folder_path": "docs",
+  "description": "the voiced documents \u2014 checklist, feature board, audits, briefs",
+  "scan_timestamp": "2026-08-03T17:09:57.112015 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/AUDIT-001-echo-consistency.md",
+      "description": "AUDIT-001"
+    },
+    {
+      "path": "docs/CHECKLIST.md",
+      "description": "RESONANCE HEARTH"
+    },
+    {
+      "path": "docs/CONTRIBUTING.md",
+      "description": "CONTRIBUTING"
+    },
+    {
+      "path": "docs/FEATURE-BOARD.md",
+      "description": "HEARTH"
+    },
+    {
+      "path": "docs/GALAXY-LISTING.md",
+      "description": "Hearth"
+    },
+    {
+      "path": "docs/RESONANCE-GRAMMAR.md",
+      "description": "THE RESONANCE GRAMMAR"
+    },
+    {
+      "path": "docs/SCOPE-NOTE.md",
+      "description": "Scope Note"
+    },
+    {
+      "path": "docs/SPIKE-001-the-weave-handshake.md",
+      "description": "SPIKE-001"
+    },
+    {
+      "path": "docs/THE-TABLE-BUILD-BRIEF.md",
+      "description": "THE TABLE"
+    }
+  ],
+  "file_count": 9,
+  "subdirectories": [
+    "docs/blueprints"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

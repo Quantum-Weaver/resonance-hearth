@@ -1,0 +1,101 @@
+{
+  "project_name": "resonance-hearth",
+  "project_path": ".",
+  "description": "Resonance Hearth - the Family Room. A translation layer for love: household care for neurodivergent families.",
+  "generated": "2026-08-03T17:09:59.358734 | in sovereign time",
+  "tier_ladder": "file -> folder (fbp) -> object (obp) -> domain (dbp) -> project (pbp)",
+  "law": "Each tier links to where the details live. Nothing above the folder tier duplicates a body.",
+  "domains": [
+    {
+      "blueprint": "docs/blueprints/dbp_src.ai.json",
+      "domain_path": "src",
+      "description": "the frontend \u2014 the family room's surfaces, store and boundaries",
+      "object_count": 2,
+      "total_files": 73,
+      "total_folders": 21
+    },
+    {
+      "blueprint": "docs/blueprints/dbp_src_tauri.ai.json",
+      "domain_path": "src-tauri",
+      "description": "the backend \u2014 hearth.db migrations, boundary notes inline",
+      "object_count": 1,
+      "total_files": 63,
+      "total_folders": 14
+    }
+  ],
+  "domain_count": 2,
+  "folders_reporting_directly": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_root.ai.json",
+      "folder_path": ".",
+      "description": "Resonance Hearth \u2014 the Family Room. A translation layer for love.",
+      "file_count": 22,
+      "subdirectory_count": 8
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_cargo.ai.json",
+      "folder_path": ".cargo",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_docs.ai.json",
+      "folder_path": "docs",
+      "description": "the voiced documents \u2014 checklist, feature board, audits, briefs",
+      "file_count": 9,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_release.ai.json",
+      "folder_path": "release",
+      "description": "7 files, 0 subfolders",
+      "file_count": 7,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_scripts.ai.json",
+      "folder_path": "scripts",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_static.ai.json",
+      "folder_path": "static",
+      "description": "12 files, 0 subfolders",
+      "file_count": 12,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_tools.ai.json",
+      "folder_path": "tools",
+      "description": "2 files, 0 subfolders",
+      "file_count": 2,
+      "subdirectory_count": 0
+    }
+  ],
+  "analysis": [
+    {
+      "blueprint": "docs/blueprints/analysis_surfaces.ai.json",
+      "description": "the surfaces \u2014 every screen the household reaches"
+    },
+    {
+      "blueprint": "docs/blueprints/analysis_boundaries.ai.json",
+      "description": "Hearth's PROTECTED BOUNDARIES and SENSORY LAW, tested"
+    },
+    {
+      "blueprint": "docs/blueprints/reconciliation.ai.json",
+      "description": "declared versus present - 0 findings"
+    }
+  ],
+  "the_app": {
+    "surfaces": 8,
+    "boundaries_all_passing": true
+  },
+  "totals": {
+    "folders_blueprinted": 42,
+    "files_described": 190
+  },
+  "maintaining_agent": "ProjectAgent"
+}

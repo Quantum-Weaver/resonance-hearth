@@ -1,0 +1,136 @@
+{
+  "folder_name": "icons",
+  "folder_path": "src/lib/components/icons",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.126936 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/components/icons/IconBills.svelte",
+      "description": "surface, 420 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/IconCare.svelte",
+      "description": "surface, 428 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/IconHome.svelte",
+      "description": "surface, 374 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/IconInsights.svelte",
+      "description": "surface, 539 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/IconMe.svelte",
+      "description": "surface, 375 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/Icons.svelte",
+      "description": "surface, 953 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/IconSettings.svelte",
+      "description": "surface, 963 bytes"
+    },
+    {
+      "path": "src/lib/components/icons/IconThings.svelte",
+      "description": "surface, 423 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "IconBills.svelte": {
+      "language": "svelte",
+      "lines": 9,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "IconCare.svelte": {
+      "language": "svelte",
+      "lines": 7,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "IconHome.svelte": {
+      "language": "svelte",
+      "lines": 7,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "IconInsights.svelte": {
+      "language": "svelte",
+      "lines": 10,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "IconMe.svelte": {
+      "language": "svelte",
+      "lines": 8,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "Icons.svelte": {
+      "language": "svelte",
+      "lines": 45,
+      "uses_runes": [
+        "$derived",
+        "$props"
+      ],
+      "imports": [
+        "./IconBills.svelte",
+        "./IconCare.svelte",
+        "./IconHome.svelte",
+        "./IconInsights.svelte",
+        "./IconMe.svelte",
+        "./IconSettings.svelte",
+        "./IconThings.svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "IconSettings.svelte": {
+      "language": "svelte",
+      "lines": 8,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    },
+    "IconThings.svelte": {
+      "language": "svelte",
+      "lines": 8,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

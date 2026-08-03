@@ -1,0 +1,67 @@
+{
+  "folder_name": "stores",
+  "folder_path": "src/lib/stores",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.142823 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/stores/hearth.svelte.ts",
+      "description": "typescript, 31,565 bytes"
+    },
+    {
+      "path": "src/lib/stores/theme.svelte.ts",
+      "description": "typescript, 1,120 bytes"
+    },
+    {
+      "path": "src/lib/stores/ui.svelte.ts",
+      "description": "Cross-component UI signals that don't belong to any domain store."
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "hearth.svelte.ts": {
+      "language": "typescript",
+      "lines": 832,
+      "exported_functions": [],
+      "exported_consts": [
+        "hearthStore"
+      ],
+      "types": [],
+      "imports": [
+        "$app/environment",
+        "$lib/data/hearth",
+        "$lib/types/types",
+        "../../../package.json",
+        "@tauri-apps/plugin-sql",
+        "the-envelope"
+      ]
+    },
+    "theme.svelte.ts": {
+      "language": "typescript",
+      "lines": 45,
+      "exported_functions": [],
+      "exported_consts": [
+        "themeStore"
+      ],
+      "types": [],
+      "imports": [
+        "$lib/theme/theme",
+        "$lib/types/types"
+      ]
+    },
+    "ui.svelte.ts": {
+      "language": "typescript",
+      "lines": 12,
+      "exported_functions": [],
+      "exported_consts": [
+        "uiStore"
+      ],
+      "types": [],
+      "imports": []
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

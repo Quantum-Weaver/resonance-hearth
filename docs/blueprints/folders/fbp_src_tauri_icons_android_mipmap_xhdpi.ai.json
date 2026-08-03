@@ -1,0 +1,26 @@
+{
+  "folder_name": "mipmap-xhdpi",
+  "folder_path": "src-tauri/icons/android/mipmap-xhdpi",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.181349 | in sovereign time",
+  "files": [
+    {
+      "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher.png",
+      "description": "image, 11,123 bytes"
+    },
+    {
+      "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_foreground.png",
+      "description": "image, 63,040 bytes"
+    },
+    {
+      "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_round.png",
+      "description": "image, 13,019 bytes"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

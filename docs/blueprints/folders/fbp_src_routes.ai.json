@@ -1,0 +1,84 @@
+{
+  "folder_name": "routes",
+  "folder_path": "src/routes",
+  "description": "the surfaces \u2014 dashboard, me, things, care, bills, sattva",
+  "scan_timestamp": "2026-08-03T17:09:57.156430 | in sovereign time",
+  "files": [
+    {
+      "path": "src/routes/+layout.svelte",
+      "description": "surface, 2,913 bytes"
+    },
+    {
+      "path": "src/routes/+layout.ts",
+      "description": "Tauri doesn't have a Node.js server to do proper SSR"
+    },
+    {
+      "path": "src/routes/+page.svelte",
+      "description": "surface, 9,342 bytes"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [
+    "src/routes/bills",
+    "src/routes/care",
+    "src/routes/me",
+    "src/routes/onboarding",
+    "src/routes/sattva",
+    "src/routes/settings",
+    "src/routes/things"
+  ],
+  "code_analysis": {
+    "+layout.svelte": {
+      "language": "svelte",
+      "lines": 109,
+      "uses_runes": [
+        "$derived",
+        "$effect",
+        "$props"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$app/state",
+        "$lib/components/ComfortBar.svelte",
+        "$lib/components/Sidebar.svelte",
+        "$lib/stores/hearth.svelte",
+        "$lib/stores/theme.svelte",
+        "$lib/theme/theme",
+        "svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": true
+    },
+    "+layout.ts": {
+      "language": "typescript",
+      "lines": 6,
+      "exported_functions": [],
+      "exported_consts": [
+        "ssr"
+      ],
+      "types": [],
+      "imports": []
+    },
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 235,
+      "uses_runes": [
+        "$derived",
+        "$state"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$lib/components/CelebrationLine.svelte",
+        "$lib/components/EntityCard.svelte",
+        "$lib/data/hearth",
+        "$lib/sky",
+        "$lib/stores/hearth.svelte"
+      ],
+      "uses_window_location": false,
+      "honors_reduced_motion": false
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

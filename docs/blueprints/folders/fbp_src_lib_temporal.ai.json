@@ -1,0 +1,42 @@
+{
+  "folder_name": "temporal",
+  "folder_path": "src/lib/temporal",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:09:57.151152 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/temporal/index.ts",
+      "description": "The temporal core"
+    },
+    {
+      "path": "src/lib/temporal/README.md",
+      "description": "the temporal core"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "index.ts": {
+      "language": "typescript",
+      "lines": 84,
+      "exported_functions": [
+        "readWindow",
+        "freshTake",
+        "describeWindow"
+      ],
+      "exported_consts": [
+        "HOURS",
+        "DAYS"
+      ],
+      "types": [
+        "WindowState",
+        "TemporalWindow",
+        "TemporalReading"
+      ],
+      "imports": []
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}
