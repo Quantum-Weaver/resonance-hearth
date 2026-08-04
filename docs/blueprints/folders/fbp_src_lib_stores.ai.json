@@ -2,7 +2,7 @@
   "folder_name": "stores",
   "folder_path": "src/lib/stores",
   "description": "3 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.142823 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.920791 | in sovereign time",
   "files": [
     {
       "path": "src/lib/stores/hearth.svelte.ts",
@@ -14,7 +14,7 @@
     },
     {
       "path": "src/lib/stores/ui.svelte.ts",
-      "description": "Cross-component UI signals that don't belong to any domain store."
+      "description": "Cross-component UI signals that don't belong to any domain store"
     }
   ],
   "file_count": 3,
@@ -27,15 +27,12 @@
       "exported_consts": [
         "hearthStore"
       ],
+      "interfaces": [],
       "types": [],
-      "imports": [
-        "$app/environment",
-        "$lib/data/hearth",
-        "$lib/types/types",
-        "../../../package.json",
-        "@tauri-apps/plugin-sql",
-        "the-envelope"
-      ]
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     },
     "theme.svelte.ts": {
       "language": "typescript",
@@ -44,11 +41,12 @@
       "exported_consts": [
         "themeStore"
       ],
+      "interfaces": [],
       "types": [],
-      "imports": [
-        "$lib/theme/theme",
-        "$lib/types/types"
-      ]
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     },
     "ui.svelte.ts": {
       "language": "typescript",
@@ -57,11 +55,15 @@
       "exported_consts": [
         "uiStore"
       ],
+      "interfaces": [],
       "types": [],
-      "imports": []
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

@@ -2,7 +2,7 @@
   "folder_name": "types",
   "folder_path": "src/lib/types",
   "description": "1 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.153936 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.939509 | in sovereign time",
   "files": [
     {
       "path": "src/lib/types/types.ts",
@@ -17,31 +17,36 @@
       "lines": 173,
       "exported_functions": [],
       "exported_consts": [],
-      "types": [
+      "interfaces": [
         "ThemeConfig",
-        "MemberKind",
         "Member",
-        "CardActionKind",
         "CardAction",
         "EmojiMeaning",
         "Feeling",
-        "SignalState",
         "Signal",
         "SpoonLog",
-        "ThingSpecies",
         "Thing",
         "Done",
         "Med",
-        "MedTakeStatus",
         "MedTake",
         "OverwhelmEvent",
-        "TellScope",
         "Protocol"
       ],
-      "imports": []
+      "types": [
+        "MemberKind",
+        "CardActionKind",
+        "SignalState",
+        "ThingSpecies",
+        "MedTakeStatus",
+        "TellScope"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

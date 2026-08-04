@@ -1,8 +1,8 @@
 {
   "folder_name": "routes",
   "folder_path": "src/routes",
-  "description": "the surfaces \u2014 dashboard, me, things, care, bills, sattva",
-  "scan_timestamp": "2026-08-03T17:09:57.156430 | in sovereign time",
+  "description": "3 files, 7 subfolders",
+  "scan_timestamp": "2026-08-04T11:09:37.943611 | in sovereign time",
   "files": [
     {
       "path": "src/routes/+layout.svelte",
@@ -36,18 +36,8 @@
         "$effect",
         "$props"
       ],
-      "imports": [
-        "$app/navigation",
-        "$app/state",
-        "$lib/components/ComfortBar.svelte",
-        "$lib/components/Sidebar.svelte",
-        "$lib/stores/hearth.svelte",
-        "$lib/stores/theme.svelte",
-        "$lib/theme/theme",
-        "svelte"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "+layout.ts": {
       "language": "typescript",
@@ -56,8 +46,12 @@
       "exported_consts": [
         "ssr"
       ],
+      "interfaces": [],
       "types": [],
-      "imports": []
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     },
     "+page.svelte": {
       "language": "svelte",
@@ -66,19 +60,11 @@
         "$derived",
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$lib/components/CelebrationLine.svelte",
-        "$lib/components/EntityCard.svelte",
-        "$lib/data/hearth",
-        "$lib/sky",
-        "$lib/stores/hearth.svelte"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": true
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

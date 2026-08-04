@@ -1,13 +1,13 @@
 {
   "object_name": "src_routes",
   "object_path": "src/routes",
-  "description": "the surfaces \u2014 dashboard, me, things, care, bills, sattva",
-  "integration_timestamp": "2026-08-03T17:09:57.207552 | in sovereign time",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T11:09:37.997921 | in sovereign time",
   "folders": [
     {
       "blueprint": "docs/blueprints/folders/fbp_src_routes.ai.json",
       "folder_path": "src/routes",
-      "description": "the surfaces \u2014 dashboard, me, things, care, bills, sattva",
+      "description": "3 files, 7 subfolders",
       "file_count": 3,
       "subdirectory_count": 7
     },
@@ -64,5 +64,5 @@
   "folder_count": 8,
   "total_files": 10,
   "maintaining_agent": "ObjectAgent",
-  "note": "Links only."
+  "note": "Links only. Every folder's details live at its own address."
 }

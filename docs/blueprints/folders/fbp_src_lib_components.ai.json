@@ -2,7 +2,7 @@
   "folder_name": "components",
   "folder_path": "src/lib/components",
   "description": "8 files, 1 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.123211 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.887694 | in sovereign time",
   "files": [
     {
       "path": "src/lib/components/CelebrationLine.svelte",
@@ -50,9 +50,8 @@
         "$props",
         "$state"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "ComfortBar.svelte": {
       "language": "svelte",
@@ -62,14 +61,8 @@
         "$effect",
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$app/state",
-        "$lib/stores/hearth.svelte",
-        "$lib/stores/ui.svelte"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "EmojiPicker.svelte": {
       "language": "svelte",
@@ -79,11 +72,8 @@
         "$props",
         "$state"
       ],
-      "imports": [
-        "$lib/data/emojis.gen"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "EntityCard.svelte": {
       "language": "svelte",
@@ -93,15 +83,8 @@
         "$props",
         "$state"
       ],
-      "imports": [
-        "$lib/components/EmojiPicker.svelte",
-        "$lib/data/cardColor",
-        "$lib/data/hearth",
-        "$lib/stores/hearth.svelte",
-        "$lib/types/types"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "GradientPulse.svelte": {
       "language": "svelte",
@@ -109,11 +92,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [
-        "svelte"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "Sidebar.svelte": {
       "language": "svelte",
@@ -122,15 +102,8 @@
         "$effect",
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$app/state",
-        "$lib/components/icons/Icons.svelte",
-        "$lib/stores/ui.svelte",
-        "svelte"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "SignalDot.svelte": {
       "language": "svelte",
@@ -139,12 +112,8 @@
         "$derived",
         "$props"
       ],
-      "imports": [
-        "$lib/data/hearth",
-        "$lib/types/types"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": true
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "SpoonPicker.svelte": {
       "language": "svelte",
@@ -152,14 +121,11 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [
-        "$lib/data/hearth"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": true
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

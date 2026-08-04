@@ -2,7 +2,7 @@
   "folder_name": "release",
   "folder_path": "release",
   "description": "7 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.113693 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.876140 | in sovereign time",
   "files": [
     {
       "path": "release/Resonance Hearth_0.1.1_x64_en-US.msi",
@@ -36,7 +36,7 @@
   "file_count": 7,
   "subdirectories": [],
   "code_analysis": {},
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

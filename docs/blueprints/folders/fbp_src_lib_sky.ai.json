@@ -1,8 +1,8 @@
 {
   "folder_name": "sky",
   "folder_path": "src/lib/sky",
-  "description": "2 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.140340 | in sovereign time",
+  "description": "moon-phases \u00b7 ancient-holidays \u00b7 planets-alignment",
+  "scan_timestamp": "2026-08-04T11:09:37.917584 | in sovereign time",
   "files": [
     {
       "path": "src/lib/sky/index.ts",
@@ -34,7 +34,7 @@
         "MOON_EMOJI",
         "ZODIAC_SIGNS"
       ],
-      "types": [
+      "interfaces": [
         "MoonReading",
         "WheelSpoke",
         "SeasonReading",
@@ -42,10 +42,34 @@
         "Meeting",
         "SkyReading"
       ],
-      "imports": []
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "README.md": {
+      "language": "markdown",
+      "lines": 31,
+      "words": 154,
+      "heading_count": 1,
+      "headings": [
+        "the sky organs"
+      ],
+      "links_external": 0,
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "code_fences": 1,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

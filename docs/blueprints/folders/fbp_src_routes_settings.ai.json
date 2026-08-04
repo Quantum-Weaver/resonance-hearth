@@ -2,7 +2,7 @@
   "folder_name": "settings",
   "folder_path": "src/routes/settings",
   "description": "1 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.164982 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.952350 | in sovereign time",
   "files": [
     {
       "path": "src/routes/settings/+page.svelte",
@@ -19,21 +19,11 @@
         "$derived",
         "$state"
       ],
-      "imports": [
-        "$lib/components/EmojiPicker.svelte",
-        "$lib/components/EntityCard.svelte",
-        "$lib/stores/hearth.svelte",
-        "$lib/stores/theme.svelte",
-        "$lib/theme/theme",
-        "@tauri-apps/plugin-dialog",
-        "@tauri-apps/plugin-fs",
-        "the-envelope"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": true
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

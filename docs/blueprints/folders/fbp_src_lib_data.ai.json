@@ -2,7 +2,7 @@
   "folder_name": "data",
   "folder_path": "src/lib/data",
   "description": "3 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.138480 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.915316 | in sovereign time",
   "files": [
     {
       "path": "src/lib/data/cardColor.ts",
@@ -37,14 +37,15 @@
         "DEFAULT_APPROACH",
         "DEFAULT_BASE"
       ],
-      "types": [
+      "interfaces": [
         "ActionUrgency",
         "CardFace"
       ],
-      "imports": [
-        "$lib/temporal",
-        "$lib/types/types"
-      ]
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     },
     "emojis.gen.ts": {
       "language": "typescript",
@@ -54,10 +55,14 @@
         "EMOJI_GROUPS",
         "EMOJI_COUNT"
       ],
-      "types": [
+      "interfaces": [
         "EmojiEntry"
       ],
-      "imports": []
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     },
     "hearth.ts": {
       "language": "typescript",
@@ -75,16 +80,18 @@
         "SUGGESTED_NEEDS",
         "SPOON_LABELS"
       ],
-      "types": [
+      "interfaces": [
         "SignalDef",
         "SpeciesDef"
       ],
-      "imports": [
-        "$lib/types/types"
-      ]
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

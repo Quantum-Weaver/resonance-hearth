@@ -1,8 +1,8 @@
 {
   "folder_name": "temporal",
   "folder_path": "src/lib/temporal",
-  "description": "2 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.151152 | in sovereign time",
+  "description": "One primitive for everything measured by time: a start moment + a",
+  "scan_timestamp": "2026-08-04T11:09:37.936267 | in sovereign time",
   "files": [
     {
       "path": "src/lib/temporal/index.ts",
@@ -28,15 +28,40 @@
         "HOURS",
         "DAYS"
       ],
-      "types": [
-        "WindowState",
+      "interfaces": [
         "TemporalWindow",
         "TemporalReading"
       ],
-      "imports": []
+      "types": [
+        "WindowState"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "README.md": {
+      "language": "markdown",
+      "lines": 32,
+      "words": 182,
+      "heading_count": 1,
+      "headings": [
+        "the temporal core"
+      ],
+      "links_external": 0,
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "code_fences": 1,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

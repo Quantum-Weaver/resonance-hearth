@@ -2,7 +2,7 @@
   "folder_name": "icons",
   "folder_path": "src/lib/components/icons",
   "description": "8 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:09:57.126936 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:37.891985 | in sovereign time",
   "files": [
     {
       "path": "src/lib/components/icons/IconBills.svelte",
@@ -46,9 +46,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "IconCare.svelte": {
       "language": "svelte",
@@ -56,9 +55,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "IconHome.svelte": {
       "language": "svelte",
@@ -66,9 +64,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "IconInsights.svelte": {
       "language": "svelte",
@@ -76,9 +73,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "IconMe.svelte": {
       "language": "svelte",
@@ -86,9 +82,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "Icons.svelte": {
       "language": "svelte",
@@ -97,17 +92,8 @@
         "$derived",
         "$props"
       ],
-      "imports": [
-        "./IconBills.svelte",
-        "./IconCare.svelte",
-        "./IconHome.svelte",
-        "./IconInsights.svelte",
-        "./IconMe.svelte",
-        "./IconSettings.svelte",
-        "./IconThings.svelte"
-      ],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "IconSettings.svelte": {
       "language": "svelte",
@@ -115,9 +101,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     },
     "IconThings.svelte": {
       "language": "svelte",
@@ -125,12 +110,11 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [],
-      "uses_window_location": false,
-      "honors_reduced_motion": false
+      "fetch_calls": [],
+      "has_style_block": false
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }
