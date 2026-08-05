@@ -2,7 +2,7 @@
   "folder_name": "docs",
   "folder_path": "docs",
   "description": "9 files, 0 subfolders",
-  "scan_timestamp": "2026-08-04T11:09:37.871936 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.221244 | in sovereign time",
   "files": [
     {
       "path": "docs/AUDIT-001-echo-consistency.md",
@@ -57,8 +57,10 @@
         "Verdict"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -91,8 +93,10 @@
         "SESSION LOG"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 20,
       "checkboxes": {
@@ -115,8 +119,10 @@
         "Philosophy"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -144,8 +150,10 @@
         "Riding alongside (not features)"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -172,8 +180,10 @@
         "Tags/keywords"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -209,8 +219,10 @@
         "10. GOVERNANCE"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 46,
       "checkboxes": {
@@ -236,8 +248,10 @@
         "Example"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -261,8 +275,10 @@
         "Exit criteria (either verdict is a success \u2014 spikes cannot fail)"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -286,8 +302,10 @@
         "What the fresh window does first"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {

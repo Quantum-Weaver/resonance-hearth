@@ -2,7 +2,7 @@
   "folder_name": "sattva",
   "folder_path": "src/routes/sattva",
   "description": "1 files, 0 subfolders",
-  "scan_timestamp": "2026-08-04T11:09:37.950948 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.900538 | in sovereign time",
   "files": [
     {
       "path": "src/routes/sattva/+page.svelte",

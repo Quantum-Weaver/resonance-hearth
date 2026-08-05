@@ -2,7 +2,7 @@
   "project_name": "resonance-hearth",
   "project_path": "C:\\_superposition\\resonance-hearth",
   "description": "The Family Room of the AudHDities Sanctuary",
-  "generated": "2026-08-04T11:09:38.028897 | in sovereign time",
+  "generated": "2026-08-04T19:12:45.054310 | in sovereign time",
   "tier_ladder": "file -> folder (fbp) -> object (obp) -> domain (dbp) -> project (pbp)",
   "law": "Each tier links to where the details live. Nothing above the folder tier duplicates a body.",
   "domains": [
@@ -103,6 +103,7 @@
       "dist",
       "env",
       "gen",
+      "mimirs-well",
       "node_modules",
       "out",
       "target",

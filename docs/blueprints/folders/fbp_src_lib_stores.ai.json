@@ -2,7 +2,7 @@
   "folder_name": "stores",
   "folder_path": "src/lib/stores",
   "description": "3 files, 0 subfolders",
-  "scan_timestamp": "2026-08-04T11:09:37.920791 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.664711 | in sovereign time",
   "files": [
     {
       "path": "src/lib/stores/hearth.svelte.ts",

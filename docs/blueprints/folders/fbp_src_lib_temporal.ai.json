@@ -2,7 +2,7 @@
   "folder_name": "temporal",
   "folder_path": "src/lib/temporal",
   "description": "One primitive for everything measured by time: a start moment + a",
-  "scan_timestamp": "2026-08-04T11:09:37.936267 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.776518 | in sovereign time",
   "files": [
     {
       "path": "src/lib/temporal/index.ts",
@@ -49,8 +49,10 @@
         "the temporal core"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 0,
       "checkboxes": {

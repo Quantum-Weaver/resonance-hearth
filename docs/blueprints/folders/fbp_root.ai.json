@@ -2,7 +2,7 @@
   "folder_name": "resonance-hearth",
   "folder_path": ".",
   "description": "The Family Room of the AudHDities Sanctuary",
-  "scan_timestamp": "2026-08-04T11:09:37.861624 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.123654 | in sovereign time",
   "files": [
     {
       "path": ".gitignore",
@@ -120,8 +120,10 @@
         "Project structure"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 0,
       "checkboxes": {
@@ -140,8 +142,10 @@
         "THE ROOT'S ACKNOWLEDGMENT \u2014 Resonance Hearth, First Build"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -173,8 +177,10 @@
         "The Chronicler's Note"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 5,
       "table_rows": 26,
       "checkboxes": {
@@ -203,8 +209,10 @@
         "What v1 (tonight's prototype) includes / excludes"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -227,8 +235,10 @@
         "4. Build order proposal (KP's call)"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -254,8 +264,10 @@
         "Amendment \u2014 the Handshake: proximity-gated pairwise pairing"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -279,8 +291,10 @@
         "Files touched"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -304,8 +318,10 @@
         "Dispatch notes"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -331,13 +347,16 @@
         "Opus (Claude) \u00b7 Haiku \u00b7 KIMI"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [
         {
           "target": "PHILOSOPHY.md",
-          "resolves": true
+          "resolves": true,
+          "outside_checkout": false
         }
       ],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -359,8 +378,10 @@
         "THE DEEPER VISION"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -382,8 +403,10 @@
         "July 7, 2026"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 2,
       "table_rows": 0,
       "checkboxes": {
@@ -447,8 +470,10 @@
         "ACKNOWLEDGMENT"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -477,8 +502,10 @@
         "Contact"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -505,21 +532,26 @@
         "The Hands"
       ],
       "links_external": 4,
+      "links_site_absolute": [],
       "links_internal": [
         {
           "target": "PHILOSOPHY.md",
-          "resolves": true
+          "resolves": true,
+          "outside_checkout": false
         },
         {
           "target": "LICENSE",
-          "resolves": true
+          "resolves": true,
+          "outside_checkout": false
         },
         {
           "target": "HANDS.md",
-          "resolves": true
+          "resolves": true,
+          "outside_checkout": false
         }
       ],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 2,
       "table_rows": 6,
       "checkboxes": {
@@ -543,8 +575,10 @@
         "FROM: hearth \u00b7 2026-07-31 \u2014 the mantle carried; the season is home"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {

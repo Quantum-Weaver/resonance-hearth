@@ -2,7 +2,7 @@
   "domain_name": "src",
   "domain_path": "src",
   "description": "0 files, 0 subfolders",
-  "integration_timestamp": "2026-08-04T11:09:38.004992 | in sovereign time",
+  "integration_timestamp": "2026-08-04T19:12:45.017871 | in sovereign time",
   "objects": [
     {
       "blueprint": "docs/blueprints/obp_src_lib.ai.json",

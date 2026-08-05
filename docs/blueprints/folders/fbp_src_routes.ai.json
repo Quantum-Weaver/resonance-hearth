@@ -2,7 +2,7 @@
   "folder_name": "routes",
   "folder_path": "src/routes",
   "description": "3 files, 7 subfolders",
-  "scan_timestamp": "2026-08-04T11:09:37.943611 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.827162 | in sovereign time",
   "files": [
     {
       "path": "src/routes/+layout.svelte",

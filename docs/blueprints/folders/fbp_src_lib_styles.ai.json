@@ -2,11 +2,11 @@
   "folder_name": "styles",
   "folder_path": "src/lib/styles",
   "description": "1 files, 1 subfolders",
-  "scan_timestamp": "2026-08-04T11:09:37.922956 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.667206 | in sovereign time",
   "files": [
     {
       "path": "src/lib/styles/custom_overrides.css",
-      "description": "stylesheet, 1,728 bytes"
+      "description": "styles/custom-overrides.css"
     }
   ],
   "file_count": 1,

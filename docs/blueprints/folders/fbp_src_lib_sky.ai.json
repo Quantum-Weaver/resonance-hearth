@@ -2,7 +2,7 @@
   "folder_name": "sky",
   "folder_path": "src/lib/sky",
   "description": "moon-phases \u00b7 ancient-holidays \u00b7 planets-alignment",
-  "scan_timestamp": "2026-08-04T11:09:37.917584 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:44.637334 | in sovereign time",
   "files": [
     {
       "path": "src/lib/sky/index.ts",
@@ -57,8 +57,10 @@
         "the sky organs"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 0,
       "checkboxes": {
