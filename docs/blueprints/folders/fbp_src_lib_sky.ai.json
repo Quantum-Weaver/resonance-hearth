@@ -2,7 +2,7 @@
   "folder_name": "sky",
   "folder_path": "src/lib/sky",
   "description": "moon-phases \u00b7 ancient-holidays \u00b7 planets-alignment",
-  "scan_timestamp": "2026-08-04T19:12:44.637334 | in sovereign time",
+  "scan_timestamp": "2026-08-05T21:31:23.716125 | in sovereign time",
   "files": [
     {
       "path": "src/lib/sky/index.ts",

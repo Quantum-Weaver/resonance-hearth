@@ -2,7 +2,7 @@
   "domain_name": "src_tauri",
   "domain_path": "src-tauri",
   "description": "0 files, 0 subfolders",
-  "integration_timestamp": "2026-08-04T19:12:45.018535 | in sovereign time",
+  "integration_timestamp": "2026-08-05T21:31:24.094166 | in sovereign time",
   "objects": [
     {
       "blueprint": "docs/blueprints/obp_src_tauri_cargo.ai.json",

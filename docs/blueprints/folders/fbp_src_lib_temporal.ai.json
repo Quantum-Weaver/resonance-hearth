@@ -2,7 +2,7 @@
   "folder_name": "temporal",
   "folder_path": "src/lib/temporal",
   "description": "One primitive for everything measured by time: a start moment + a",
-  "scan_timestamp": "2026-08-04T19:12:44.776518 | in sovereign time",
+  "scan_timestamp": "2026-08-05T21:31:23.857725 | in sovereign time",
   "files": [
     {
       "path": "src/lib/temporal/index.ts",
