@@ -19,6 +19,13 @@ import type {
 	CardActionKind,
 	Feeling,
 	EmojiMeaning,
+	Room,
+	RoomResponsible,
+	Fixture,
+	FixtureKind,
+	Circuit,
+	ElectricPoint,
+	ElectricPointKind,
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
@@ -39,6 +46,11 @@ let protocols = $state<Protocol[]>([]);
 let cardActions = $state<CardAction[]>([]);
 let feelings = $state<Feeling[]>([]);
 let emojiMeanings = $state<EmojiMeaning[]>([]);
+let rooms = $state<Room[]>([]);
+let roomResponsibles = $state<RoomResponsible[]>([]);
+let fixtures = $state<Fixture[]>([]);
+let circuits = $state<Circuit[]>([]);
+let electricPoints = $state<ElectricPoint[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
@@ -91,6 +103,38 @@ const toEmojiMeaning = (r: Record<string, unknown>): EmojiMeaning => ({
 	meaning: r.meaning as string,
 	ts: r.ts as number,
 });
+const toRoom = (r: Record<string, unknown>): Room => ({
+	id: r.id as string,
+	name: r.name as string,
+	roomType: (r.room_type as string) ?? 'room',
+	floorType: (r.floor_type as string) ?? null,
+	notes: (r.notes as string) ?? null,
+	createdAt: r.created_at as number,
+});
+const toRoomResponsible = (r: Record<string, unknown>): RoomResponsible => ({
+	roomId: r.room_id as string,
+	memberId: r.member_id as string,
+});
+const toFixture = (r: Record<string, unknown>): Fixture => ({
+	id: r.id as string,
+	roomId: r.room_id as string,
+	kind: (r.kind as FixtureKind) ?? 'other',
+	label: (r.label as string) ?? null,
+	notes: (r.notes as string) ?? null,
+});
+const toCircuit = (r: Record<string, unknown>): Circuit => ({
+	id: r.id as string,
+	breakerLabel: r.breaker_label as string,
+	amps: r.amps == null ? null : (r.amps as number),
+	notes: (r.notes as string) ?? null,
+});
+const toElectricPoint = (r: Record<string, unknown>): ElectricPoint => ({
+	id: r.id as string,
+	roomId: r.room_id as string,
+	kind: (r.kind as ElectricPointKind) ?? 'outlet',
+	label: (r.label as string) ?? null,
+	circuitId: (r.circuit_id as string) ?? null,
+});
 const toFeeling = (r: Record<string, unknown>): Feeling => ({
 	id: r.id as string,
 	memberId: r.member_id as string,
@@ -127,6 +171,7 @@ const toThing = (r: Record<string, unknown>): Thing => ({
 	pool: !!r.pool,
 	memberId: (r.member_id as string) ?? null,
 	petId: (r.pet_id as string) ?? null,
+	roomId: (r.room_id as string) ?? null,
 	shared: !!r.shared,
 	restedUntil: r.rested_until == null ? null : (r.rested_until as number),
 	createdAt: r.created_at as number,
@@ -201,6 +246,11 @@ async function loadAll() {
 		// A working view only (export reads the full table live).
 		feelings = (await q('SELECT * FROM feelings ORDER BY ts DESC LIMIT 200')).map(toFeeling);
 		emojiMeanings = (await q('SELECT * FROM emoji_meanings ORDER BY emoji, ts')).map(toEmojiMeaning);
+		rooms = (await q('SELECT * FROM rooms ORDER BY created_at')).map(toRoom);
+		roomResponsibles = (await q('SELECT * FROM room_responsibles')).map(toRoomResponsible);
+		fixtures = (await q('SELECT * FROM fixtures')).map(toFixture);
+		circuits = (await q('SELECT * FROM circuits ORDER BY breaker_label')).map(toCircuit);
+		electricPoints = (await q('SELECT * FROM electric_points')).map(toElectricPoint);
 	} catch (e) {
 		console.error('[hearthStore] loadAll failed:', e);
 	} finally {
@@ -268,14 +318,14 @@ async function addThing(t: Partial<Thing> & { title: string; species: ThingSpeci
 	await db.execute(
 		`INSERT INTO things (id, title, species, notes, spoon_cost, edge_date,
 			amount_cents, amount_shared, autopay, holder_member_id, loop_rule,
-			pool, member_id, pet_id, shared, rested_until, created_at)
-		 VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)`,
+			pool, member_id, pet_id, room_id, shared, rested_until, created_at)
+		 VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)`,
 		[
 			id, t.title, t.species, t.notes ?? null, t.spoonCost ?? null,
 			t.edgeDate ?? null, t.amountCents ?? null, t.amountShared ? 1 : 0,
 			t.autopay ? 1 : 0, t.holderMemberId ?? null, t.loopRule ?? null,
 			t.pool === false ? 0 : 1, t.memberId ?? null, t.petId ?? null,
-			t.shared === false ? 0 : 1, null, Date.now(),
+			t.roomId ?? null, t.shared === false ? 0 : 1, null, Date.now(),
 		]
 	);
 	await loadAll();
@@ -291,13 +341,13 @@ async function updateThing(id: string, patch: Partial<Thing>) {
 		`UPDATE things SET title=$1, species=$2, notes=$3, spoon_cost=$4,
 			edge_date=$5, amount_cents=$6, amount_shared=$7, autopay=$8,
 			holder_member_id=$9, loop_rule=$10, pool=$11, member_id=$12,
-			pet_id=$13, shared=$14, rested_until=$15 WHERE id=$16`,
+			pet_id=$13, room_id=$14, shared=$15, rested_until=$16 WHERE id=$17`,
 		[
 			t.title, t.species, t.notes ?? null, t.spoonCost ?? null,
 			t.edgeDate ?? null, t.amountCents ?? null, t.amountShared ? 1 : 0,
 			t.autopay ? 1 : 0, t.holderMemberId ?? null, t.loopRule ?? null,
 			t.pool ? 1 : 0, t.memberId ?? null, t.petId ?? null,
-			t.shared ? 1 : 0, t.restedUntil ?? null, id,
+			t.roomId ?? null, t.shared ? 1 : 0, t.restedUntil ?? null, id,
 		]
 	);
 	await loadAll();
@@ -345,6 +395,127 @@ async function doneThing(thingId: string, memberId: string | null, felt?: string
 	}
 	await loadAll();
 	return pickCelebration();
+}
+
+// ——— the house itself (THE HOUSE POUR — geode §⑪, THE-HOUSE-WALK.md) ———
+async function addRoom(name: string, roomType: string, floorType: string | null) {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	const id = generateId();
+	await db.execute(
+		'INSERT INTO rooms (id, name, room_type, floor_type, notes, created_at) VALUES ($1,$2,$3,$4,$5,$6)',
+		[id, name, roomType, floorType, null, Date.now()]
+	);
+	await loadAll();
+	return id;
+}
+
+async function updateRoom(id: string, patch: Partial<Room>) {
+	if (!db) return;
+	const cur = rooms.find((r) => r.id === id);
+	if (!cur) return;
+	const r = { ...cur, ...patch };
+	await db.execute('UPDATE rooms SET name=$1, room_type=$2, floor_type=$3, notes=$4 WHERE id=$5', [
+		r.name, r.roomType, r.floorType ?? null, r.notes ?? null, id,
+	]);
+	await loadAll();
+}
+
+async function removeRoom(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM room_responsibles WHERE room_id=$1', [id]);
+	await db.execute('DELETE FROM fixtures WHERE room_id=$1', [id]);
+	await db.execute('DELETE FROM electric_points WHERE room_id=$1', [id]);
+	// The things keep living; they only lose their room.
+	await db.execute('UPDATE things SET room_id=NULL WHERE room_id=$1', [id]);
+	await db.execute('DELETE FROM rooms WHERE id=$1', [id]);
+	await loadAll();
+}
+
+async function toggleRoomResponsible(roomId: string, memberId: string) {
+	if (!db) return;
+	const held = roomResponsibles.some((x) => x.roomId === roomId && x.memberId === memberId);
+	if (held) {
+		await db.execute('DELETE FROM room_responsibles WHERE room_id=$1 AND member_id=$2', [roomId, memberId]);
+	} else {
+		await db.execute('INSERT OR IGNORE INTO room_responsibles (room_id, member_id) VALUES ($1,$2)', [roomId, memberId]);
+	}
+	await loadAll();
+}
+
+async function addFixture(roomId: string, kind: string, label: string | null) {
+	if (!db) return;
+	await db.execute('INSERT INTO fixtures (id, room_id, kind, label, notes) VALUES ($1,$2,$3,$4,$5)', [
+		generateId(), roomId, kind, label, null,
+	]);
+	await loadAll();
+}
+
+async function removeFixture(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM fixtures WHERE id=$1', [id]);
+	await loadAll();
+}
+
+async function addCircuit(breakerLabel: string, amps: number | null, notes: string | null) {
+	if (!db) return;
+	await db.execute('INSERT INTO circuits (id, breaker_label, amps, notes) VALUES ($1,$2,$3,$4)', [
+		generateId(), breakerLabel, amps, notes,
+	]);
+	await loadAll();
+}
+
+async function updateCircuit(id: string, patch: Partial<Circuit>) {
+	if (!db) return;
+	const cur = circuits.find((c) => c.id === id);
+	if (!cur) return;
+	const c = { ...cur, ...patch };
+	await db.execute('UPDATE circuits SET breaker_label=$1, amps=$2, notes=$3 WHERE id=$4', [
+		c.breakerLabel, c.amps ?? null, c.notes ?? null, id,
+	]);
+	await loadAll();
+}
+
+async function removeCircuit(id: string) {
+	if (!db) return;
+	// The points keep standing; they simply await a new discovery.
+	await db.execute('UPDATE electric_points SET circuit_id=NULL WHERE circuit_id=$1', [id]);
+	await db.execute('DELETE FROM circuits WHERE id=$1', [id]);
+	await loadAll();
+}
+
+async function addElectricPoint(roomId: string, kind: string, label: string | null) {
+	if (!db) return;
+	await db.execute('INSERT INTO electric_points (id, room_id, kind, label, circuit_id) VALUES ($1,$2,$3,$4,$5)', [
+		generateId(), roomId, kind, label, null,
+	]);
+	await loadAll();
+}
+
+async function setPointCircuit(pointId: string, circuitId: string | null) {
+	if (!db) return;
+	await db.execute('UPDATE electric_points SET circuit_id=$1 WHERE id=$2', [circuitId, pointId]);
+	await loadAll();
+}
+
+async function removeElectricPoint(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM electric_points WHERE id=$1', [id]);
+	await loadAll();
+}
+
+// Adopt an offered care loop — adoption-only, by the walk's law: nothing
+// appears in anyone's day uninvited. The why rides in the notes so the
+// reason is never separated from the task.
+async function adoptRoomLoop(roomId: string, title: string, loopRule: string | null, why: string) {
+	return addThing({
+		title,
+		species: 'loop',
+		notes: why,
+		loopRule,
+		roomId,
+		pool: true,
+		shared: true,
+	});
 }
 
 // ——— meds (private by default) ———
@@ -786,6 +957,32 @@ export const hearthStore = {
 	get cardActions() { return cardActions; },
 	get feelings() { return feelings; },
 	get emojiMeanings() { return emojiMeanings; },
+
+	// ——— the house itself ———
+	get rooms() { return rooms; },
+	get roomResponsibles() { return roomResponsibles; },
+	get fixtures() { return fixtures; },
+	get circuits() { return circuits; },
+	get electricPoints() { return electricPoints; },
+	roomById(id: string | null | undefined): Room | null {
+		return rooms.find((r) => r.id === id) ?? null;
+	},
+	fixturesFor(roomId: string): Fixture[] {
+		return fixtures.filter((f) => f.roomId === roomId);
+	},
+	pointsFor(roomId: string): ElectricPoint[] {
+		return electricPoints.filter((p) => p.roomId === roomId);
+	},
+	responsiblesFor(roomId: string): Member[] {
+		const ids = roomResponsibles.filter((x) => x.roomId === roomId).map((x) => x.memberId);
+		return members.filter((m) => ids.includes(m.id));
+	},
+	roomLoops(roomId: string): Thing[] {
+		return things.filter((t) => t.roomId === roomId && t.species === 'loop');
+	},
+	roomAssets(roomId: string): Thing[] {
+		return things.filter((t) => t.roomId === roomId && t.species !== 'loop');
+	},
 	actionsFor,
 	meaningsFor,
 	// Meds visible on a member's card: their own on their own device, a
@@ -825,6 +1022,19 @@ export const hearthStore = {
 	setMemberCard,
 	addEmojiMeaning,
 	removeEmojiMeaning,
+	addRoom,
+	updateRoom,
+	removeRoom,
+	toggleRoomResponsible,
+	addFixture,
+	removeFixture,
+	addCircuit,
+	updateCircuit,
+	removeCircuit,
+	addElectricPoint,
+	setPointCircuit,
+	removeElectricPoint,
+	adoptRoomLoop,
 	exportAll,
 	importAll,
 	purgeAll,

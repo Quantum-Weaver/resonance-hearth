@@ -108,9 +108,68 @@ export interface Thing {
   pool: boolean; // household pool vs personal
   memberId?: string | null; // personal owner when not pooled
   petId?: string | null; // care loops for a pet
+  roomId?: string | null; // the room this thing lives in (assets, room loops)
   shared: boolean;
   restedUntil?: number | null; // a done loop rests until this moment
   createdAt: number;
+}
+
+// ——— The house itself (THE HOUSE POUR, KP 2026-08-06 — geode §⑪) ———
+// The keeper adds the house; the house answers with offered knowledge
+// (how · how often · WHY — the guidance shelf lives in
+// src/lib/data/houseCare.ts, authored, never in the DB).
+
+export interface Room {
+  id: string;
+  name: string; // the family's own word for it
+  roomType: string;
+  floorType?: string | null;
+  notes?: string | null;
+  createdAt: number;
+}
+
+// party or partIES — many hands may hold one room.
+export interface RoomResponsible {
+  roomId: string;
+  memberId: string;
+}
+
+export type FixtureKind =
+  | 'mirror'
+  | 'toilet'
+  | 'sink'
+  | 'tub'
+  | 'shower'
+  | 'counter'
+  | 'window'
+  | 'appliance'
+  | 'other';
+
+export interface Fixture {
+  id: string;
+  roomId: string;
+  kind: FixtureKind;
+  label?: string | null;
+  notes?: string | null;
+}
+
+// The breaker box's own rows — understanding recorded once, never
+// re-derived (the anti-drift law, in copper).
+export interface Circuit {
+  id: string;
+  breakerLabel: string; // the box's own numbering
+  amps?: number | null;
+  notes?: string | null; // the learned truths
+}
+
+export type ElectricPointKind = 'outlet' | 'switch' | 'light' | 'appliance-feed';
+
+export interface ElectricPoint {
+  id: string;
+  roomId: string;
+  kind: ElectricPointKind;
+  label?: string | null; // "north wall double" — the family's words
+  circuitId?: string | null; // null until discovered at a flip-and-find
 }
 
 // The celebration record — never a scoreboard.

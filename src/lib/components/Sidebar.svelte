@@ -1,26 +1,100 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { uiStore } from '$lib/stores/ui.svelte';
+	import { getName } from '@tauri-apps/api/app';
 	import Icons from '$lib/components/icons/Icons.svelte';
 	import type { IconName } from '$lib/components/icons/Icons.svelte';
+	import { derive, rederive, wear, type Menu, type Shrine, type Door } from '$lib/cumdach';
+	import { QUANTUM_COLORS } from '$lib/cosmic';
+
+	// The wordmark law, learned from Bubbles: the chrome reads the app's OWN
+	// name (productName in tauri.conf.json is the single truth), so a rename
+	// never gets chased into the chrome. Outside Tauri the fallback stands.
+	let appName = $state('Hearth');
+	getName()
+		.then((n) => { appName = n.replace(/^Resonance\s+/i, ''); })
+		.catch(() => {});
 
 	// Default-collapsed on every platform (Compass pattern): the content is the
 	// destination, the nav is a drawer — even on desktop.
 	let open = $state(false);
-	let isMobile = $state(true);
 
-	// SVG icons for chrome (Compass pattern) — they follow currentColor and size
-	// consistently across Android emoji fonts. Emoji stays for content, not chrome.
-	const navItems: { href: string; icon: IconName; label: string }[] = [
-		{ href: '/', icon: 'home', label: 'Hearth' },
-		{ href: '/me', icon: 'me', label: 'Me' },
-		{ href: '/things', icon: 'things', label: 'Things' },
-		{ href: '/care', icon: 'care', label: 'Care' },
-		{ href: '/bills', icon: 'bills', label: 'Bills' },
-		{ href: '/settings', icon: 'settings', label: 'Settings' }
-	];
+	// THE SHRINE — the sidebar consumes the-cumdach (the spring's navigation
+	// shell; the family's shared frame). The app declares the particulars —
+	// a FLAT door list and the Settings foot, by KP's ⚛ stroke — and the
+	// panels are DERIVED from the screen's own measure, never arranged by
+	// opinion. Room names are KP's; none are renamed here. SATTVA IS
+	// DELIBERATELY NOT A DOOR: the cartography's law keeps it one big soft
+	// button in the ComfortBar, never more than one tap from anywhere.
+	type HearthDoor = Door & { href: string; icon: IconName };
+
+	const door = (id: string, href: string, icon: IconName, label: string): HearthDoor => ({
+		id,
+		href,
+		icon,
+		label,
+	});
+
+	const MENU: Menu = {
+		doors: [
+			door('hearth', '/', 'home', 'Hearth'),
+			door('me', '/me', 'me', 'Me'),
+			door('things', '/things', 'things', 'Things'),
+			door('care', '/care', 'care', 'Care'),
+			door('house', '/house', 'house', 'House'),
+			door('bills', '/bills', 'bills', 'Bills'),
+		],
+		foot: { door: door('settings', '/settings', 'settings', 'Settings') },
+	};
+
+	// The shrine's costs in this app's own pixels (the 48px calm floor is
+	// the sensory law's own number here; over-reserving errs safe), and the
+	// faces — cosmic's colors led by the hearth's own light, the app's
+	// emoji; words always ride underneath.
+	const COSTS = { door: 48, head: 64, switchButton: 58, switchColumns: 2 };
+	const PALETTE = {
+		colors: [
+			QUANTUM_COLORS['hearth.gold'],
+			QUANTUM_COLORS['sanctuary.green'],
+			QUANTUM_COLORS['cosmic.blue'],
+			QUANTUM_COLORS['quantum.purple'],
+		],
+		emojis: ['🔥', '🌿', '🌊', '✨'],
+	};
+	// The ComfortBar (48px, fixed, z-index 110) is a declared edge, honored by
+	// arithmetic — an INPUT, never a CSS-only mend.
+	const RESERVED = 48;
+
+	let land = $state({ height: 900, reserved: RESERVED });
+	let shrine = $state<Shrine>(derive(MENU, { height: 900, reserved: RESERVED }, COSTS, PALETTE));
+
+	function measure() {
+		land = { height: window.innerHeight, reserved: RESERVED };
+	}
+
+	// DYNAMICS ALWAYS RE-DERIVE — any new land (rotation, resize, a phone's
+	// keyboard) re-runs the pure formula; the worn panel survives by its
+	// place when it still exists.
+	$effect(() => {
+		const l = land;
+		shrine = rederive(
+			untrack(() => shrine),
+			MENU,
+			l,
+			COSTS,
+			PALETTE
+		);
+	});
+
+	function wearPanel(i: number) {
+		shrine = wear(shrine, i);
+	}
+
+	const wornPanel = $derived(shrine.panels[shrine.worn] ?? null);
+	const wornDoors = $derived((wornPanel?.doors ?? []) as HearthDoor[]);
+	const footDoor = MENU.foot.door as HearthDoor;
 
 	// The vessel opened the ComfortBar panel — they want to see it, not the nav.
 	$effect(() => {
@@ -28,7 +102,9 @@
 	});
 
 	onMount(() => {
-		isMobile = window.innerWidth < 768;
+		measure();
+		window.addEventListener('resize', measure);
+		return () => window.removeEventListener('resize', measure);
 	});
 
 	function navigate(href: string) {
@@ -66,13 +142,37 @@
 <!-- Sidebar panel -->
 <nav class="sidebar" class:open aria-label="Main navigation">
 	<div class="sidebar__header">
-		<!-- cosmic-sparkle-text adds the animated glow; the scoped accent color
-		     below outranks its light-gray color so light mode stays readable. -->
-		<span class="sidebar__wordmark cosmic-sparkle-text">Hearth</span>
+		<span class="sidebar__wordmark">{appName}</span>
 	</div>
 
+	<!-- The switch — derived, never arranged. Faces wear color + emoji (THE
+	     FACE LAW), the words always ride underneath; the worn panel holds
+	     until tapped again. At one panel, no switch is derived at all —
+	     which is this menu's everyday truth at five doors. -->
+	{#if shrine.switchShown}
+		<div
+			class="mode-switch"
+			role="group"
+			aria-label="Menu panels"
+			style="grid-template-columns: repeat({COSTS.switchColumns}, 1fr);"
+		>
+			{#each shrine.panels as panel, i (i)}
+				<button
+					class="mode-btn"
+					class:worn={i === shrine.worn}
+					style="--face: {panel.face.color}"
+					aria-pressed={i === shrine.worn}
+					onclick={() => wearPanel(i)}
+				>
+					<span class="face-emoji" aria-hidden="true">{panel.face.emoji}</span>
+					<span class="face-words">{panel.face.words}</span>
+				</button>
+			{/each}
+		</div>
+	{/if}
+
 	<ul class="sidebar__nav">
-		{#each navItems as item}
+		{#each wornDoors as item (item.id)}
 			<li>
 				<button
 					class="nav-item"
@@ -85,6 +185,18 @@
 			</li>
 		{/each}
 	</ul>
+
+	<!-- The foot — one chrome door, outside every panel, always reachable. -->
+	<div class="sidebar__foot">
+		<button
+			class="nav-item"
+			class:active={page.url.pathname === footDoor.href}
+			onclick={() => navigate(footDoor.href)}
+		>
+			<span class="nav-icon"><Icons name={footDoor.icon} size={18} /></span>
+			<span class="nav-label">{footDoor.label}</span>
+		</button>
+	</div>
 </nav>
 
 <style>
@@ -132,6 +244,10 @@
 		display: flex;
 		flex-direction: column;
 		overflow-y: auto;
+		/* The ComfortBar (48px, fixed, z-index 110) always paints over the
+		   sidebar (50) — the foot must clear it or Settings is buried
+		   (the family's shared lesson, inherited with the shrine). */
+		padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
 	}
 
 	.sidebar.open {
@@ -150,12 +266,63 @@
 		letter-spacing: 0.02em;
 	}
 
+	.mode-switch {
+		display: grid;
+		gap: 0.35rem;
+		padding: 0.75rem 0.5rem 0.5rem;
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.mode-btn {
+		min-height: 52px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.15rem;
+		padding: 0.3rem 0.4rem;
+		border-radius: 8px;
+		background: none;
+		border: 1.5px solid color-mix(in srgb, var(--face) 45%, var(--border-color));
+		color: var(--text-secondary);
+		cursor: pointer;
+		transition: background-color 0.15s ease, border-color 0.15s ease;
+	}
+
+	.mode-btn:hover {
+		background-color: color-mix(in srgb, var(--face) 10%, transparent);
+		color: var(--text);
+	}
+
+	.mode-btn.worn {
+		border-color: var(--face);
+		background-color: color-mix(in srgb, var(--face) 16%, transparent);
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.face-emoji {
+		font-size: 1.1rem;
+		line-height: 1;
+	}
+
+	.face-words {
+		font-size: 0.68rem;
+		line-height: 1.1;
+	}
+
 	.sidebar__nav {
 		list-style: none;
 		padding: 0.75rem 0.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
+		flex: 1;
+	}
+
+	.sidebar__foot {
+		padding: 0.5rem;
+		border-top: 1px solid var(--border-color);
 	}
 
 	.nav-item {

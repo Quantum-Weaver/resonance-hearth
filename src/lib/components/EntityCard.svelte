@@ -173,7 +173,7 @@
 						<input type="text" bind:value={newLabel} placeholder="a word under it (optional)" aria-label="Optional label" />
 					</div>
 					{#if pickerOpen}
-						<EmojiPicker onpick={(e) => { newEmoji = e; pickerOpen = false; }} onclose={() => (pickerOpen = false)} />
+						<EmojiPicker category={newKind} onpick={(e) => { newEmoji = e; pickerOpen = false; }} onclose={() => (pickerOpen = false)} />
 					{/if}
 					<div class="setup__row chips" role="group" aria-label="What the tap does">
 						<button class="chip" class:active={newKind === 'done'} onclick={() => (newKind = 'done')}>marks a thing done</button>

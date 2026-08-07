@@ -51,6 +51,8 @@ Absence as design, stated so no future hand "completes" it.
    tender mends every pointer after (that is what it is for).
 2. **KP's own Hearth icon** — standing since the season: replaces
    the inherited Echoes set. His hands, his art, his hour.
+   *(SETTLED 2026-08-06 at KP's ⚛ word: "hearth icon is already present
+   and generated for mobile and desktop needs" — appended, not redrawn.)*
 3. **The owed sign-release** — v0.1.1 (Sattva rename + gold-band +
    16 KB flags, readelf-proven) awaits sign-release.py at KP's hand
    → both phones. The oldest open item on the shelf.

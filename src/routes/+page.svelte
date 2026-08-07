@@ -9,6 +9,8 @@
 	import CelebrationLine from '$lib/components/CelebrationLine.svelte';
 	import { readSky } from '$lib/sky';
 	import { goto } from '$app/navigation';
+	import { galleryOf, type GalleryConfig } from '$lib/gallery';
+	import type { Member } from '$lib/types/types';
 
 	let celebration = $state<string | null>(null);
 
@@ -20,6 +22,28 @@
 	// family. A person's shared signal rides ON their card; unshared
 	// signals simply don't appear (window, not monitor — unchanged).
 	const household = $derived(hearthStore.members);
+
+	// THE GALLERY — the household roster consumes the-gallery (the family's
+	// shared engine: rows in, cards out). EntityCard stays the dress; its
+	// canon is untouched. The search walks the label ONLY — a label is for
+	// finding (the crystal's ruling) — and the two empties speak in this
+	// hearth's own voice. Every kind of member rides: presence gating
+	// applies to signals, never to being family.
+	let memberQuery = $state('');
+	const memberConfig: GalleryConfig<Member> = {
+		searchIn: [(m) => m.label],
+		card: {
+			id: (m) => m.id,
+			title: (m) => m.label,
+			address: (m) => `#member-${m.id}`,
+		},
+		empty: {
+			silent: 'The hearth is warm and waiting — the household gathers in Settings.',
+			unmatched: 'No one by that name — the whole household is still here.',
+		},
+	};
+	const memberView = $derived(galleryOf(memberConfig, household, memberQuery));
+	const memberById = $derived(new Map(household.map((m) => [m.id, m])));
 
 	const holds = $derived(
 		hearthStore.householdOverwhelms.map((e) => ({
@@ -130,11 +154,24 @@
 	{#if household.length > 0}
 		<section class="section">
 			<h2>The household</h2>
-			<div class="stack">
-				{#each household as m (m.id)}
-					<EntityCard member={m} />
-				{/each}
-			</div>
+			<!-- The very top of the gallery — KP's ⚛ stroke. -->
+			<input
+				type="search"
+				class="member-search"
+				placeholder="find by chosen name"
+				bind:value={memberQuery}
+				aria-label="Find a household member by chosen name"
+			/>
+			{#if memberView.empty}
+				<p class="weather">{memberView.empty.message}</p>
+			{:else}
+				<div class="stack">
+					{#each memberView.cards as card (card.id)}
+						{@const m = memberById.get(card.id)}
+						{#if m}<EntityCard member={m} />{/if}
+					{/each}
+				</div>
+			{/if}
 			{#if weatherLine}<p class="weather">{weatherLine}</p>{/if}
 			<p class="weather">{skyLine}</p>
 		</section>
@@ -208,6 +245,10 @@
 
 	.section h2 { font-size: 0.95rem; color: var(--text-secondary); font-weight: 600; margin: 0 0 0.5rem; letter-spacing: 0.02em; }
 	.stack { display: flex; flex-direction: column; gap: 0.5rem; }
+
+	.member-search { width: 100%; min-height: 48px; padding: 0.6rem 0.9rem; margin-bottom: 0.6rem; border-radius: 10px; border: 1px solid var(--border-color); background-color: var(--bg-surface); color: var(--text); font-size: 0.95rem; outline: none; box-sizing: border-box; }
+	.member-search:focus { border-color: var(--accent); }
+	.member-search::placeholder { color: var(--text-muted); }
 
 	.card { padding: 1rem; border-radius: 12px; background-color: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-secondary); }
 	.card.empty { text-align: center; padding: 2rem 1rem; }

@@ -162,6 +162,7 @@
 			</div>
 			{#if sigilPickerOpen}
 				<EmojiPicker
+					category="sigil"
 					onpick={(e) => { newSigil = e; sigilPickerOpen = false; }}
 					onclose={() => (sigilPickerOpen = false)}
 				/>

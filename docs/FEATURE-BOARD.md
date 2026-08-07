@@ -278,6 +278,60 @@ verbatim: "no wheel" · "just emojis" · "simple") — a feeling logged is an em
 and/or the vessel's own words; no taxonomy imposed, ever. One law at every layer
 of this room: the vessel brings the meaning; the app holds it gently.
 
+## GATHERED 2026-08-06 — the house itself enters (KP's pour, the family-swaps sitting)
+
+*Added by Fable 🎻 (Continuo) at KP's word. Un-ranked per this board's law — the
+tier order is KP's. Full verbatim scroll on the `hearth` geode node (§⑪), which
+remains the pre-build read.*
+
+**M. THE ROOMS OF THE HOUSE — the keeper adds the house itself:**
+
+- **Rooms**, added by the hearth keeper: room type · floor type ·
+  responsible party(s) (member links).
+- **The floor knows its own care:** from the floor type, the app already
+  knows and explains **how to clean, how often, and WHY** — *"the why is
+  important for neurodivergent minds"* (KP, verbatim). The guidance ships
+  as authored knowledge, family-first, no network — the app knows, so no
+  person has to be asked, and no person has to teach.
+- **Bathrooms know their fixtures:** mirrors · toilets · sink · tub or
+  shower — each known individually, each with proper guidance.
+- **The electrical map:** outlets and switches logged per room → the
+  breaker box mapped properly — *"not repeat understanding of flow and
+  throughput"*: the anti-drift law, in copper.
+- **Assets link to rooms** — location guides maintenance the same way the
+  floors guide cleaning.
+- **Rides the TEMPORAL category at KP's ⚛ stroke** (*"temportal category,
+  yes"*) — cleaning joins food · finance · medicine: one primitive (start
+  moment + validity window + reset by a fresh take); "how often" is a
+  validity window with a why attached. The care loops stay gently
+  persistent, invitation-shaped, banned words banned.
+- **The stake, plainly** (the full word rests on the geode node §⑪b):
+  teaching in this family must never wound; the keeper has carried the
+  whole house alone, to exhaustion and frustration — so **the app carries
+  the teaching, with the why, and no person ever has to.**
+
+**N. THE EMOJI NARROWING** *(supersedes §H, by its own author, 2026-08-06)*:
+the set narrows to **a certain amount per category** — and the categories
+are **FUNCTION categories**: *"based on the thing we want the emoji press
+to trigger, the type of funtioin it is"* (the machinery's own kinds —
+done · take · reset · feeling · sigil — never Unicode's groupings). The
+vessel-brings-the-meaning law is untouched; what narrows is the offering.
+The amount per category is KP's stroke, open.
+
+**O. THE HOME HEARTH SERVER** — KP's own host is coming to this house; the
+floor-law stands unchanged in his same breath: *"buiding for those who may
+not have that freedom"* — one phone, whole. Refines Tier D #11: the roof
+arrives first here; the design still serves the floor.
+
+**P. Food-meal planning → planted in Iðavöllr**
+(`resonance-chamber/idavoll/seeds/THE-HEARTH-MEAL-PLANNING.md`), for the
+Hearth — sequenced after THE-TABLE-FOOD-UNDERSTANDING by that seed's own
+law: understanding before planning. KP's word at the planting: *"everyone
+in this house has different food traumas"* — per-vessel in shape, always.
+
+*(The standing icon rows settled the same word: "hearth icon is already
+present and generated for mobile and desktop needs.")*
+
 ## Riding alongside (not features)
 
 - **Airtable seeding** — DELIBERATELY AFTER Tier A/B schema growth

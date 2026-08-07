@@ -6,6 +6,7 @@
   import IconThings from './IconThings.svelte';
   import IconCare from './IconCare.svelte';
   import IconBills from './IconBills.svelte';
+  import IconHouse from './IconHouse.svelte';
 
   export type IconName =
     | 'home'
@@ -14,7 +15,8 @@
     | 'me'
     | 'things'
     | 'care'
-    | 'bills';
+    | 'bills'
+    | 'house';
 
   let {
     name,
@@ -34,6 +36,7 @@
     'things': IconThings,
     'care': IconCare,
     'bills': IconBills,
+    'house': IconHouse,
   };
 
   const Component = $derived(components[name]);

@@ -1,24 +1,33 @@
 <script lang="ts">
-	// EmojiPicker — the full vocabulary, no curation. KP's ruling
-	// (2026-07-31): "we want to load the hearth with a full set of options
-	// otherwise we limit its vessel to what we chose." Names are search
-	// keys, never definitions — meaning is the vessel's own.
+	// EmojiPicker — the narrowed offering over the full vocabulary.
+	// KP's ⚛ ruling (2026-08-06, superseding his own 07-31 full-set word):
+	// the shelf narrows to twenty per FUNCTION category — "based on the
+	// thing we want the emoji press to trigger" — while the search still
+	// reaches every emoji, and meaning stays the vessel's own. Names are
+	// search keys, never definitions.
 	//
 	// Sensory law holds: no sound, no motion, targets ≥48px, dismissible,
 	// nothing traps. One group renders at a time (plus content-visibility)
 	// so the whole set stays light on a phone.
 	import { EMOJI_GROUPS, EMOJI_COUNT, type EmojiEntry } from '$lib/data/emojis.gen';
+	import { shelfFor } from '$lib/data/emojiFunctions';
 
 	let {
 		onpick,
 		onclose,
+		category,
 	}: {
 		onpick: (emoji: string) => void;
 		onclose?: () => void;
+		/** A function-shelf id (done · take · reset · feeling · sigil) —
+		 *  when given, the resting view offers that shelf's twenty. */
+		category?: string;
 	} = $props();
 
 	let search = $state('');
 	let activeGroup = $state(0);
+
+	const shelf = $derived(shelfFor(category));
 
 	// Search walks every group; the shown slice is capped visibly, never
 	// silently — the count always says how many matched.
@@ -61,6 +70,15 @@
 		</p>
 		<div class="grid">
 			{#each matches.shown as en (en.e)}
+				<button class="cell" title={en.n} aria-label={en.n} onclick={() => onpick(en.e)}>{en.e}</button>
+			{/each}
+		</div>
+	{:else if shelf}
+		<!-- The shelf — twenty for this function (KP's ⚛ narrowing);
+		     the search above still reaches every emoji. -->
+		<p class="count">{shelf.label} · {shelf.emojis.length} — search reaches them all</p>
+		<div class="grid">
+			{#each shelf.emojis as en (en.e)}
 				<button class="cell" title={en.n} aria-label={en.n} onclick={() => onpick(en.e)}>{en.e}</button>
 			{/each}
 		</div>

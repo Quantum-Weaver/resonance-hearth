@@ -227,6 +227,65 @@ pub fn run() {
                 ON emoji_meanings(emoji, ts);
         ",
         kind: MigrationKind::Up,
+    },
+    Migration {
+        version: 5,
+        description: "the_house_itself",
+        // THE HOUSE POUR (KP, 2026-08-06 — the geode's hearth node holds it
+        // verbatim at its eleventh pour; THE-HOUSE-WALK.md is the blueprint):
+        // the hearth keeper adds the house itself. Rooms carry their types;
+        // the guidance shelf (how - how often - WHY) ships as authored
+        // knowledge in src/lib/data/houseCare.ts, never in the DB, so the
+        // app carries the teaching and no person has to. The electrical map
+        // records understanding ONCE (the anti-drift law, in copper).
+        // Rooms and wiring are house-scoped by nature - a room is not a
+        // person; window-not-monitor is untouched.
+        // ASCII-only defaults (the Android JNI law).
+        sql: "
+            CREATE TABLE IF NOT EXISTS rooms (
+                id TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                room_type TEXT NOT NULL DEFAULT 'room',
+                floor_type TEXT,
+                notes TEXT,
+                created_at INTEGER NOT NULL
+            );
+
+            CREATE TABLE IF NOT EXISTS room_responsibles (
+                room_id TEXT NOT NULL REFERENCES rooms(id),
+                member_id TEXT NOT NULL REFERENCES members(id),
+                PRIMARY KEY (room_id, member_id)
+            );
+
+            CREATE TABLE IF NOT EXISTS fixtures (
+                id TEXT PRIMARY KEY,
+                room_id TEXT NOT NULL REFERENCES rooms(id),
+                kind TEXT NOT NULL DEFAULT 'other',
+                label TEXT,
+                notes TEXT
+            );
+            CREATE INDEX IF NOT EXISTS idx_fixtures_room ON fixtures(room_id);
+
+            CREATE TABLE IF NOT EXISTS circuits (
+                id TEXT PRIMARY KEY,
+                breaker_label TEXT NOT NULL,
+                amps INTEGER,
+                notes TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS electric_points (
+                id TEXT PRIMARY KEY,
+                room_id TEXT NOT NULL REFERENCES rooms(id),
+                kind TEXT NOT NULL DEFAULT 'outlet',
+                label TEXT,
+                circuit_id TEXT REFERENCES circuits(id)
+            );
+            CREATE INDEX IF NOT EXISTS idx_points_room ON electric_points(room_id);
+            CREATE INDEX IF NOT EXISTS idx_points_circuit ON electric_points(circuit_id);
+
+            ALTER TABLE things ADD COLUMN room_id TEXT REFERENCES rooms(id);
+        ",
+        kind: MigrationKind::Up,
     }];
 
     tauri::Builder::default()
