@@ -44,6 +44,7 @@
 			door('things', '/things', 'things', 'Things'),
 			door('care', '/care', 'care', 'Care'),
 			door('house', '/house', 'house', 'House'),
+			door('mantel', '/mantel', 'mantel', 'Mantel'),
 			door('bills', '/bills', 'bills', 'Bills'),
 		],
 		foot: { door: door('settings', '/settings', 'settings', 'Settings') },

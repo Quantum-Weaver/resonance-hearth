@@ -164,6 +164,32 @@ export interface Circuit {
 
 export type ElectricPointKind = 'outlet' | 'switch' | 'light' | 'appliance-feed';
 
+// ——— The Mantel (KP's pour, 2026-08-06 — the communications sitting) ———
+// Placement is the opt-in: writing a note here IS the consent. Cards
+// wear their kind's color and the owner's sigil.
+
+export type MantelKind = 'note' | 'win' | 'ask' | 'idea';
+export type MantelScope = 'unit' | 'house'; // the rings — filed, not yet governing
+
+export interface MantelNote {
+  id: string;
+  memberId: string; // the owner — their sigil stands on the card
+  kind: MantelKind;
+  text: string;
+  emoji?: string | null;
+  scope: MantelScope;
+  ts: number;
+}
+
+export interface MantelComment {
+  id: string;
+  noteId: string;
+  memberId: string;
+  emoji?: string | null;
+  text?: string | null; // emoji and/or words — the family grammar
+  ts: number;
+}
+
 export interface ElectricPoint {
   id: string;
   roomId: string;

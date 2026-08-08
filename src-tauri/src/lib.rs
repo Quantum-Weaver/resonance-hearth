@@ -286,6 +286,46 @@ pub fn run() {
             ALTER TABLE things ADD COLUMN room_id TEXT REFERENCES rooms(id);
         ",
         kind: MigrationKind::Up,
+    },
+    Migration {
+        version: 6,
+        description: "the_mantel",
+        // THE MANTEL (KP's pour, 2026-08-06, the communications sitting's
+        // first built piece): a screen where the household places notes
+        // about their life for others to see and comment on. PLACEMENT IS
+        // THE OPT-IN - the act of writing a note there is the consent;
+        // nothing arrives by push. Cards are color-coded by kind and wear
+        // the owner's sigil. The scope column is ring-ready (personal
+        // house | community house), filed for the pairing era, defaulting
+        // to the household. The author's note stays the author's -
+        // removable by their own hand; its comments rest with it.
+        // ASCII-only defaults (the Android JNI law).
+        sql: "
+            CREATE TABLE IF NOT EXISTS mantel_notes (
+                id TEXT PRIMARY KEY,
+                member_id TEXT NOT NULL REFERENCES members(id),
+                kind TEXT NOT NULL DEFAULT 'note',
+                    -- note | win | ask | idea
+                text TEXT NOT NULL,
+                emoji TEXT,
+                scope TEXT NOT NULL DEFAULT 'house',
+                    -- unit | house (the rings, filed not yet governing)
+                ts INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_mantel_ts ON mantel_notes(ts);
+
+            CREATE TABLE IF NOT EXISTS mantel_comments (
+                id TEXT PRIMARY KEY,
+                note_id TEXT NOT NULL REFERENCES mantel_notes(id),
+                member_id TEXT NOT NULL REFERENCES members(id),
+                emoji TEXT,
+                text TEXT,
+                ts INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_mantel_comments
+                ON mantel_comments(note_id, ts);
+        ",
+        kind: MigrationKind::Up,
     }];
 
     tauri::Builder::default()

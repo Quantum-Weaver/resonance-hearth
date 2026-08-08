@@ -26,6 +26,10 @@ import type {
 	Circuit,
 	ElectricPoint,
 	ElectricPointKind,
+	MantelNote,
+	MantelKind,
+	MantelScope,
+	MantelComment,
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
@@ -51,6 +55,8 @@ let roomResponsibles = $state<RoomResponsible[]>([]);
 let fixtures = $state<Fixture[]>([]);
 let circuits = $state<Circuit[]>([]);
 let electricPoints = $state<ElectricPoint[]>([]);
+let mantelNotes = $state<MantelNote[]>([]);
+let mantelComments = $state<MantelComment[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
@@ -134,6 +140,23 @@ const toElectricPoint = (r: Record<string, unknown>): ElectricPoint => ({
 	kind: (r.kind as ElectricPointKind) ?? 'outlet',
 	label: (r.label as string) ?? null,
 	circuitId: (r.circuit_id as string) ?? null,
+});
+const toMantelNote = (r: Record<string, unknown>): MantelNote => ({
+	id: r.id as string,
+	memberId: r.member_id as string,
+	kind: (r.kind as MantelKind) ?? 'note',
+	text: r.text as string,
+	emoji: (r.emoji as string) ?? null,
+	scope: (r.scope as MantelScope) ?? 'house',
+	ts: r.ts as number,
+});
+const toMantelComment = (r: Record<string, unknown>): MantelComment => ({
+	id: r.id as string,
+	noteId: r.note_id as string,
+	memberId: r.member_id as string,
+	emoji: (r.emoji as string) ?? null,
+	text: (r.text as string) ?? null,
+	ts: r.ts as number,
 });
 const toFeeling = (r: Record<string, unknown>): Feeling => ({
 	id: r.id as string,
@@ -251,6 +274,8 @@ async function loadAll() {
 		fixtures = (await q('SELECT * FROM fixtures')).map(toFixture);
 		circuits = (await q('SELECT * FROM circuits ORDER BY breaker_label')).map(toCircuit);
 		electricPoints = (await q('SELECT * FROM electric_points')).map(toElectricPoint);
+		mantelNotes = (await q('SELECT * FROM mantel_notes ORDER BY ts DESC LIMIT 200')).map(toMantelNote);
+		mantelComments = (await q('SELECT * FROM mantel_comments ORDER BY ts')).map(toMantelComment);
 	} catch (e) {
 		console.error('[hearthStore] loadAll failed:', e);
 	} finally {
@@ -500,6 +525,40 @@ async function setPointCircuit(pointId: string, circuitId: string | null) {
 async function removeElectricPoint(id: string) {
 	if (!db) return;
 	await db.execute('DELETE FROM electric_points WHERE id=$1', [id]);
+	await loadAll();
+}
+
+// ——— the Mantel (KP's pour — placement is the opt-in) ———
+async function placeMantelNote(memberId: string, kind: MantelKind, text: string, emoji: string | null) {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	await db.execute(
+		'INSERT INTO mantel_notes (id, member_id, kind, text, emoji, scope, ts) VALUES ($1,$2,$3,$4,$5,$6,$7)',
+		[generateId(), memberId, kind, text, emoji, 'house', Date.now()]
+	);
+	await loadAll();
+}
+
+// The author's note stays the author's — its comments rest with it.
+async function removeMantelNote(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM mantel_comments WHERE note_id=$1', [id]);
+	await db.execute('DELETE FROM mantel_notes WHERE id=$1', [id]);
+	await loadAll();
+}
+
+async function addMantelComment(noteId: string, memberId: string, text: string | null, emoji: string | null) {
+	if (!db) return;
+	if (!text && !emoji) return; // emoji and/or words — something, gently
+	await db.execute(
+		'INSERT INTO mantel_comments (id, note_id, member_id, emoji, text, ts) VALUES ($1,$2,$3,$4,$5,$6)',
+		[generateId(), noteId, memberId, emoji, text, Date.now()]
+	);
+	await loadAll();
+}
+
+async function removeMantelComment(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM mantel_comments WHERE id=$1', [id]);
 	await loadAll();
 }
 
@@ -983,6 +1042,12 @@ export const hearthStore = {
 	roomAssets(roomId: string): Thing[] {
 		return things.filter((t) => t.roomId === roomId && t.species !== 'loop');
 	},
+
+	// ——— the Mantel ———
+	get mantelNotes() { return mantelNotes; },
+	commentsFor(noteId: string): MantelComment[] {
+		return mantelComments.filter((c) => c.noteId === noteId);
+	},
 	actionsFor,
 	meaningsFor,
 	// Meds visible on a member's card: their own on their own device, a
@@ -1035,6 +1100,10 @@ export const hearthStore = {
 	setPointCircuit,
 	removeElectricPoint,
 	adoptRoomLoop,
+	placeMantelNote,
+	removeMantelNote,
+	addMantelComment,
+	removeMantelComment,
 	exportAll,
 	importAll,
 	purgeAll,
