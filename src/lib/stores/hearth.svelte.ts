@@ -30,6 +30,7 @@ import type {
 	MantelKind,
 	MantelScope,
 	MantelComment,
+	Letting,
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
@@ -57,6 +58,7 @@ let circuits = $state<Circuit[]>([]);
 let electricPoints = $state<ElectricPoint[]>([]);
 let mantelNotes = $state<MantelNote[]>([]);
 let mantelComments = $state<MantelComment[]>([]);
+let lettings = $state<Letting[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
@@ -156,6 +158,15 @@ const toMantelComment = (r: Record<string, unknown>): MantelComment => ({
 	memberId: r.member_id as string,
 	emoji: (r.emoji as string) ?? null,
 	text: (r.text as string) ?? null,
+	ts: r.ts as number,
+});
+const toLetting = (r: Record<string, unknown>): Letting => ({
+	id: r.id as string,
+	memberId: r.member_id as string,
+	naming: r.naming as string,
+	telling: (r.telling as string) ?? null,
+	freedom: r.freedom as string,
+	releasedAt: r.released_at == null ? null : (r.released_at as number),
 	ts: r.ts as number,
 });
 const toFeeling = (r: Record<string, unknown>): Feeling => ({
@@ -276,6 +287,7 @@ async function loadAll() {
 		electricPoints = (await q('SELECT * FROM electric_points')).map(toElectricPoint);
 		mantelNotes = (await q('SELECT * FROM mantel_notes ORDER BY ts DESC LIMIT 200')).map(toMantelNote);
 		mantelComments = (await q('SELECT * FROM mantel_comments ORDER BY ts')).map(toMantelComment);
+		lettings = (await q('SELECT * FROM lettings ORDER BY ts DESC')).map(toLetting);
 	} catch (e) {
 		console.error('[hearthStore] loadAll failed:', e);
 	} finally {
@@ -525,6 +537,29 @@ async function setPointCircuit(pointId: string, circuitId: string | null) {
 async function removeElectricPoint(id: string) {
 	if (!db) return;
 	await db.execute('DELETE FROM electric_points WHERE id=$1', [id]);
+	await loadAll();
+}
+
+// ——— the letting-go (KP's pour — a heart-room, private absolutely) ———
+async function holdLetting(memberId: string, naming: string, telling: string | null, freedom: string) {
+	if (!db) throw new Error('Database not ready — close and reopen the app.');
+	await db.execute(
+		'INSERT INTO lettings (id, member_id, naming, telling, freedom, released_at, ts) VALUES ($1,$2,$3,$4,$5,$6,$7)',
+		[generateId(), memberId, naming, telling, freedom, null, Date.now()]
+	);
+	await loadAll();
+}
+
+// The release — the record stays, witnessed. Freedom was already written.
+async function releaseLetting(id: string) {
+	if (!db) return;
+	await db.execute('UPDATE lettings SET released_at=$1 WHERE id=$2', [Date.now(), id]);
+	await loadAll();
+}
+
+async function removeLetting(id: string) {
+	if (!db) return;
+	await db.execute('DELETE FROM lettings WHERE id=$1', [id]);
 	await loadAll();
 }
 
@@ -1048,6 +1083,11 @@ export const hearthStore = {
 	commentsFor(noteId: string): MantelComment[] {
 		return mantelComments.filter((c) => c.noteId === noteId);
 	},
+
+	// ——— the letting-go: ONLY the vessel's own, ever ———
+	myLettings(memberId: string): Letting[] {
+		return lettings.filter((l) => l.memberId === memberId);
+	},
 	actionsFor,
 	meaningsFor,
 	// Meds visible on a member's card: their own on their own device, a
@@ -1104,6 +1144,9 @@ export const hearthStore = {
 	removeMantelNote,
 	addMantelComment,
 	removeMantelComment,
+	holdLetting,
+	releaseLetting,
+	removeLetting,
 	exportAll,
 	importAll,
 	purgeAll,

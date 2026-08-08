@@ -92,6 +92,41 @@
 		const line = await hearthStore.takeMed(medId, status);
 		if (line) celebration = line;
 	}
+
+	// The letting-go — a heart-room, private absolutely (KP's pour,
+	// 2026-08-08: "the letting go, yes this season"). Not the purge:
+	// the record is kept, witnessed. Freedom is written BEFORE the
+	// release — release defined by the life that follows, never by fault.
+	let letNaming = $state('');
+	let letTelling = $state('');
+	let letFreedom = $state('');
+	let letHeld = $state(false);
+
+	const myLettings = $derived(me ? hearthStore.myLettings(me.id) : []);
+
+	async function holdLetting() {
+		if (!me || !letNaming.trim() || !letFreedom.trim()) return;
+		await hearthStore.holdLetting(
+			me.id,
+			letNaming.trim(),
+			letTelling.trim() || null,
+			letFreedom.trim()
+		);
+		letNaming = '';
+		letTelling = '';
+		letFreedom = '';
+		letHeld = true;
+		setTimeout(() => (letHeld = false), 4000);
+	}
+
+	async function release(id: string) {
+		await hearthStore.releaseLetting(id);
+		celebration = 'Released. The record stays, witnessed — and the life that follows is yours.';
+	}
+
+	function softDate(ts: number): string {
+		return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+	}
 </script>
 
 <div class="page">
@@ -259,6 +294,56 @@
 				</div>
 			</section>
 		{/if}
+
+		<section class="section">
+			<h2>The letting-go</h2>
+			<p class="hint">
+				A quiet room for what needs to leave your life. Yours absolutely —
+				nothing here can be shared, ever. The release keeps the record,
+				witnessed; only your own hand removes it.
+			</p>
+			<div class="proto card">
+				<label class="proto__group">
+					<span class="proto__label">what needs to leave</span>
+					<input type="text" class="letting-input" bind:value={letNaming}
+						placeholder="a person, a place, a situation, an idea — your words" aria-label="What needs to leave" />
+				</label>
+				<label class="proto__group">
+					<span class="proto__label">the telling (optional — feelings welcome here)</span>
+					<textarea rows="2" bind:value={letTelling} placeholder="what it was, how it felt…"></textarea>
+				</label>
+				<label class="proto__group">
+					<span class="proto__label">what freedom feels like — written before the release</span>
+					<textarea rows="2" bind:value={letFreedom} placeholder="what your life is like once this is released…"></textarea>
+				</label>
+				<div class="proto__actions">
+					<button class="soft-btn primary" onclick={holdLetting} disabled={!letNaming.trim() || !letFreedom.trim()}>
+						hold it here
+					</button>
+					{#if letHeld}<span class="hint">held. release it whenever you're ready — or never; holding is enough.</span>{/if}
+				</div>
+			</div>
+
+			{#if myLettings.length > 0}
+				<div class="stack" style="margin-top: 0.6rem;">
+					{#each myLettings as l (l.id)}
+						<div class="letting" class:released={!!l.releasedAt}>
+							<div class="letting__head">
+								<span class="letting__naming">{l.naming}</span>
+								{#if l.releasedAt}
+									<span class="letting__state">released {softDate(l.releasedAt)}</span>
+								{:else}
+									<button class="soft-btn" onclick={() => release(l.id)}>release</button>
+								{/if}
+								<button class="letting__remove" onclick={() => hearthStore.removeLetting(l.id)} aria-label="Remove this letting entirely">×</button>
+							</div>
+							{#if l.telling}<p class="letting__telling">{l.telling}</p>{/if}
+							<p class="letting__freedom">💧 {l.freedom}</p>
+						</div>
+					{/each}
+				</div>
+			{/if}
+		</section>
 	{/if}
 </div>
 
@@ -301,6 +386,18 @@
 	.chip { padding: 0.45rem 0.8rem; border-radius: 999px; border: 1px solid var(--border-color); background: none; color: var(--text-secondary); cursor: pointer; font-size: 0.88rem; min-height: 40px; }
 	.chip.active { border-color: var(--accent); color: var(--text); background-color: color-mix(in srgb, var(--accent) 15%, var(--bg-surface)); }
 	.proto textarea { padding: 0.6rem 0.7rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.95rem; resize: vertical; font-family: inherit; }
+	.letting-input { padding: 0.6rem 0.7rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.95rem; }
+	.letting { padding: 0.75rem 0.9rem; border-radius: 12px; background-color: var(--bg-surface); border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.4rem; }
+	.letting.released { opacity: 0.75; }
+	.letting__head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+	.letting__naming { color: var(--text); font-weight: 600; }
+	.letting__state { margin-left: auto; color: var(--text-muted); font-size: 0.8rem; }
+	.letting__head .soft-btn { margin-left: auto; }
+	.letting__remove { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; min-width: 36px; min-height: 36px; }
+	.letting__remove:hover { color: var(--text); }
+	.letting__telling { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; margin: 0; }
+	.letting__freedom { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin: 0; font-style: italic; }
+
 	.add-need { display: flex; gap: 0.5rem; }
 	.add-need input { flex: 1; padding: 0.55rem 0.7rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.9rem; }
 	.minutes { width: 5rem; padding: 0.45rem 0.5rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.95rem; text-align: center; }

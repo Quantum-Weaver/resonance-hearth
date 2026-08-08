@@ -326,6 +326,34 @@ pub fn run() {
                 ON mantel_comments(note_id, ts);
         ",
         kind: MigrationKind::Up,
+    },
+    Migration {
+        version: 7,
+        description: "the_letting_go",
+        // THE LETTING-GO (KP's pour, 2026-08-08: "the letting go, yes this
+        // season"). A heart-room, not the purge: name what must leave your
+        // life, tell it with the feelings included, and write WHAT FREEDOM
+        // FEELS LIKE before the release - release defined by the life that
+        // follows, never by fault (the no-blame law as form design; the
+        // one inherited concept, sanctioned at KP's own pointing).
+        // PRIVATE PER-VESSEL ABSOLUTELY: no shared column exists by
+        // design - a letting never crosses to anyone. The record is kept,
+        // witnessed, never destroyed by the release itself; only the
+        // vessel's own hand removes it. ASCII-only defaults (the JNI law).
+        sql: "
+            CREATE TABLE IF NOT EXISTS lettings (
+                id TEXT PRIMARY KEY,
+                member_id TEXT NOT NULL REFERENCES members(id),
+                naming TEXT NOT NULL,
+                telling TEXT,
+                freedom TEXT NOT NULL,
+                released_at INTEGER,
+                ts INTEGER NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS idx_lettings_member
+                ON lettings(member_id, ts);
+        ",
+        kind: MigrationKind::Up,
     }];
 
     tauri::Builder::default()

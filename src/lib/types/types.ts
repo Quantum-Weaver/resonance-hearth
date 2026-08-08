@@ -190,6 +190,20 @@ export interface MantelComment {
   ts: number;
 }
 
+// ——— The letting-go (KP's pour, 2026-08-08: "yes this season") ———
+// A heart-room, not the purge. PRIVATE per-vessel absolutely — no
+// shared field exists by design. Freedom is written BEFORE the release:
+// release defined by the life that follows, never by fault.
+export interface Letting {
+  id: string;
+  memberId: string;
+  naming: string; // what must leave — the vessel's words
+  telling?: string | null; // the story, feelings included (optional)
+  freedom: string; // what freedom feels like — written before the release
+  releasedAt?: number | null; // null until released; then the moment
+  ts: number;
+}
+
 export interface ElectricPoint {
   id: string;
   roomId: string;
