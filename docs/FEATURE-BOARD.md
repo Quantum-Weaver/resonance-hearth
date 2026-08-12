@@ -332,6 +332,124 @@ in this house has different food traumas"* — per-vessel in shape, always.
 *(The standing icon rows settled the same word: "hearth icon is already
 present and generated for mobile and desktop needs.")*
 
+## GATHERED 2026-08-11 — THE RETURN, from KP's own published record
+
+*Added at KP's word, reading his two Medium essays of 2026-05-22 —
+`UNDERSTANDING MY AUTISTIC MELTDOWNS` (six cards, addressed to "people I
+work with, live with, and love") and `UNDERSTANDING THE AUTISTIC MELTDOWN —
+AND WHAT IT TEACHES US ABOUT SOCIETY` (the household agreement). Both now
+in the well at `writings/medium-essays/`. Un-ranked per this board's law —
+the tier order is KP's. **These are not new design; they are the spec,
+already written, by the person the protocol is for.***
+
+**Q. THE RETURN — the protocol's unbuilt half.** The Sattva ceremony holds
+the MOMENT (one soft button · silent log · the protected 30-second pause ·
+"Welcome back. No explanation needed."). The essays are almost entirely
+about the AFTERMATH, and name a six-step loop the app must not become a
+filing cabinet for: *crash → others begin listing what is owed → the
+apology is refused for arriving in the wrong order → the meltdown erases
+everything the person built → fragments resurface weeks or months later →
+the relationship ends or freezes.* **Four professional relationships lost
+to this loop since August 2023** (his count, in his own words).
+
+- **KP's ruling, this sitting, verbatim:** *"opt in as always, share with
+  family or house or individual about the meltdown in a place they can see
+  it when they are in a headspace to receive it."* — **Double consent.**
+  The one who crashed chooses whether, and to whom, by the rings the schema
+  already carries (`shared_scope` self · personal house · community house,
+  §J). The one who receives meets it **by placement, never push** (§K), in
+  their own time. Neither side is ambushed. The SILENCE LAW holds whole.
+- **The second face of the return.** Today the return speaks only to the
+  returner. His Card 4 names the missing half: *"Afterward: Acknowledge
+  that it happened. 'That was a meltdown. Are you okay?' **The silence
+  after a meltdown is worse than the meltdown itself.**"* One gentle
+  acknowledgment affordance, one tap — never a thread, never a form.
+- **A PERSON IS A SPAN, NOT A MOMENT.** His own byline is written this way
+  — *"Written by Shawn Peters, November 17, 2021 – present"* — and it is
+  the exact answer to the loop's fourth step, *"it erases everything I
+  built."* The return's closing face shows the SPAN: `members.arrival`
+  (already in schema, migration v3) → now, cares given, things carried.
+  The event is one moment inside a life the app can already render.
+- **Four laws, all enforceable in schema** — the house already has the
+  pattern in protected boundary #2 (*presence has no history table, by
+  schema*); the return extends the same forgetting-as-care:
+  1. **NO FRAGMENTS — BUT THE INTENTION IS KEPT.** Two different things,
+     and the schema must not confuse them. **The crash words are never
+     stored:** *"They're neurological noise… Please don't hold me to words
+     I didn't choose."* Nowhere to put them, so nothing can be quoted back
+     in November. **The INTENTION is stored, authored by the vessel** —
+     KP's ⚛ word this sitting: *"intention can be included in capturing
+     the meltdown, often they involve being misunderstood."* What was
+     actually meant, and what set it off, in their own words, written
+     calmly — never reconstructed by anyone else. This is the direct
+     counter to Card 2's wound (*"they assume I meant what I said"*): the
+     intention gets a home instead of having to be argued for in an
+     aftermath where no one is listening. **Being misunderstood is a
+     first-class trigger**, named as such, because it so often is the one.
+  2. **NO LEDGER.** One apology, offered once and accepted once. No field
+     for *things still owed* — a list cannot be made because there is
+     nowhere to put it. *"No lists. No scorekeeping."*
+  3. **MUTUAL BY CONSTRUCTION.** *"Acknowledge the event occurred — **no
+     matter who had the meltdown**."* Every member has the protocol and
+     the return is identical whoever crashed; otherwise it becomes "the
+     thing that happens to one person," which is the erasure again wearing
+     a feature's clothes.
+  4. **THE SPAN CLOSES IT.** The event ages out of every other view and
+     stays in the person's own record forever, theirs to keep.
+- **BANNED_WORDS grows** by the vocabulary of ledgers: *sorry · owe · make
+  up for · again* (current list: overdue · streak · productivity · late ·
+  failed).
+- **THE INTENTION TRAVELS AS COLOUR, NOT WORDS — KP's ⚛ word, verbatim:**
+  *"the intention can be carried forward by a colour of the card they are
+  shown on, no words."* **This is the mechanism, and it is exact.** Words
+  are precisely what failed: the words in the crash were noise, the words
+  after it became lists. So what carries forward has NONE. The card wears
+  the state; nothing is written; nothing can be misread, quoted, or
+  collected. The house already speaks this way — the Safe Word System is
+  *"visual, wordless, consent-shaped"* (TIER B §6) and the cards already
+  hold dynamic colour with `color_source` (§I, migration v3), so this is
+  **one more source, not a new surface.**
+  - **Invitation, never verdict** — the standing card-colour ruling (§A①)
+    governs here with the most force it will ever have: the colour says
+    *this is where I am*, never *something is wrong with this person*.
+  - **Fades, never jumps** (§I) — the return is a gradient, the way the
+    nervous system actually comes back, not a state flag flipping.
+  - Its meaning is the vessel's own, per the law at every layer of this
+    room: **the vessel brings the meaning; the app holds it gently.**
+- **⚠ THIS REACHES BEYOND THIS ROW — a house-wide law, said here, owed an
+  elevation at KP's stroke. His ⚛ word, verbatim:** *"words confuse, we
+  want to offer emojis and colours to communicate when possible."*
+  **Wordless first; words only where nothing else will carry it.** The
+  house is already built this way and has never said it in one line: the
+  Safe Word System is wordless (TIER B §6) · feelings are *"no wheel, just
+  emojis"* (§L④) · the cards are emoji quick-actions bound to machinery
+  (§I) · 3,944 emoji ship so the vessel is never limited to someone else's
+  choices (§H), narrowed by FUNCTION not Unicode's groupings (§N) · spoons
+  are a number, not a sentence. **§C's finding was that the chains live in
+  the structural words; this goes one step further — often the answer is
+  not better words but NO words.** The reason is the family's own: under
+  load, words are the first thing to fail, for everyone in this house.
+  *Every room should be asked the same question at design time: can this
+  be said in colour or emoji instead?*
+- **OPT-IN AT EVERY SINGLE DOOR — KP's ⚛ word, said three times this
+  sitting and engraved here once:** *"again, all opt in, no forcing people
+  to take part."* Nobody is conscripted into this protocol at any step.
+  Sharing is opt-in. Capturing the intention is opt-in. **Receiving is
+  opt-in** — a household member who does not want to hold this is never
+  made to, and their not-taking-part is a complete answer that costs them
+  nothing and is never surfaced as absence. Acknowledging is opt-in and
+  **never a notification** (his word, verbatim: *"not as a notification"*)
+  — it waits where they will find it. Silence remains a whole answer here
+  exactly as it is everywhere else in this house.
+- **Stated honestly, so the row never over-promises:** the app cannot make
+  anyone extend grace, and it will not try — that would be forcing, which
+  the law above forbids. What it CAN do is **carry the intention** so it
+  never has to be argued for, and **stop being the filing cabinet** where
+  lists of what is owed get kept.
+- **Open at KP's stroke:** the closing words of the return. His own line
+  sits exactly at that seam — *"The goal isn't to be right. The goal is to
+  be understood."*
+
 ## Riding alongside (not features)
 
 - **Airtable seeding** — DELIBERATELY AFTER Tier A/B schema growth
