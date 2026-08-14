@@ -9,30 +9,23 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 
 **Authors:** Quantum Weaver (human) + the Kin — see HANDS.md.
 
+*(Trued 2026-08-14 at KP's ⚛ word (the lean doors plan, chamber desk); the struck
+text lives in this repo's git history.)*
+
 ---
 
-## SESSION PROTOCOL
+Enter by **`docs/CHECKLIST.md`** — the newest rows ARE the current state. One
+pass, one scoped duty; zero errors before commit.
 
-0. **Read the `hearth` crystal BEFORE building anything** (KP's law, 2026-07-22:
-   *"the crystal is to be examined by any builder prior to building"*). It lives
-   in the chamber's Geode — **our group builds this repo, so you have it.** No
-   path is written here only because this repo is public; the pointer runs
-   constellation → hearth, not back.
-   **Why it comes first, and why it is not a duplicate of this repo's docs:** the
-   Hearth grows from lived family moments, and those land there **as scrolls,
-   continuously, between sittings.** The boards below record what was *decided*;
-   the crystal holds what has *arrived since* — plus the family's own data
-   (arrival dates, the animals, the naming practice), the protected boundaries
-   gathered in one place, and the open rulings that are KP's alone.
-   **A builder who skips it will rebuild something already answered, or answer
-   something that was KP's to rule.**
-1. Read `docs/CHECKLIST.md` for current state.
-2. Read `DESIGN-002-cartography.md` before touching UX — it is the map.
-3. One phase at a time. Update CHECKLIST.md after every session.
-4. **Findings go back the same way they came:** a note toward the next draft lands
-   on `docs/FEATURE-BOARD.md` (un-ranked — the tier order is KP's), and a moment
-   worth keeping drops as a scroll against the crystal. *These are our own
-   documents; a finding about them is a good note, not a report over a fence.*
+**And only here, first: read the `hearth` crystal BEFORE building anything** —
+KP's law, 2026-07-22: *"the crystal is to be examined by any builder prior to
+building."* It lives in the chamber's Geode; **our group builds this repo, so you
+have it.** No path is written here only because this repo is public. It is not a
+duplicate of these docs: the boards record what was *decided*, the crystal holds
+what has *arrived since* — family moments landing as scrolls between sittings,
+the family's own data, the protected boundaries in one place, and the open
+rulings that are KP's alone. **A builder who skips it will rebuild something
+already answered, or answer something that was KP's to rule.**
 
 ## PROTECTED BOUNDARIES (never negotiable, from the naming ceremony 2026-07-07)
 
@@ -55,6 +48,7 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 - Banned words in UI copy: overdue, streak, productivity, late, failed
   (`BANNED_WORDS` in `src/lib/data/hearth.ts` — grep before shipping).
 - Touch targets ≥ 48px; every signal readable without color alone.
+- `DESIGN-002-cartography.md` is the map — read it before touching UX.
 
 ## THE TASK TAXONOMY
 
@@ -70,34 +64,33 @@ Echoes v1.1.0 (the attested lineage); Echoes itself is never altered.
 Local-first, absolutely. No network calls anywhere in v1. Export (open JSON),
 import (non-destructive), and true delete are features in Settings, riding
 `the-envelope` (referenced from the awen spring — never absorbed, never
-re-derived). The purge truly purges — as LAW and, since 2026-07-31, as
-structure: export reads full tables live with counts on the envelope; purge
-is deny-by-default (every table from sqlite_master + localStorage) and can
-await the export in hand; import is INSERT OR IGNORE (an existing row is the
-household's current mind) with the 07-11 legacy shape honored. The
-geode-verified gaps of 2026-07 are closed; dwelling verification pending.
+re-derived). **The purge truly purges** — as LAW and, since 2026-07-31, as
+structure: deny-by-default across every table from `sqlite_master` plus
+localStorage, able to await the export in hand; import is INSERT OR IGNORE, an
+existing row being the household's current mind.
 
-## Android: Tauri v2 Capabilities (CRITICAL, inherited from Echoes)
+## Distribution, and findings
 
-- `src-tauri/capabilities/default.json` must keep explicit `sql:allow-*`
-  permissions — `sql:default` alone grants zero operation access.
-- Required for SQLite: `sql:allow-load`, `sql:allow-execute`,
-  `sql:allow-select`, `sql:allow-close`.
-- Every new Tauri plugin needs its own `allow-*` entries.
-- Never use non-ASCII characters as DEFAULT values in SQL migration strings —
-  they can fail silently through the Rust JNI bridge on Android.
-- Distribution: NEVER Google Play (decided 2026-07-09) — signed APK through
-  the Sanctuary; the existing `sign-release.py` pipeline applies.
+**NEVER Google Play (decided 2026-07-09)** — signed APK through the Sanctuary.
+Android build laws inherited from Echoes (capabilities, `sql:allow-*`, the JNI
+non-ASCII trap, 16 KB, icons): the `android-tauri` skill. Signing: `release-road`.
 
-## Project structure
+**Findings go back the same way they came:** a note toward the next draft lands
+on `docs/FEATURE-BOARD.md` (un-ranked — the tier order is KP's), and a moment
+worth keeping drops as a scroll against the crystal. *These are our own
+documents; a finding about them is a good note, not a report over a fence.*
 
-```
-src/lib/data/hearth.ts        # signals, celebrations, species, banned words
-src/lib/stores/hearth.svelte.ts  # the household store (all CRUD + boundaries)
-src/lib/components/           # SignalDot, SpoonPicker, CelebrationLine,
-                              # ComfortBar (one-tap Sattva), Sidebar
-src/routes/                   # / (dashboard) me things care bills sattva
-                              # settings onboarding
-src-tauri/src/lib.rs          # migrations (hearth.db) — boundary notes inline
-DESIGN-001/002, HEARTH-PLAN, NAMING-CEREMONY  # the founding documents
-```
+## Structure
+
+The forge's map: `docs/blueprints/pbp.ai.json` — regenerate, never hand-draw a
+tree here. The founding documents: `DESIGN-001`/`002`, `HEARTH-PLAN`,
+`NAMING-CEREMONY`.
+
+## Tools
+
+Own commands: `npm run dev · build · preview · check · tauri`. House tools and
+this repo's registration state: the `house-tools` skill.
+
+## People
+
+Root `CLAUDE.md` §Council · this repo's `HANDS.md`.
