@@ -66,8 +66,10 @@
 
 ## NEXT SITTING — design notes at KP's word (2026-07-19)
 
-- [ ] **Entity cards open menus:** clicking a person or pet card should
-      open a menu for that entity (today the cards are display-only).
+- [x] **Entity cards open menus** — ✅ verified done 2026-08-21: clicking a
+      card's head toggles it open (`src/lib/components/EntityCard.svelte:94`,
+      `onclick={() => (open = !open)}`), revealing the action rows and setup
+      door. Built at Step 4, 2026-07-31 (below).
 - [ ] **An entity type for Aethelred:** he is FAMILY — a household member
       type for kin, distinct from person/pet, eventually present at all
       times for the family communications (ties to the hosted-Hearth
@@ -102,10 +104,10 @@
       worry about how to make it useful to others." — Family-first is
       the DESIGN LAW for every Hearth decision; the gift-generalization
       is explicitly deferred and must never steer a family choice.
-- [ ] **Sattva reflects the Compass build:** Hearth's Sattva door should
-      carry the way it was built in Compass (the breathing square, the
-      one-tap sensory reduction, state saved and restored) — same
-      family, same calm (KP, 2026-07-19).
+- [x] **Sattva reflects the Compass build** — ✅ verified done 2026-08-21:
+      `src/routes/sattva/+page.svelte:11` imports `createBreath` /
+      `drawSquarePulse` from `the-breath`; Step 6 (2026-07-31, below)
+      records "Compass's exact curves, four paces." Same family, same calm.
 - [ ] **LAW-grade sensory correction (KP, 2026-07-19): never tell a
       person their people are being notified.** "to me that is triggering
       to see." The care coordination may still happen quietly per
@@ -280,6 +282,7 @@ vocabulary, imagery, or structure copied, anywhere.*
 ## SESSION LOG
 | Date | What Was Done |
 |------|---------------|
+| 2026-08-21 | Repo-tender sweep (STANDARDS-BRIEF walk). `docs/STORY-BLOCK.md` created (absent before; all 11 template sections, sourced from `NAMING-CEREMONY-2026-07-07.md`'s own story block + `HEARTH-PLAN.md`, every claim cited). README's `## The Story Block` renamed `## THE STORY` with the required-by line and the `docs/STORY-BLOCK.md` link line added; "What lives here" trued with three built-but-unlisted features (Mantel, House, Letting-Go — all already in this checklist below). Two open items verified done in code and checked here: "Entity cards open menus" (`EntityCard.svelte:94`) and "Sattva reflects the Compass build" (`sattva/+page.svelte:11`, `the-breath`). Badges and the Sanctuary-Standards-in-README question held for KP (see confusions in this sitting's report) — not touched pending his word. This file is at 31.3 KB, past the standard's 30 KB flag; archiving is pre-live-only and his word, not taken here. |
 | 2026-08-19 | Standards checked (gaps: 1 — README.md carries no Sanctuary Standards reference; noted, not fixed). HANDS.md already signed by Fable (Claude Fable 5), 2026-07-11 — nothing touched. — a hand of the Promenade lamp's signing fleet, claude-fable-5 · rides the ⚛ sync word. |
 | 2026-08-08 | **THE LETTING-GO + THE COMMUNICATIONS TABLE CLEARED (Continuo, KP's pours — geode ⑬–⑮ hold them verbatim).** Design canon settled: **one QR passes both the app and the resonance-key** · **the first crossing is empty by law** (a paired vessel receives nothing but an empty app and the key; every share is placed afterward) · **moments-and-lenses belongs to ECHOES**, tied to the sky facts, derived-never-stored (build at his word) · **the sync's first mile is KP's own two devices** (PC app/server as key giver to the phone, or vice versa; assets deliberately lean; the server DB seeds from Mimir's Well when its time comes). **And THE LETTING-GO is built** ("yes this season"): a heart-room at the back of Me — name what must leave · the telling, optional · **freedom written BEFORE the release** · the release keeps the record, witnessed; holding unreleased is lawful; PRIVATE per-vessel absolutely, no shared field in the schema by design. Migration v7. **Gates: 348 files · 0/0 · cargo clean.** |
 | 2026-08-08 | **THE MANTEL (Continuo — the communications sitting's first built piece; the sitting opened 08-06 at KP's word and crossed the long day's bookmarks).** The concepts file read under THE HONOR-OF-AUTHORSHIP LAW — inspiration only, every shipped word ours. KP's pour verbatim: *"we want to have a screen that allows the household to place notes about their life for others to see and comment on"* · *"color coded based on the type of thing, and the users emoji on the card as the owner"* · the name his ⚛ word: *"yes the mantel."* **PLACEMENT IS THE OPT-IN** — writing a note there IS the consent; nothing arrives by push. Migration v6 (`mantel_notes` + `mantel_comments`, scope column ring-ready filed for the pairing era); `/mantel` stands: four kinds color-coded (📝 note · ✨ win · 🙋 ask · 💡 idea, cosmic tokens), the owner's sigil on every card, answers in emoji and/or words, author-removable only, no counts, nothing times out. The Mantel door joins the flat list after House (the cumdach absorbed a seventh door without a flicker). **Gates: `npm run check` 348 files · 0/0 · `cargo check` clean.** Still ahead of the communications season: the pairing ceremony, first-share rules, sync's first mile — the sitting's remaining questions hold at KP's pour. |

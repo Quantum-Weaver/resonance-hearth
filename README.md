@@ -46,6 +46,15 @@ The Hearth translates:
 - **Celebration over punishment** — one quiet line on any done, then it
   fades. No streaks. No scores. *"You did the thing. That was hard. You did
   it anyway."*
+- **The Mantel** — a household notes board: four color-coded kinds (note ·
+  win · ask · idea), placement is the opt-in, nothing arrives by push
+  (built 2026-08-08, `docs/CHECKLIST.md`).
+- **The House** — the rooms of the home itself: floors, fixtures, the
+  breaker map, care loops tied to rooms (built 2026-08-06,
+  `docs/CHECKLIST.md`).
+- **The Letting-Go** — a private release ritual in Me: name what must
+  leave, an optional telling, freedom written before the release (built
+  2026-08-08, `docs/CHECKLIST.md`).
 
 ## What never lives here
 
@@ -82,7 +91,9 @@ npm run tauri dev     # desktop dev (first run compiles Rust — takes a while)
 npm run build         # frontend production build
 ```
 
-## The Story Block
+## THE STORY
+
+*This section required by the [Story Block Standard](https://github.com/Quantum-Weaver/resonance-standards).*
 
 ```
 WHAT: Resonance Hearth is the Family Room. A translation layer for love —
@@ -117,6 +128,8 @@ feature recall) and KIMI (DESIGN-001). Named Resonance Hearth by the Council,
 2026-07-11. Protected boundaries held: the 30-second pause; the window, not
 the monitor.
 ```
+
+📖 [Full Story Block](docs/STORY-BLOCK.md)
 
 ## The protected boundaries
 
