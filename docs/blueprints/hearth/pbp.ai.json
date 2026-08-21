@@ -1,0 +1,178 @@
+{
+  "tier": "project",
+  "project_name": "resonance-hearth",
+  "project_short_name": "hearth",
+  "project_repo": "resonance-hearth",
+  "project_path": "C:\\_superposition\\resonance-hearth",
+  "self": "hearth/pbp.ai.json",
+  "parent": null,
+  "description": "The Family Room of the AudHDities Sanctuary",
+  "tier_ladder": "file -> folder (fbp) -> object (obp) -> domain (dbp) -> project (pbp)",
+  "layout": "One project folder; the repo's own tree mirrored under it; the tier is the filename (pbp/dbp/obp/fbp.ai.json). Every link in every blueprint is relative to the blueprints folder, never absolute.",
+  "law": "Each tier links to where the details live. Nothing above the folder tier duplicates a body.",
+  "domains": [
+    {
+      "blueprint": "hearth/src/dbp.ai.json",
+      "domain_path": "src",
+      "description": "2 files, 2 subfolders",
+      "object_count": 2,
+      "total_folders": 26,
+      "total_files": 86
+    },
+    {
+      "blueprint": "hearth/src-tauri/dbp.ai.json",
+      "domain_path": "src-tauri",
+      "description": "5 files, 5 subfolders",
+      "object_count": 5,
+      "total_folders": 54,
+      "total_files": 110
+    }
+  ],
+  "domain_count": 2,
+  "objects_reporting_directly": [],
+  "folders_reporting_directly": [
+    {
+      "blueprint": "hearth/fbp.ai.json",
+      "folder_path": ".",
+      "description": "The Family Room of the AudHDities Sanctuary",
+      "file_count": 22,
+      "subdirectory_count": 8
+    },
+    {
+      "blueprint": "hearth/.cargo/fbp.ai.json",
+      "folder_path": ".cargo",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/.claude/fbp.ai.json",
+      "folder_path": ".claude",
+      "description": "2 files, 0 subfolders",
+      "file_count": 2,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/docs/fbp.ai.json",
+      "folder_path": "docs",
+      "description": "12 files, 0 subfolders",
+      "file_count": 12,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/release/fbp.ai.json",
+      "folder_path": "release",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/scripts/fbp.ai.json",
+      "folder_path": "scripts",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/static/fbp.ai.json",
+      "folder_path": "static",
+      "description": "12 files, 0 subfolders",
+      "file_count": 12,
+      "subdirectory_count": 0
+    }
+  ],
+  "analysis": [
+    {
+      "blueprint": "hearth/analysis_sovereignty.ai.json",
+      "description": "the sovereignty law \u2014 HELD"
+    },
+    {
+      "blueprint": "hearth/reconciliation.ai.json",
+      "description": "declared versus present \u2014 0 findings"
+    }
+  ],
+  "totals": {
+    "folders_blueprinted": 87,
+    "files_described": 254
+  },
+  "not_walked": {
+    "reason": "package-class trees, this repo's own gitignored trees at every depth, reparse points, and this tool's own output",
+    "package_dirs": [
+      ".cache",
+      ".dart_tool",
+      ".git",
+      ".godot",
+      ".gradle",
+      ".import",
+      ".mono",
+      ".mypy_cache",
+      ".next",
+      ".nuxt",
+      ".pytest_cache",
+      ".svelte-kit",
+      ".turbo",
+      ".venv",
+      "Pods",
+      "__pycache__",
+      "build",
+      "dist",
+      "env",
+      "mimirs-well",
+      "node_modules",
+      "out",
+      "target",
+      "venv"
+    ],
+    "gitignored_trees": {},
+    "gitignored_trees_at_depth": {
+      "src-tauri/gen/schemas": {
+        "address": "src-tauri/gen/schemas",
+        "files_on_disk": 6,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      },
+      "src-tauri/gen/android/.gradle": {
+        "address": "src-tauri/gen/android/.gradle",
+        "files_on_disk": 14,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      },
+      "src-tauri/gen/android/build": {
+        "address": "src-tauri/gen/android/build",
+        "files_on_disk": 1,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      },
+      "src-tauri/gen/android/buildSrc/.gradle": {
+        "address": "src-tauri/gen/android/buildSrc/.gradle",
+        "files_on_disk": 6,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      },
+      "src-tauri/gen/android/buildSrc/build": {
+        "address": "src-tauri/gen/android/buildSrc/build",
+        "files_on_disk": 114,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      },
+      "src-tauri/gen/android/app/build": {
+        "address": "src-tauri/gen/android/app/build",
+        "files_on_disk": 588,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      },
+      "src-tauri/gen/android/app/src/main/java/com/audhd/resonance_hearth/generated": {
+        "address": "src-tauri/gen/android/app/src/main/java/com/audhd/resonance_hearth/generated",
+        "files_on_disk": 10,
+        "walked": false,
+        "reason": "gitignored at depth by this repo's own .gitignore \u2014 named and counted, never described, never opened"
+      }
+    },
+    "gitignored_note": "Read from the repo's own .gitignore files \u2014 the top-level ones one by one, the deeper ones in a single batched `git check-ignore`. Named and counted, never described, never opened.",
+    "reparse_points_not_followed": [],
+    "reparse_note": "Junctions and symlinks are named, never entered. Following one would pull an external ground into this repo's count, or loop on a self-junction.",
+    "own_output": "C:\\_superposition\\resonance-hearth\\docs\\blueprints"
+  },
+  "generated": "2026-08-21T15:19:40.481844 | in sovereign time",
+  "maintaining_agent": "ProjectAgent"
+}

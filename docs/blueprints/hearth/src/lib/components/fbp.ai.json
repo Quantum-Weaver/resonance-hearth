@@ -1,0 +1,135 @@
+{
+  "tier": "folder",
+  "folder_name": "components",
+  "folder_path": "src/lib/components",
+  "self": "hearth/src/lib/components/fbp.ai.json",
+  "parent": "hearth/src/lib/obp.ai.json",
+  "description": "8 files, 1 subfolders",
+  "files": [
+    {
+      "path": "src/lib/components/CelebrationLine.svelte",
+      "description": "surface, 1,140 bytes"
+    },
+    {
+      "path": "src/lib/components/ComfortBar.svelte",
+      "description": "surface, 5,411 bytes"
+    },
+    {
+      "path": "src/lib/components/EmojiPicker.svelte",
+      "description": "surface, 5,293 bytes"
+    },
+    {
+      "path": "src/lib/components/EntityCard.svelte",
+      "description": "surface, 13,702 bytes"
+    },
+    {
+      "path": "src/lib/components/GradientPulse.svelte",
+      "description": "surface, 1,005 bytes"
+    },
+    {
+      "path": "src/lib/components/Sidebar.svelte",
+      "description": "surface, 9,862 bytes"
+    },
+    {
+      "path": "src/lib/components/SignalDot.svelte",
+      "description": "surface, 1,909 bytes"
+    },
+    {
+      "path": "src/lib/components/SpoonPicker.svelte",
+      "description": "surface, 2,613 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [
+    "src/lib/components/icons"
+  ],
+  "code_analysis": {
+    "CelebrationLine.svelte": {
+      "language": "svelte",
+      "lines": 44,
+      "uses_runes": [
+        "$effect",
+        "$props",
+        "$state"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "ComfortBar.svelte": {
+      "language": "svelte",
+      "lines": 217,
+      "uses_runes": [
+        "$derived",
+        "$effect",
+        "$state"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "EmojiPicker.svelte": {
+      "language": "svelte",
+      "lines": 174,
+      "uses_runes": [
+        "$derived",
+        "$props",
+        "$state"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "EntityCard.svelte": {
+      "language": "svelte",
+      "lines": 335,
+      "uses_runes": [
+        "$derived",
+        "$props",
+        "$state"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "GradientPulse.svelte": {
+      "language": "svelte",
+      "lines": 55,
+      "uses_runes": [
+        "$props"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "Sidebar.svelte": {
+      "language": "svelte",
+      "lines": 367,
+      "uses_runes": [
+        "$derived",
+        "$effect",
+        "$state"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "SignalDot.svelte": {
+      "language": "svelte",
+      "lines": 82,
+      "uses_runes": [
+        "$derived",
+        "$props"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    },
+    "SpoonPicker.svelte": {
+      "language": "svelte",
+      "lines": 103,
+      "uses_runes": [
+        "$props"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-08-21T15:19:40.230767 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

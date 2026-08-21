@@ -1,0 +1,85 @@
+{
+  "tier": "object",
+  "object_name": "routes",
+  "object_path": "src/routes",
+  "self": "hearth/src/routes/obp.ai.json",
+  "parent": "hearth/src/dbp.ai.json",
+  "description": "3 files, 9 subfolders",
+  "folders": [
+    {
+      "blueprint": "hearth/src/routes/fbp.ai.json",
+      "folder_path": "src/routes",
+      "description": "3 files, 9 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 9
+    },
+    {
+      "blueprint": "hearth/src/routes/bills/fbp.ai.json",
+      "folder_path": "src/routes/bills",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/care/fbp.ai.json",
+      "folder_path": "src/routes/care",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/house/fbp.ai.json",
+      "folder_path": "src/routes/house",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/mantel/fbp.ai.json",
+      "folder_path": "src/routes/mantel",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/me/fbp.ai.json",
+      "folder_path": "src/routes/me",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/onboarding/fbp.ai.json",
+      "folder_path": "src/routes/onboarding",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/sattva/fbp.ai.json",
+      "folder_path": "src/routes/sattva",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/settings/fbp.ai.json",
+      "folder_path": "src/routes/settings",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/src/routes/things/fbp.ai.json",
+      "folder_path": "src/routes/things",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 10,
+  "total_files": 12,
+  "integration_timestamp": "2026-08-21T15:19:40.438747 | in sovereign time",
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

@@ -1,0 +1,72 @@
+{
+  "tier": "folder",
+  "folder_name": "temporal",
+  "folder_path": "src/lib/temporal",
+  "self": "hearth/src/lib/temporal/fbp.ai.json",
+  "parent": "hearth/src/lib/obp.ai.json",
+  "description": "One primitive for everything measured by time: a start moment + a",
+  "files": [
+    {
+      "path": "src/lib/temporal/index.ts",
+      "description": "The temporal core"
+    },
+    {
+      "path": "src/lib/temporal/README.md",
+      "description": "the temporal core"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "index.ts": {
+      "language": "typescript",
+      "lines": 84,
+      "exported_functions": [
+        "readWindow",
+        "freshTake",
+        "describeWindow"
+      ],
+      "exported_consts": [
+        "HOURS",
+        "DAYS"
+      ],
+      "interfaces": [
+        "TemporalWindow",
+        "TemporalReading"
+      ],
+      "types": [
+        "WindowState"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "README.md": {
+      "language": "markdown",
+      "lines": 32,
+      "words": 182,
+      "heading_count": 1,
+      "headings": [
+        "the temporal core"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-08-21T15:19:40.294343 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

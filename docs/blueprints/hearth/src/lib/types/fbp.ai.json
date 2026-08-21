@@ -1,0 +1,67 @@
+{
+  "tier": "folder",
+  "folder_name": "types",
+  "folder_path": "src/lib/types",
+  "self": "hearth/src/lib/types/fbp.ai.json",
+  "parent": "hearth/src/lib/obp.ai.json",
+  "description": "1 files, 0 subfolders",
+  "files": [
+    {
+      "path": "src/lib/types/types.ts",
+      "description": "Theme customization (inherited from Echoes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "types.ts": {
+      "language": "typescript",
+      "lines": 272,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "ThemeConfig",
+        "Member",
+        "CardAction",
+        "EmojiMeaning",
+        "Feeling",
+        "Signal",
+        "SpoonLog",
+        "Thing",
+        "Room",
+        "RoomResponsible",
+        "Fixture",
+        "Circuit",
+        "MantelNote",
+        "MantelComment",
+        "Letting",
+        "ElectricPoint",
+        "Done",
+        "Med",
+        "MedTake",
+        "OverwhelmEvent",
+        "Protocol"
+      ],
+      "types": [
+        "MemberKind",
+        "CardActionKind",
+        "SignalState",
+        "ThingSpecies",
+        "FixtureKind",
+        "ElectricPointKind",
+        "MantelKind",
+        "MantelScope",
+        "MedTakeStatus",
+        "TellScope"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-08-21T15:19:40.297907 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}
