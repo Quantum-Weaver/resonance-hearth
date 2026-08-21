@@ -82,7 +82,7 @@ documents; a finding about them is a good note, not a report over a fence.*
 
 ## Structure
 
-The forge's map: `docs/blueprints/pbp.ai.json` — regenerate, never hand-draw a
+The forge's map: `docs/blueprints/hearth/pbp.ai.json` — regenerate, never hand-draw a
 tree here. The founding documents: `DESIGN-001`/`002`, `HEARTH-PLAN`,
 `NAMING-CEREMONY`.
 
