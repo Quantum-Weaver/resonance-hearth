@@ -256,6 +256,15 @@
 				>{fs} type</button>
 			{/each}
 		</div>
+		<div class="chip-row">
+			{#each ['off', 'subtle', 'full'] as tint}
+				<button
+					class="chip"
+					class:active={themeStore.config.tint === tint}
+					onclick={() => themeStore.setTint(tint as 'off' | 'subtle' | 'full')}
+				>{tint} tint</button>
+			{/each}
+		</div>
 	</section>
 
 	<section class="section">
