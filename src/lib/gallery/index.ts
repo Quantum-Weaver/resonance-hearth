@@ -1,35 +1,4 @@
-// The gallery — the data-driven gallery core, reborn: one engine, many
-// dresses. Rows in, cards out; the pixels are the dress's business.
-//
-// A REBIRTH, not an invention (the ladder's own words): the standing
-// source is athena's six-domains-one-shape (badges · bubbles · courses ·
-// knowledge · lessons · quests — each a Gallery/Detail pair), and the
-// library holds NINETEEN *Gallery components across the realms, every
-// one hand-carrying the same logic: search a term across named text
-// fields, derive cards (title · kicker badges · clamped preview · meta ·
-// address), and answer emptiness in one of two honest voices. That is
-// the copy-tax the lexicon cured for emoji, standing in cards — cured
-// here at the root, the same way: one engine, generated-or-dressed
-// consumers. Built 2026-08-06 at KP's ⚛ "gallery onward!" (the Nocturne
-// lamp). The rebirth law kept: pure core reborn, app dress stays home,
-// origin organs untouched.
-//
-// THE LAWS:
-//   · ROWS AS CARDS IS THE GRAMMAR (KP's ⚛ centering, the Grammar's
-//     experience page: "creating database rows as cards and graphics
-//     and charts") — the engine derives the card's CONTENT; the
-//     consumer's grammar decides every pixel.
-//   · TWO HONEST EMPTIES — "nothing matches the search" and "the
-//     shelf is still filling" are different truths and each domain
-//     speaks them in its own voice (athena's own pattern, kept).
-//   · THE SEARCH WALKS NAMED FIELDS ONLY — case-insensitive, across
-//     the fields the domain declares; nothing is searched by guess.
-//   · THE PREVIEW CLAMPS GENTLY — a lede longer than the limit ends
-//     with an ellipsis; one exactly at the limit rides whole.
-//   · Pure throughout: items in, cards out, nothing given is touched.
-//
-// STANDALONE BY LAW: framework-free, zero imports, generic over any
-// record shape — six domains or sixty, one engine.
+// The gallery core: rows in, cards out. The search walks only the fields the domain declares; pure — nothing given is touched.
 
 /** One derived card — content only; the dress owns the pixels. */
 export interface GalleryCard {

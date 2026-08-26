@@ -1,12 +1,7 @@
 // The Hearth's shared language — signals, celebrations, species.
-// One definition per state, single source of truth (Resonance Grammar).
 
 import type { SignalState, ThingSpecies } from '$lib/types/types';
 
-// ——— The Safe Word System ———
-// These are presence indicators, not notifications. They do not demand
-// response. They invite it. (DESIGN-001; the visual language is sensory-safe:
-// no sounds, no vibrations, no alarms — color, word, and a slow breath.)
 export interface SignalDef {
   state: SignalState;
   emoji: string;
@@ -56,8 +51,6 @@ export const SIGNALS: SignalDef[] = [
 export const signalByState = (s: SignalState): SignalDef =>
   SIGNALS.find((d) => d.state === s) ?? SIGNALS[0];
 
-// ——— Celebration over punishment ———
-// One quiet line on any done. No streaks, no scores, no confetti storms.
 export const CELEBRATIONS: string[] = [
   'You did the thing. That was hard. You did it anyway.',
   'Done. The household breathes a little easier.',
@@ -109,20 +102,13 @@ export const SPECIES: SpeciesDef[] = [
 export const speciesDef = (s: ThingSpecies): SpeciesDef =>
   SPECIES.find((d) => d.species === s) ?? SPECIES[0];
 
-// Words the Hearth never uses (cartography's sensory law).
-// Kept here so reviews can grep for violations.
+// Words the Hearth never uses — kept here so reviews can grep for violations.
 export const BANNED_WORDS = ['overdue', 'streak', 'productivity', 'late', 'failed'];
 
-// The Sattva ceremony's protected pause, in milliseconds.
-// PROTECTED BOUNDARY (naming ceremony, Executioner, 2026-07-07):
-// not configurable below 30 seconds. Do not add a setting for this.
-// (Family-facing name is Sattva per DESIGN-005; this identifier and the
-// overwhelm_events table keep their legacy names deliberately — installed
-// devices carry data under them.)
+// The Sattva ceremony's protected pause, in milliseconds. Not configurable below 30 seconds; do not add a setting for this.
+// This identifier and the overwhelm_events table keep their legacy names deliberately — installed devices carry data under them.
 export const OVERWHELM_PAUSE_MS = 30_000;
 
-// Suggested needs for a vessel's personal protocol — starting points only;
-// every vessel authors their own list. (DESIGN-003 §2)
 export const SUGGESTED_NEEDS: string[] = [
 	'quiet',
 	'water',

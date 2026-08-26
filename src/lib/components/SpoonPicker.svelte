@@ -1,7 +1,4 @@
 <script lang="ts">
-	// The Spoon Compass input. "Not Sure" is a first-class answer (inherited
-	// from Echoes' design language), and skipping entirely is honored — this
-	// component never nags; it simply exists.
 	import { SPOON_LABELS } from '$lib/data/hearth';
 
 	let {

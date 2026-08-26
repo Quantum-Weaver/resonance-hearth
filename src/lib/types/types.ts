@@ -1,4 +1,3 @@
-// Theme customization (inherited from Echoes — same grammar, its own light)
 export type TintLevel = 'off' | 'subtle' | 'full';
 
 export interface ThemeConfig {
@@ -6,10 +5,8 @@ export interface ThemeConfig {
   accentColor: string;
   presetName?: string;
   fontSize: 'small' | 'medium' | 'large';
-  /** How far the accent bleeds into the background. The reader's choice, not
-   *  the app's - added 2026-08-21 at KP's word, "which i like, but others may
-   *  not." A config saved before this field existed is merged over the default
-   *  and reads as 'subtle', which is what its owner was already seeing. */
+  /** How far the accent bleeds into the background. A config saved before
+   *  this field existed is merged over the default and reads as 'subtle'. */
   tint: TintLevel;
 }
 
@@ -17,8 +14,7 @@ export interface ThemeConfig {
 
 export type MemberKind = 'person' | 'pet';
 
-// A member of the household. Pets are members of kind 'pet' —
-// the pets are family.
+// A member of the household. Pets are members of kind 'pet'.
 export interface Member {
   id: string;
   label: string; // chosen name/label — never a real name required
@@ -31,14 +27,7 @@ export interface Member {
   colorSource: string; // 'first' (all compete) | a CardAction id (one emoji leads)
 }
 
-// An emoji is a button that does a thing (KP, 2026-07-31 — the entity
-// cards' plain spec, geode `hearth` §⑥b/⑧). Kinds:
-//  done    — completes a thing (rides `dones` + rest machinery)
-//  take    — opens the member's meds; each selected take is recorded
-//  reset   — a fresh take on a temporal window (chicken timer machinery:
-//            state derived from the clock, never stored)
-//  feeling — logs a feeling: an emoji and/or the vessel's own word
-//            ("no wheel" · "just emojis" · "simple")
+// An emoji is a button that does a thing. Kinds:
 export type CardActionKind = 'done' | 'take' | 'reset' | 'feeling';
 
 export interface CardAction {
@@ -54,9 +43,7 @@ export interface CardAction {
   position: number;
 }
 
-// One meaning of one emoji, in one vessel's words — the household lexicon.
-// The Folksonomy Principle governs: no emoji has a single meaning; all
-// definitions are preserved; none overwrites another.
+// One meaning of one emoji, in one vessel's words. All definitions are preserved; none overwrites another.
 export interface EmojiMeaning {
   id: string;
   emoji: string;
@@ -121,10 +108,7 @@ export interface Thing {
   createdAt: number;
 }
 
-// ——— The house itself (THE HOUSE POUR, KP 2026-08-06 — geode §⑪) ———
-// The keeper adds the house; the house answers with offered knowledge
-// (how · how often · WHY — the guidance shelf lives in
-// src/lib/data/houseCare.ts, authored, never in the DB).
+// The house: the keeper adds it; the guidance shelf lives in src/lib/data/houseCare.ts, authored, never in the DB.
 
 export interface Room {
   id: string;
@@ -160,8 +144,7 @@ export interface Fixture {
   notes?: string | null;
 }
 
-// The breaker box's own rows — understanding recorded once, never
-// re-derived (the anti-drift law, in copper).
+// Understanding recorded once, never re-derived.
 export interface Circuit {
   id: string;
   breakerLabel: string; // the box's own numbering
@@ -171,9 +154,7 @@ export interface Circuit {
 
 export type ElectricPointKind = 'outlet' | 'switch' | 'light' | 'appliance-feed';
 
-// ——— The Mantel (KP's pour, 2026-08-06 — the communications sitting) ———
-// Placement is the opt-in: writing a note here IS the consent. Cards
-// wear their kind's color and the owner's sigil.
+// Placement is the opt-in: writing a note here IS the consent.
 
 export type MantelKind = 'note' | 'win' | 'ask' | 'idea';
 export type MantelScope = 'unit' | 'house'; // the rings — filed, not yet governing
@@ -197,10 +178,7 @@ export interface MantelComment {
   ts: number;
 }
 
-// ——— The letting-go (KP's pour, 2026-08-08: "yes this season") ———
-// A heart-room, not the purge. PRIVATE per-vessel absolutely — no
-// shared field exists by design. Freedom is written BEFORE the release:
-// release defined by the life that follows, never by fault.
+// PRIVATE per-vessel absolutely — no shared field exists by design.
 export interface Letting {
   id: string;
   memberId: string;
@@ -247,10 +225,7 @@ export interface MedTake {
   status: MedTakeStatus;
 }
 
-// The Meltdown Protocol's record. The 30-second pause between start and
-// household visibility is enforced where this is displayed.
-// `tell` snapshots the audience at start ('all' | JSON array of member ids |
-// null = legacy 'all'); `need` is the one-tap answer to "what do you need?".
+// `tell` snapshots the audience at start ('all' | JSON array of member ids | null = legacy 'all'); `need` is the one-tap answer.
 export interface OverwhelmEvent {
   id: string;
   memberId: string;
@@ -263,9 +238,7 @@ export interface OverwhelmEvent {
   tell?: string | null;
 }
 
-// A vessel's personal Meltdown Protocol — authored in calm, executed in
-// storm (DESIGN-003 §2). The 30-second pause is NOT part of this type on
-// purpose: it is not personal; it is protected.
+// The 30-second pause is deliberately NOT part of this type: it is not personal, it is protected.
 export type TellScope = 'household' | 'some' | 'none';
 
 export interface Protocol {

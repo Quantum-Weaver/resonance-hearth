@@ -1,15 +1,4 @@
-// The function shelves — the narrowed offering (KP's ⚛ ruling, 2026-08-06,
-// superseding the 07-31 full-set ruling by its own author): "i also want
-// to narror the emoji set… we simply narrow it to a certain amount per
-// category" · "categories should be based on the thing we want the emoji
-// press to trigger, the type of funtioin it is." Twenty per category —
-// his stroke — with his named emojis among them (the poultry leg, cat,
-// dog, dna, rainbow, unicorn, wizard, man, woman, pill, calendar, and
-// the colored dots).
-//
-// The vessel-brings-the-meaning law is untouched: a shelf narrows the
-// OFFERING, never the vocabulary — the picker's search still reaches
-// every emoji, and the lexicon may give any emoji any meaning.
+// Twenty emoji per function category — a shelf narrows the OFFERING, never the vocabulary; the picker's search still reaches every emoji.
 
 export interface FunctionShelf {
 	id: 'done' | 'take' | 'reset' | 'feeling' | 'sigil';

@@ -1,16 +1,4 @@
 <script lang="ts">
-	// The entity card — gentle reminders (KP's rulings, 2026-07-31, held
-	// verbatim on the geode's hearth node §⑥b/⑧):
-	//   · interactive, expandable; emoji quick-actions in rows, cyclable
-	//   · an emoji is a button that does a thing
-	//   · color is dynamic — "one of your emojis needs your eyes" — the
-	//     vessel's chosen color fading white → yellow → red by percentage
-	//   · a second emoji in its danger zone speaks through a thick border
-	//   · open card: a small colored circle under each emoji, same journey
-	//   · the word, when words appear, is CARE ("Charlie needs care")
-	//   · setup from the card itself (Settings holds the other door)
-	// Sensory law throughout: no sound, no motion beyond slow color, 48px
-	// targets, nothing traps, never color alone (the care line + titles).
 	import type { Member, CardActionKind } from '$lib/types/types';
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { signalByState } from '$lib/data/hearth';
@@ -26,7 +14,6 @@
 	let page = $state(0);
 	let quietLine = $state<string | null>(null);
 
-	// The new-action form (setup door one — the card itself).
 	let newEmoji = $state('');
 	let newLabel = $state('');
 	let newKind = $state<CardActionKind>('done');

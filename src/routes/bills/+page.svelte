@@ -1,7 +1,4 @@
 <script lang="ts">
-	// Bills — the edges. The world imposes these dates; the Hearth's job is
-	// to make them visible early and calmly, never to turn them into alarms.
-	// Amounts are hideable (shared money is a household choice, not a default).
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import CelebrationLine from '$lib/components/CelebrationLine.svelte';
 

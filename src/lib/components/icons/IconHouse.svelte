@@ -1,6 +1,4 @@
 <script lang="ts">
-  // A floor plan, not a facade — the house as its rooms, which is how
-  // this door holds it.
   let { size = 20, color = 'currentColor' }: { size?: number; color?: string } = $props();
 </script>
 <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

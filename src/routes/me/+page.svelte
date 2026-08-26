@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Me — the private room. My spoons, my signal, my meds, my things.
-	// Everything here is mine; sharing is opt-in, per item, revocable.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { SIGNALS, SUGGESTED_NEEDS } from '$lib/data/hearth';
 	import type { TellScope } from '$lib/types/types';
@@ -10,9 +8,7 @@
 	let celebration = $state<string | null>(null);
 	let spoonsShared = $state(true);
 
-	// My Sattva protocol — authored here in calm, executed in storm.
-	// Telling is OPT-IN (KP's law, 2026-07-19): the default is that no one
-	// is told; each person chooses their people here, in calm.
+	// Telling is OPT-IN: the default is that no one is told.
 	let protoLoaded = $state(false);
 	let tellScope = $state<TellScope>('none');
 	let tellMembers = $state<string[]>([]);
@@ -93,10 +89,7 @@
 		if (line) celebration = line;
 	}
 
-	// The letting-go — a heart-room, private absolutely (KP's pour,
-	// 2026-08-08: "the letting go, yes this season"). Not the purge:
-	// the record is kept, witnessed. Freedom is written BEFORE the
-	// release — release defined by the life that follows, never by fault.
+	// Private absolutely. Freedom is written BEFORE the release.
 	let letNaming = $state('');
 	let letTelling = $state('');
 	let letFreedom = $state('');

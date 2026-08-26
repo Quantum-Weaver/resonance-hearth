@@ -1,14 +1,4 @@
 <script lang="ts">
-	// The front door. Gentle steps, skippable, never a form-gauntlet.
-	// The same rule as everywhere: chosen names are enough, sharing is opt-in,
-	// and nothing here is a commitment you can't undo in Settings.
-	//
-	// THE WALK — this door consumes the-epagoge (the spring's leading-in;
-	// the family's shared walk). The walk owns the flow, the dots, and the
-	// honest record; every particular below — the members, the device, the
-	// household's own data — stays under the hearth's roof, exactly as it
-	// did. The membership law's spirit is untouched: nothing here invents
-	// pairing; the door only does what it always did, on lawful rails.
 	import { goto } from '$app/navigation';
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { themeStore } from '$lib/stores/theme.svelte';
@@ -26,10 +16,6 @@
 		type Walk
 	} from '$lib/epagoge';
 
-	// ALL presets are offered at the door — derived from the shelf itself,
-	// never hardcoded, so a new preset appears here the day it is born
-	// (KP's ⚛ stroke). The default is WARM: the hearth's own light —
-	// same grammar as the family, its own glow.
 	const PRESET_ICONS: Record<string, string> = {
 		dark: '🌙',
 		warm: '🔥',
@@ -39,8 +25,7 @@
 		amoled: '🌑'
 	};
 
-	// THE KEY LAW: the key is stored ("amoled"); the display name
-	// (presetName, "AMOLED Black") is dress and appears nowhere in the record.
+	// The key is stored ("amoled"); the display name is dress and appears nowhere in the record.
 	const themeOffers = Object.entries(PRESET_THEMES).map(([key, t]) => ({
 		key,
 		name: t.presetName,
@@ -78,7 +63,6 @@
 
 	function pickTheme(key: string) {
 		walk = toggleChoice(walk, key);
-		// Live preview is dress, not record — the walk holds the key.
 		themeStore.setPreset((walk.choices['theme'] ?? ['warm'])[0] ?? 'warm');
 	}
 
@@ -92,16 +76,11 @@
 		if (isDone(walk)) finish();
 	}
 
-	// "Skip all of this" keeps its old meaning: the door stays open and
-	// nothing is demanded — the walk ends early, the theme untouched.
 	function finishEarly() {
 		localStorage.setItem('hearth_onboarding_complete', '1');
 		goto('/');
 	}
 
-	// THE DOORWAY LAW: completion hands over what was chosen; the app
-	// stores it under its own roof, and every answer stays changeable in
-	// Settings.
 	function finish() {
 		const done = completion(walk);
 		themeStore.setPreset((done.choices['theme'] ?? ['warm'])[0] ?? 'warm');
@@ -112,16 +91,10 @@
 
 <div class="door">
 	{#if beginTrouble}
-		<!-- Trouble is data, told never thrown — and it should never stand
-		     here: the steps are static. Honest anyway. -->
 		<div class="panel"><p class="body">{beginTrouble}</p></div>
 	{:else if step?.id === 'welcome'}
 		<div class="panel">
 			<div class="flame">🔥</div>
-			<!-- The Three Words are street-wide (KP's ruling, 2026-07-29):
-			     Velkomin at every door, Fáilte at every hearth, Gweld ti'n
-			     fuan at every going — the signed register: calm, gentle,
-			     no inflection. This is the door. -->
 			<h1>Velkomin</h1>
 			<p class="lead">Welcome. This is Resonance Hearth — the Family Room. A translation layer for love.</p>
 			<p class="body">
@@ -283,7 +256,6 @@
 	.skip { background: none; border: none; color: var(--text-muted); font-size: 0.85rem; cursor: pointer; text-decoration: underline; }
 	.skip:hover { color: var(--text-secondary); }
 
-	/* ── The atmosphere step — every preset the shelf holds ── */
 	.theme-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -319,7 +291,6 @@
 	.theme-name { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); }
 	.theme-swatch { width: 28px; height: 5px; border-radius: 3px; }
 
-	/* ── The dots — derived by the walk, drawn in the hearth's calm ── */
 	.dots {
 		display: flex;
 		justify-content: center;

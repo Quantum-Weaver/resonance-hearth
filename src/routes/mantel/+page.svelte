@@ -1,15 +1,4 @@
 <script lang="ts">
-	// THE MANTEL — where the household places notes about its life for
-	// the others to see and answer. (KP's pour, 2026-08-06, the
-	// communications sitting's first built piece; the name his ⚛ word:
-	// "yes the mantel".)
-	//
-	// PLACEMENT IS THE OPT-IN: writing a note here IS the consent —
-	// nothing arrives by push; the household sees what stands when they
-	// visit. Cards wear their kind's color (KP's stroke) and the owner's
-	// sigil (his stroke). The author's note stays the author's —
-	// removable by their own hand; its comments rest with it. No counts,
-	// no scoreboard, nothing times out.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { QUANTUM_COLORS } from '$lib/cosmic';
 	import type { MantelKind } from '$lib/types/types';
@@ -123,7 +112,6 @@
 		</p>
 	{/if}
 
-	<!-- The shelf -->
 	{#if hearthStore.mantelNotes.length === 0}
 		<p class="quiet-line">The mantel is clear — whatever is placed first, the household will see it here.</p>
 	{:else}

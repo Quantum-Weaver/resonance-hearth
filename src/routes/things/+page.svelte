@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Things — the task ledger. Three species, each breathing its own way.
-	// No "overdue" exists anywhere in this room. Deferring costs nothing.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { SPECIES, speciesDef } from '$lib/data/hearth';
 	import type { ThingSpecies } from '$lib/types/types';
@@ -8,7 +6,6 @@
 
 	let celebration = $state<string | null>(null);
 
-	// The add form — Quick-Log fast (Echoes lineage): title + species is enough.
 	let adding = $state(false);
 	let title = $state('');
 	let species = $state<ThingSpecies>('breathing');

@@ -1,18 +1,4 @@
-// The guidance shelf — the house's offered knowledge (THE HOUSE POUR,
-// KP 2026-08-06, geode §⑪; the drafts blessed on THE-HOUSE-WALK.md at
-// his ⚛ word: "the rest is good as is").
-//
-// The law over every entry: THE WHY ALWAYS RIDES WITH THE HOW — "the
-// why is important for neurodivergent minds" (KP, verbatim). Teaching
-// never wounds: guidance is offered knowledge, invitation-shaped; it
-// never scolds, never counts misses, never says who didn't. Shipped
-// authored, no network, no DB — the app carries the teaching so no
-// person has to.
-//
-// windowDays feeds the temporal shape (KP's ⚛ stroke: "temportal
-// category, yes"): every "how often" is a validity window; a done is a
-// fresh take; state derives from the clock. null = a habit ("after
-// use", "as they come"), not a window.
+// windowDays is a validity window: a done is a fresh take and state derives from the clock. null = a habit, not a window.
 
 export interface CareEntry {
 	act: string; // the how, short — becomes an offered loop's title

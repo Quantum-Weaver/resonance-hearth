@@ -1,19 +1,13 @@
 <script lang="ts">
-	// Care — the loops: medications (private by default), the pets' needs,
-	// and the household's recurring rhythms. Gentle persistence lives here:
-	// things return softly until acknowledged, and "can someone else?" is a
-	// first-class answer, never a failure.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import CelebrationLine from '$lib/components/CelebrationLine.svelte';
 
 	let celebration = $state<string | null>(null);
 
-	// med add form
 	let addingMed = $state(false);
 	let medLabel = $state('');
 	let medShared = $state(false);
 
-	// pet loop add form
 	let addingLoop = $state(false);
 	let loopTitle = $state('');
 	let loopPetId = $state('');

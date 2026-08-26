@@ -1,25 +1,5 @@
-// The temporal core — one primitive for everything measured by time.
-//
-// KP's naming, verbatim (geode `hearth` §⑤a, 2026-07-23): "'temporal'
-// these things are measured by time with food and finance and medicine."
-// The shape: a START MOMENT + a VALIDITY WINDOW; state DERIVED from the
-// clock, never stored; reset by a fresh take. The chicken batch (food),
-// the bill's edge (finance), the med's rested-until (medicine/care) are
-// one design — and so is a context-limited vessel observing its own pace
-// ("maybe temporal is how context shy models need to observe their pace…
-// instead of counting text capacity").
-//
-// STANDALONE BY LAW: framework-free, zero imports, no app coupling —
-// born copy-ready for the awen spring (KP's ruling on the sky organs,
-// 2026-07-31: built in the Hearth; awen homes via copy, maintained and
-// updates distributed from the spring; the same pattern is proposed for
-// this module, his word to confirm).
-//
-// The vocabulary is deliberately calm: fresh · approaching · passed.
-// A passed window is information, never a verdict (the taxonomy's own
-// law about edges). Nothing here names a color — the consumer's grammar
-// decides what a state looks like, and in the Hearth that wording is
-// KP's standing ruling ("Charles is asking" vs a verdict).
+// The temporal core: a START MOMENT + a VALIDITY WINDOW; state is DERIVED from the clock, never stored, and reset by a fresh take.
+// States are fresh · approaching · passed. Pure: framework-free, zero imports, no app coupling.
 
 export type WindowState = 'fresh' | 'approaching' | 'passed';
 

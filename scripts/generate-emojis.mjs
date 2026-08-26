@@ -1,20 +1,5 @@
-// generate-emojis.mjs — the full emoji vocabulary, generated at dev time.
-//
-// KP's ruling (2026-07-31, verbatim on the geode `hearth` node §⑥a): "we
-// want to load the hearth with a full set of options otherwise we limit
-// its vessel to what we chose." So: the WHOLE Unicode set, no curation.
-// This script fetches Unicode's own emoji-test.txt (dev environment only —
-// the shipped app makes no network calls, ever) and emits
-// src/lib/data/emojis.gen.ts: generated, never hand-edited, healed by
-// regeneration (the house's GAIA law at emoji scale).
-//
+// Fetches Unicode's emoji-test.txt (dev only — the shipped app makes no network calls) and emits src/lib/data/emojis.gen.ts.
 //   node scripts/generate-emojis.mjs
-//
-// What it keeps: every fully-qualified emoji, its Unicode name, and its
-// group. What it sets aside: the Component group (skin-tone/hair swatches
-// that are not emojis on their own) and minimally-/unqualified duplicates
-// of the same emoji. Meaning is deliberately NOT shipped: names are for
-// SEARCH, never definitions — the vessel brings the meaning.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';

@@ -1,7 +1,4 @@
 <script lang="ts">
-	// A presence indicator — not a notification. It breathes slowly and
-	// demands nothing. Sensory law: no sound, no vibration, no alarm colors;
-	// reduced motion turns the breath into a steady glow.
 	import type { Member, Signal } from '$lib/types/types';
 	import { signalByState } from '$lib/data/hearth';
 

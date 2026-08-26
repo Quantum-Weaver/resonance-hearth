@@ -1,6 +1,4 @@
 <script lang="ts">
-  // The mantel shelf — a frame and a candle standing on it: what the
-  // family places to be seen.
   let { size = 20, color = 'currentColor' }: { size?: number; color?: string } = $props();
 </script>
 <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

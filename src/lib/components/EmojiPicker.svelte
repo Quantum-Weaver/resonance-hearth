@@ -1,14 +1,5 @@
 <script lang="ts">
-	// EmojiPicker — the narrowed offering over the full vocabulary.
-	// KP's ⚛ ruling (2026-08-06, superseding his own 07-31 full-set word):
-	// the shelf narrows to twenty per FUNCTION category — "based on the
-	// thing we want the emoji press to trigger" — while the search still
-	// reaches every emoji, and meaning stays the vessel's own. Names are
-	// search keys, never definitions.
-	//
-	// Sensory law holds: no sound, no motion, targets ≥48px, dismissible,
-	// nothing traps. One group renders at a time (plus content-visibility)
-	// so the whole set stays light on a phone.
+	// One group renders at a time (plus content-visibility) so the whole set stays light on a phone.
 	import { EMOJI_GROUPS, EMOJI_COUNT, type EmojiEntry } from '$lib/data/emojis.gen';
 	import { shelfFor } from '$lib/data/emojiFunctions';
 
@@ -29,8 +20,7 @@
 
 	const shelf = $derived(shelfFor(category));
 
-	// Search walks every group; the shown slice is capped visibly, never
-	// silently — the count always says how many matched.
+	// Search walks every group; the shown slice is capped visibly — the count always says how many matched.
 	const SHOW_CAP = 400;
 	let matches = $derived.by((): { total: number; shown: EmojiEntry[] } => {
 		const q = search.trim().toLowerCase();
@@ -74,8 +64,6 @@
 			{/each}
 		</div>
 	{:else if shelf}
-		<!-- The shelf — twenty for this function (KP's ⚛ narrowing);
-		     the search above still reaches every emoji. -->
 		<p class="count">{shelf.label} · {shelf.emojis.length} — search reaches them all</p>
 		<div class="grid">
 			{#each shelf.emojis as en (en.e)}

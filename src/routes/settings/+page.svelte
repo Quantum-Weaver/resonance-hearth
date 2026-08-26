@@ -1,8 +1,4 @@
 <script lang="ts">
-	// Settings — the household's quiet machinery. Members, this device,
-	// light and type, and the three license-§7 features that are features,
-	// not promises: export everything, bring an export home, delete
-	// everything. The three laws ride the-envelope (the awen spring).
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { themeStore } from '$lib/stores/theme.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';
@@ -19,8 +15,6 @@
 	let exportNote = $state<string | null>(null);
 	let purgeArmed = $state(false);
 
-	// The household lexicon — the emoji folksonomy, at home (KP's ask,
-	// 2026-07-31). Many true meanings, none overwriting another.
 	let lexEmoji = $state('');
 	let lexMeaning = $state('');
 	let lexWho = $state<string | null>(null);
@@ -48,8 +42,7 @@
 		newSigil = '';
 	}
 
-	// One export path for both doors. Returns false if the save dialog was
-	// closed — the caller decides what that means (for the purge: everything).
+	// One export path for both doors. Returns false if the save dialog was closed.
 	async function exportToFile(): Promise<boolean> {
 		const json = await hearthStore.exportAll();
 		const path = await save({
@@ -93,9 +86,7 @@
 		}
 	}
 
-	// The purge awaits the export: law 2, straight from the-envelope.
-	// Canceling the save dialog cancels the purge — no export in hand,
-	// nothing deletes.
+	// The purge awaits the export: canceling the save dialog cancels the purge.
 	async function purgeWithExport() {
 		exportNote = null;
 		try {

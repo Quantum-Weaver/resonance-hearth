@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Celebration over punishment: one quiet line that fades on its own.
-	// No streaks, no scores, no confetti. It appears, warms, and goes.
 	let { text = $bindable<string | null>(null) }: { text?: string | null } = $props();
 
 	let visible = $state(false);

@@ -3,9 +3,6 @@ import type { ThemeConfig, TintLevel } from '$lib/types/types';
 
 const STORAGE_KEY = 'resonance-hearth-theme';
 
-// The Hearth defaults to Warm — hearth.gold was waiting in the cosmic
-// palette before this app had a name. Only the colour is its own; mode, text
-// size and tint are the family's defaults, and the reader's to change.
 const HEARTH_DEFAULT: ThemeConfig = {
 	...DEFAULT_THEME,
 	accentColor: PRESET_THEMES.warm.accentColor,
@@ -29,8 +26,7 @@ export const themeStore = {
 		const stored = localStorage.getItem(STORAGE_KEY);
 		if (!stored) return;
 		try {
-			// Merged over the default, never cast blind: a config saved before a
-			// field existed keeps working instead of arriving undefined.
+			// Merged over the default so a config saved before a field existed keeps working.
 			config = { ...HEARTH_DEFAULT, ...(JSON.parse(stored) as Partial<ThemeConfig>) };
 		} catch {
 			config = { ...HEARTH_DEFAULT };

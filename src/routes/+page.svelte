@@ -1,8 +1,5 @@
 <script lang="ts">
-	// The Hearth — the Family Dashboard.
-	// PROTECTED BOUNDARY (naming ceremony, 2026-07-07): this is a window,
-	// not a monitor. Only shared state appears here; only current presence,
-	// never history; nothing on this page demands anything of anyone.
+	// A window, not a monitor: only shared state, only current presence, never history.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { speciesDef } from '$lib/data/hearth';
 	import EntityCard from '$lib/components/EntityCard.svelte';
@@ -16,19 +13,8 @@
 
 	const people = $derived(hearthStore.people);
 
-	// Every member gets a card — the entity cards ARE the household view
-	// now (gentle reminders, KP's 2026-07-31 rulings). The pets appear
-	// unconditionally: presence gating applies to signals, never to being
-	// family. A person's shared signal rides ON their card; unshared
-	// signals simply don't appear (window, not monitor — unchanged).
 	const household = $derived(hearthStore.members);
 
-	// THE GALLERY — the household roster consumes the-gallery (the family's
-	// shared engine: rows in, cards out). EntityCard stays the dress; its
-	// canon is untouched. The search walks the label ONLY — a label is for
-	// finding (the crystal's ruling) — and the two empties speak in this
-	// hearth's own voice. Every kind of member rides: presence gating
-	// applies to signals, never to being family.
 	let memberQuery = $state('');
 	const memberConfig: GalleryConfig<Member> = {
 		searchIn: [(m) => m.label],
@@ -53,10 +39,6 @@
 		}))
 	);
 
-	// The sky organs — facts only, computed offline, derived never stored
-	// (KP's rulings, 2026-07-31): the moon's phase, the wheel's next
-	// turning, and any wanderers standing together. No meanings shipped;
-	// what the sky means is the family's own.
 	const sky = $derived(readSky(new Date(hearthStore.now)));
 	const skyLine = $derived.by(() => {
 		const parts = [
@@ -111,8 +93,6 @@
 
 <div class="page">
 	<header class="page__head">
-		<!-- The second of the Three Words: Fáilte at every hearth — and of
-		     every app on the street, this hearth is the literal one. -->
 		<h1>The Hearth</h1>
 		<p class="sub">Fáilte — the hearth is warm. The household, breathing together; only what each of us chose to share.</p>
 	</header>
@@ -142,10 +122,6 @@
 				{/if}
 				Check on them in {h.protocol.checkbackMinutes} minutes unless they signal otherwise.<br />
 				This is not an emergency. This is a household breathing.<br />
-				<!-- The third word, at the going — the only departure that
-				     carries a return inside it. Spoken to the household about
-				     the one who stepped away; their own screen stays silent,
-				     per the silence law. -->
 				<em>Gweld ti'n fuan — see you soon.</em>
 			</div>
 		</div>
@@ -154,7 +130,6 @@
 	{#if household.length > 0}
 		<section class="section">
 			<h2>The household</h2>
-			<!-- The very top of the gallery — KP's ⚛ stroke. -->
 			<input
 				type="search"
 				class="member-search"

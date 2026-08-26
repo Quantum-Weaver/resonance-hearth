@@ -34,9 +34,6 @@ import type {
 } from '$lib/types/types';
 import { OVERWHELM_PAUSE_MS, pickCelebration } from '$lib/data/hearth';
 
-// The Hearth store — the household's living memory. Same idiom as Echoes'
-// echo store (the parent codebase): Svelte 5 runes + tauri-plugin-sql,
-// local-first, nothing leaves the device.
 
 let db: Database | null = null;
 
@@ -62,8 +59,7 @@ let lettings = $state<Letting[]>([]);
 let loading = $state(false);
 let dbError = $state<string | null>(null);
 let deviceMemberId = $state<string | null>(null);
-// A slow clock for presence math (the 30s pause, loop rests). One minute
-// resolution is plenty gentle; the overwhelm route keeps its own 1s clock.
+// A slow clock for presence math — one-minute resolution; the overwhelm route keeps its own 1s clock.
 let now = $state(Date.now());
 if (browser) setInterval(() => (now = Date.now()), 15_000);
 
@@ -426,15 +422,12 @@ async function doneThing(thingId: string, memberId: string | null, felt?: string
 		// A done breathing task is complete; it leaves quietly.
 		await db.execute('DELETE FROM things WHERE id=$1', [thingId]);
 	} else if (t?.species === 'edge') {
-		// A paid bill's edge has passed safely; it leaves quietly too
-		// (recurring bills are added as loops or re-added — v1 keeps it simple).
 		await db.execute('DELETE FROM things WHERE id=$1', [thingId]);
 	}
 	await loadAll();
 	return pickCelebration();
 }
 
-// ——— the house itself (THE HOUSE POUR — geode §⑪, THE-HOUSE-WALK.md) ———
 async function addRoom(name: string, roomType: string, floorType: string | null) {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
 	const id = generateId();
@@ -540,7 +533,6 @@ async function removeElectricPoint(id: string) {
 	await loadAll();
 }
 
-// ——— the letting-go (KP's pour — a heart-room, private absolutely) ———
 async function holdLetting(memberId: string, naming: string, telling: string | null, freedom: string) {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
 	await db.execute(
@@ -563,7 +555,6 @@ async function removeLetting(id: string) {
 	await loadAll();
 }
 
-// ——— the Mantel (KP's pour — placement is the opt-in) ———
 async function placeMantelNote(memberId: string, kind: MantelKind, text: string, emoji: string | null) {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
 	await db.execute(
@@ -597,9 +588,7 @@ async function removeMantelComment(id: string) {
 	await loadAll();
 }
 
-// Adopt an offered care loop — adoption-only, by the walk's law: nothing
-// appears in anyone's day uninvited. The why rides in the notes so the
-// reason is never separated from the task.
+// Adoption-only: nothing appears in anyone's day uninvited. The why rides in the notes.
 async function adoptRoomLoop(roomId: string, title: string, loopRule: string | null, why: string) {
 	return addThing({
 		title,
@@ -639,19 +628,14 @@ async function takeMed(medId: string, status: MedTakeStatus) {
 	return status === 'taken' ? pickCelebration() : null;
 }
 
-// A med is "quietly asking" if it has no take yet today. Gentle persistence:
-// in-app presence only — the Hearth never pushes, sounds, or vibrates.
+// A med is "quietly asking" if it has no take yet today — in-app presence only.
 function medTakenToday(medId: string): boolean {
 	const start = new Date();
 	start.setHours(0, 0, 0, 0);
 	return medTakes.some((t) => t.medId === medId && t.ts >= start.getTime());
 }
 
-// ——— personal protocols (DESIGN-003 §2) ———
-// Notification is OPT-IN (KP's refinement, 2026-07-19: "maybe if the me
-// settings wants others notified" — each person chooses in Me whether
-// their people are told at all; DEFAULT: not). Consent lives in settings,
-// set in calm; the moment itself stays silent either way.
+// Notification is OPT-IN: each person chooses in Me whether their people are told at all. Default: not.
 function protocolFor(memberId: string): Protocol {
 	return (
 		protocols.find((p) => p.memberId === memberId) ?? {
@@ -679,10 +663,7 @@ async function saveProtocol(p: Protocol) {
 	await loadAll();
 }
 
-// ——— the entity cards: gentle reminders (KP's rulings, 2026-07-31) ———
-// An emoji is a button that does a thing. Windows derive from the clock,
-// never stored; the fresh take resets the start. The card's color journey
-// (vessel's color → white → yellow → red) lives in $lib/data/cardColor.
+// Windows derive from the clock, never stored; a fresh take resets the start. The card's colour journey lives in $lib/data/cardColor.
 
 async function addCardAction(a: {
 	memberId: string; emoji: string; label?: string | null; kind: CardActionKind;
@@ -714,9 +695,7 @@ async function removeCardAction(id: string) {
 	await loadAll();
 }
 
-// The tap. done → the thing's machinery + celebration · reset → the fresh
-// take · feeling → a private feeling row. ('take' opens the med list in
-// the UI; each selected med rides takeMed as always.)
+// done → the thing's machinery + celebration · reset → the fresh take · feeling → a private feeling row.
 async function tapCardAction(id: string, byMemberId: string | null): Promise<string | null> {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
 	const a = cardActions.find((c) => c.id === id);
@@ -756,9 +735,7 @@ function actionsFor(memberId: string): CardAction[] {
 	return cardActions.filter((c) => c.memberId === memberId);
 }
 
-// ——— the household lexicon (the emoji folksonomy, at home) ———
-// Append-only by the Folksonomy Principle: a new meaning is a new row;
-// nothing overwrites; removing is only ever one's own hand on one's own word.
+// Append-only: a new meaning is a new row; nothing overwrites.
 async function addEmojiMeaning(emoji: string, meaning: string, memberId: string | null) {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
 	await db.execute(
@@ -778,12 +755,8 @@ function meaningsFor(emoji: string): EmojiMeaning[] {
 	return emojiMeanings.filter((m) => m.emoji === emoji);
 }
 
-// ——— the Sattva system (the Meltdown Protocol) ———
-// Family-facing name: Sattva (DESIGN-005). Function/table names below keep
-// their legacy 'overwhelm' spelling deliberately — installed devices carry
-// data under them, and identifiers are not UI.
-// The vessel's own protocol decides who is told; the audience is snapshotted
-// onto the event so later protocol edits never change a live event.
+// Function and table names keep their legacy 'overwhelm' spelling — installed devices carry data under them.
+// The audience is snapshotted onto the event so later protocol edits never change a live event.
 async function startOverwhelm(memberId: string) {
 	if (!db) throw new Error('Database not ready — close and reopen the app.');
 	const p = protocolFor(memberId);
@@ -816,19 +789,12 @@ async function returnFromOverwhelm(eventId: string, helped?: string, notes?: str
 	await loadAll();
 }
 
-// ——— export, import & delete (license §7 — features, not promises) ———
-// The three laws ride the family's shared library (the-envelope, referenced
-// from the awen spring, never absorbed): counts on the outside · the export
-// complete IN HAND before anything deletes · import non-destructive by law.
+// Counts on the outside · the export complete IN HAND before anything deletes · import non-destructive by law.
 
 const APP_ID = 'resonance-hearth';
 
-// Every app table, discovered live — never a curated list. The parent's own
-// warning ("future keys must not survive a purge by omission") applies to
-// export equally: a table this list can't see is a table the vessel can't
-// take with them. sqlite_% is the engine's; _% (the _sqlx_migrations ledger)
-// is the plugin's machinery — deleting it re-runs migrations into existing
-// tables and breaks the app; neither is household data.
+// Every app table, discovered live — never a curated list.
+// sqlite_% is the engine's; _% (the _sqlx_migrations ledger) is the plugin's — deleting it re-runs migrations into existing tables and breaks the app.
 async function appTables(): Promise<string[]> {
 	const rows = await db!.select<{ name: string }[]>(
 		"SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '\\_%' ESCAPE '\\' ORDER BY name"
@@ -836,8 +802,7 @@ async function appTables(): Promise<string[]> {
 	return rows.map((r) => r.name);
 }
 
-// Full tables, straight from the base — never the in-memory arrays, whose
-// working caps (recent spoons/takes/events) are a view, not the vessel's data.
+// Full tables, straight from the base — never the in-memory arrays, whose working caps are a view.
 async function exportAll(): Promise<string> {
 	if (!db) throw new Error('Database not ready — nothing was exported.');
 	const data: Record<string, Record<string, unknown>[]> = {};
@@ -850,8 +815,7 @@ async function exportAll(): Promise<string> {
 	return JSON.stringify(seal(APP_ID, APP_VERSION, data, counts), null, 2);
 }
 
-// The 07-11 era export (pre-envelope): one object, camelCase arrays, no dones.
-// A vessel's old backup must never be told it's worthless — carried whole.
+// The 07-11 era export (pre-envelope): one object, camelCase arrays, no dones — still carried whole.
 function legacyObjectToTables(raw: Record<string, unknown>): Record<string, Record<string, unknown>[]> {
 	const arr = (k: string) => (Array.isArray(raw[k]) ? (raw[k] as Record<string, unknown>[]) : []);
 	const b = (v: unknown) => (v ? 1 : 0);
@@ -892,9 +856,7 @@ function legacyObjectToTables(raw: Record<string, unknown>): Record<string, Reco
 	};
 }
 
-// Import — non-destructive by law: an existing row is the household's current
-// mind and is never overwritten by a file. New rows are welcomed in; rows a
-// changed schema can't hold are counted honestly, never guessed at.
+// Import is non-destructive: an existing row is never overwritten; rows a changed schema can't hold are counted, never guessed at.
 async function importAll(json: string): Promise<{ added: number; kept: number; heldBack: number }> {
 	if (!db) throw new Error('Database not ready — nothing was imported.');
 	const parsed: unknown = JSON.parse(json);
@@ -940,9 +902,7 @@ async function importAll(json: string): Promise<{ added: number; kept: number; h
 
 async function purgeAll() {
 	if (!db) throw new Error('Database not ready — nothing was purged');
-	// Deny-by-default: every app table, discovered live (see appTables) —
-	// a curated list forgets in silence; this one cannot. localStorage
-	// rides too (device selection, theme): everything means everything.
+	// Deny-by-default: every app table discovered live (see appTables); localStorage rides too.
 	for (const t of await appTables()) {
 		await db.execute(`DELETE FROM "${t}"`);
 	}
@@ -1028,11 +988,8 @@ export const hearthStore = {
 		return overwhelms.find((e) => e.memberId === memberId && !e.returnedAt) ?? null;
 	},
 
-	// PROTECTED BOUNDARY — the 30-second pause, enforced in data:
-	// the household sees a shared overwhelm only after the pause has passed.
-	// Personal protocols (DESIGN-003 §2) additionally scope WHO sees it:
-	// the event's snapshotted audience ('all' or a member-id list) filters
-	// against this device's member. The pause itself is never personal.
+	// PROTECTED BOUNDARY: the household sees a shared overwhelm only after the 30-second pause.
+	// The event's snapshotted audience filters against this device's member; the pause itself is never personal.
 	get householdOverwhelms(): OverwhelmEvent[] {
 		return overwhelms.filter((e) => {
 			if (!e.shared || e.returnedAt || e.startedAt + OVERWHELM_PAUSE_MS > now) return false;
@@ -1090,9 +1047,7 @@ export const hearthStore = {
 	},
 	actionsFor,
 	meaningsFor,
-	// Meds visible on a member's card: their own on their own device, a
-	// pet's for any hand (someone must give them), a person's only if that
-	// med is shared. Private meds never surface on another's screen.
+	// Own meds on own device, a pet's for any hand, a person's only if shared. Private meds never surface on another's screen.
 	cardMeds(memberId: string): Med[] {
 		const m = members.find((x) => x.id === memberId);
 		if (!m) return [];

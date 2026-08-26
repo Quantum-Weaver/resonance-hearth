@@ -1,11 +1,4 @@
 <script lang="ts">
-	// THE HOUSE — the rooms, their care, and the why.
-	// THE HOUSE POUR (KP, 2026-08-06 — geode §⑪; THE-HOUSE-WALK.md is the
-	// blueprint, its offers stroked): the keeper adds the house itself, and
-	// the house answers with OFFERED knowledge — how, how often, and WHY —
-	// so any member can pick up any task without ever needing to be taught
-	// by a person. Teaching never wounds: guidance never scolds, never
-	// counts misses, never says who didn't.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { galleryOf, type GalleryConfig } from '$lib/gallery';
 	import type { Room } from '$lib/types/types';
@@ -138,7 +131,6 @@
 		</p>
 	</header>
 
-	<!-- The very top of the gallery -->
 	<input
 		type="search"
 		class="room-search"
@@ -173,7 +165,6 @@
 
 						{#if open}
 							<div class="room__body">
-								<!-- Who holds this room -->
 								<div class="block">
 									<h3>Held by</h3>
 									<div class="chip-row">
@@ -215,7 +206,6 @@
 									{/each}
 								</div>
 
-								<!-- Fixtures -->
 								<div class="block">
 									<h3>What the room holds</h3>
 									{#each hearthStore.fixturesFor(room.id) as f (f.id)}
@@ -234,7 +224,6 @@
 									</div>
 								</div>
 
-								<!-- The electrical points -->
 								<div class="block">
 									<h3>Outlets & switches</h3>
 									{#each hearthStore.pointsFor(room.id) as p (p.id)}
@@ -266,7 +255,6 @@
 									</div>
 								</div>
 
-								<!-- Assets in this room -->
 								<div class="block">
 									<h3>Things that live here</h3>
 									{#each hearthStore.roomAssets(room.id) as t (t.id)}
@@ -289,7 +277,6 @@
 									{/if}
 								</div>
 
-								<!-- The adopted loops, resting or asking -->
 								{#if hearthStore.roomLoops(room.id).length > 0}
 									<div class="block">
 										<h3>This room's loops</h3>
@@ -314,7 +301,6 @@
 		</div>
 	{/if}
 
-	<!-- Add a room -->
 	<section class="card form">
 		<h2>Add a room</h2>
 		<div class="add-row">
@@ -334,7 +320,6 @@
 		<button class="soft-btn primary" onclick={addRoom} disabled={!newName.trim()}>add the room</button>
 	</section>
 
-	<!-- The breaker map -->
 	<section class="card form">
 		<h2>The breaker box</h2>
 		<p class="quiet-line">

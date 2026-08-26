@@ -1,11 +1,5 @@
 <script lang="ts">
-	// The Sattva system (the Meltdown Protocol) — a ceremony, not a feature.
-	// (DESIGN-001 + DESIGN-003; named Sattva in DESIGN-005 — the room is named
-	// for the state it restores, not the state that opens its door.)
-	// PROTECTED BOUNDARY: the 30-second pause between the personal log and
-	// anyone's gentle knowing is enforced in the store's data logic and is
-	// not configurable. What IS personal (DESIGN-003 §2): who is told, in
-	// what words, and what the vessel needs — authored in calm, in Me.
+	// PROTECTED BOUNDARY: the 30-second pause between the personal log and anyone's gentle knowing is enforced in the store and is not configurable.
 	import { hearthStore } from '$lib/stores/hearth.svelte';
 	import { onMount } from 'svelte';
 	import { createBreath, drawSquarePulse, type BreathDuration } from 'the-breath';
@@ -14,20 +8,13 @@
 	let notes = $state('');
 	let justReturned = $state(false);
 
-	// THE SILENCE LAW (KP, 2026-07-19, LAW-grade): never tell a person their
-	// people are being notified — "to me that is triggering to see." The
-	// audience machinery runs quietly per the protocol chosen in calm (Me);
-	// THIS screen holds only calm. No audience lines, before or during.
+	// Never tell a person their people are being notified — this screen holds no audience lines, before or during.
 
-	// The breathing square — the-breath, the awen spring's engine (Hearth is
-	// its designed second consumer; the curves are Compass's, carried whole).
-	// Reduced motion turns the pulse into a steady glow, as the origin does.
 	let breathDuration = $state<BreathDuration>('4-4');
 	let canvasEl = $state<HTMLCanvasElement | null>(null);
 	let phaseWord = $state<'in' | 'out'>('in');
 	let count = $state(1);
-	// KP's ruling (2026-07-31): the Sattva shows NO numbers by default —
-	// the breathing square is enough; counts are a toggle, off unless chosen.
+	// No numbers by default — counts are a toggle, off unless chosen.
 	let showCounts = $state(false);
 	let reducedMotion = $state(false);
 

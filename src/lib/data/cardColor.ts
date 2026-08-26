@@ -1,17 +1,8 @@
-// The card color journey — KP's ruling, 2026-07-31 (geode `hearth` §⑧,
-// verbatim there): "let cards begin as a color of the vessels choice and
-// have it fade to white until it turns white -> yellow -> red for the
-// visual alert." Color is dynamic — "one of your emojis needs your eyes"
-// — graduated by percentages, never a jump. The word, when words appear,
-// is CARE ("charlie needs care"); the family name is GENTLE REMINDERS.
-//
-// The journey against the temporal core's elapsed fraction:
-//   [0 … approachAt]        the vessel's color fades to white
+// The colour journey against the temporal core's elapsed fraction:
+//   [0 … approachAt]        the vessel's colour fades to white
 //   [approachAt … midpoint] white warms to yellow
 //   [midpoint … 1]          yellow deepens to red
 //   [1 … ]                  red, steady — the window has passed
-// The yellow and red are the house's own soft tones (the SIGNALS red is
-// #c96f6f — an invitation's red, not an alarm's).
 
 import type { CardAction, Member } from '$lib/types/types';
 import { readWindow, type TemporalReading } from '$lib/temporal';

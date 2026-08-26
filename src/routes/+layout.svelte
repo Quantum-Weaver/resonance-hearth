@@ -11,7 +11,6 @@
 
 	let { children } = $props();
 
-	// Hide chrome during the immersive onboarding flow
 	const isOnboarding = $derived(page.url.pathname === '/onboarding');
 
 	onMount(async () => {
@@ -26,10 +25,7 @@
 	const config = $derived(themeStore.config);
 	const colors = $derived(getThemeColors(config));
 
-	// The Dim (DESIGN-003 §3): while THIS device's vessel has an open
-	// Sattva event, the UI eases down in color only — luminance and saturation,
-	// nothing else. No layout shift, no motion change; a changed layout is
-	// its own sensory event. It lifts as slowly as it fell, with 🌈.
+	// The Dim: colour only — luminance and saturation. No layout shift, no motion change.
 	const dimmed = $derived(
 		!!hearthStore.me && !!hearthStore.openOverwhelm(hearthStore.me.id)
 	);
@@ -92,9 +88,7 @@
 
 	.main-content {
 		flex: 1;
-		/* min-width: 0 is the load-bearing guard: flex children default to
-		   min-width auto, so any wide descendant would stretch the shell
-		   past the viewport instead of being contained. */
+		/* min-width: 0 — flex children default to min-width auto, so a wide descendant would stretch the shell past the viewport. */
 		min-width: 0;
 		max-width: 100%;
 		overflow-y: auto;
