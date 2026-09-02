@@ -48,7 +48,7 @@ No UGC shared, no ads, no data collection → Everyone.
 Collects: nothing · Shares: nothing · All data local; export
 user-initiated; full deletion built in. Privacy policy (public,
 verified):
-https://github.com/Quantum-Weaver/resonance-hearth/blob/main/PRIVACY.md
+https://audhdities.com/apps/privacy
 
 ## Assets
 Icon: current set (KP's own Hearth icon planned — may replace before

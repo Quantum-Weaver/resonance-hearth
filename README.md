@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT%20%2B%20Resonance-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-0.1.1-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/status-dwelling%20test-d9a95b.svg)]()
-[![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](PRIVACY.md)
+[![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](https://audhdities.com/apps/privacy)
 
 **The Family Room. A translation layer for love.**
 
