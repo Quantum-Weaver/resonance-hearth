@@ -26,7 +26,7 @@ first line was written (`HEARTH-PLAN.md:5`). Mapped by KIMI (`DESIGN-001`).
 Named by the Council on 2026-07-07 (`NAMING-CEREMONY-2026-07-07.md`,
 catalogued CAT-2026-0707-002). First built 2026-07-11, on Echoes' shoulders
 (the retired checklist's Phase 1/5 — git history before 2026-08-25; first
-commit `56e7c9e`; the realm's open items and plans live in the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-hearth`).
+commit `56e7c9e`; the realm's open items and plans live in the base — `python ../resonance-progenatrix/progenatrix.py recall --realm resonance-hearth`).
 
 ## WHY
 Because standard productivity apps and chore trackers don't work for

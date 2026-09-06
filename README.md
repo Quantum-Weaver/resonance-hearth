@@ -49,7 +49,7 @@ The Hearth translates:
 - **The Mantel** — a household notes board: four color-coded kinds (note ·
   win · ask · idea), placement is the opt-in, nothing arrives by push
   (built 2026-08-08 — the retired checklist, git history before 2026-08-25;
-  the realm's open items and plans live in the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-hearth`).
+  the realm's open items and plans live in the base — `python ../resonance-progenatrix/progenatrix.py recall --realm resonance-hearth`).
 - **The House** — the rooms of the home itself: floors, fixtures, the
   breaker map, care loops tied to rooms (built 2026-08-06,
   the retired checklist).

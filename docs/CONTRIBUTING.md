@@ -7,7 +7,7 @@ Same as Resonance Compass. Four-thread: Root (vision), Researcher (discovery), A
 Each phase on its own branch from main. Human test before merge.
 
 ## Build Protocol
-1. Claude reads the realm's open items and plans from the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-hearth` — and the relevant blueprints
+1. Claude reads the realm's open items and plans from the base — `python ../resonance-progenatrix/progenatrix.py recall --realm resonance-hearth` — and the relevant blueprints
 2. Executes the phase
 3. `npm run check` — zero errors
 4. `cargo build` — zero errors

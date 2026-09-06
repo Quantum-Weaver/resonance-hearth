@@ -3,7 +3,7 @@
 As of 2026-08-06 (the family swaps - Hearth's gallery consumption,
 KP's word: "the entity cards in the hearth can become gallery
 consumers"), the gallery engine's single editable truth is:
-C:\_superposition\resonance-awen\tools\the-gallery\src\index.ts
+../resonance-awen/tools/the-gallery/src/index.ts
 
 Do not edit index.ts in THIS folder - it is a byte-faithful mirror
 (SHA256 verified at the copy: ECCCBC995A5276F4), to be refreshed by

@@ -4,7 +4,7 @@ As of 2026-08-06 (the family swaps - Hearth's cumdach consumption,
 KP's word: "resonance-hearth... will be undergoing a few swaps like
 echoes and bubbles did... to bring the app styles together as a
 family"), the navigation shrine's single editable truth is:
-C:\_superposition\resonance-awen\tools\the-cumdach\src\index.ts
+../resonance-awen/tools/the-cumdach/src/index.ts
 
 Do not edit index.ts in THIS folder - it is a byte-faithful mirror
 (SHA256 verified at the copy: 07BB8DBA494A5F04), to be refreshed by
