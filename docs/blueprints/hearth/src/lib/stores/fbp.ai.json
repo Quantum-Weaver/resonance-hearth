@@ -8,15 +8,15 @@
   "files": [
     {
       "path": "src/lib/stores/hearth.svelte.ts",
-      "description": "typescript, 42,986 bytes"
+      "description": "typescript, 40,311 bytes"
     },
     {
       "path": "src/lib/stores/theme.svelte.ts",
-      "description": "typescript, 1,120 bytes"
+      "description": "typescript, 1,740 bytes"
     },
     {
       "path": "src/lib/stores/ui.svelte.ts",
-      "description": "Cross-component UI signals that don't belong to any domain store"
+      "description": "typescript, 364 bytes"
     }
   ],
   "file_count": 3,
@@ -24,7 +24,7 @@
   "code_analysis": {
     "hearth.svelte.ts": {
       "language": "typescript",
-      "lines": 1154,
+      "lines": 1109,
       "exported_functions": [],
       "exported_consts": [
         "hearthStore"
@@ -38,7 +38,7 @@
     },
     "theme.svelte.ts": {
       "language": "typescript",
-      "lines": 45,
+      "lines": 64,
       "exported_functions": [],
       "exported_consts": [
         "themeStore"
@@ -66,7 +66,7 @@
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:40.277276 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.688322 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

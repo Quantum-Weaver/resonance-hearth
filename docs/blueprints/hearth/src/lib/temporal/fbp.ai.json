@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/lib/temporal/index.ts",
-      "description": "The temporal core"
+      "description": "The temporal core: a START MOMENT + a VALIDITY WINDOW; state is DERIVED from the clock, never stored, and reset by a fresh take"
     },
     {
       "path": "src/lib/temporal/README.md",
@@ -20,7 +20,7 @@
   "code_analysis": {
     "index.ts": {
       "language": "typescript",
-      "lines": 84,
+      "lines": 64,
       "exported_functions": [
         "readWindow",
         "freshTake",
@@ -66,7 +66,7 @@
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:40.294343 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.703357 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

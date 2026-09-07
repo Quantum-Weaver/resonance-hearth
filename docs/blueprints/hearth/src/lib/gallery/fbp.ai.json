@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/lib/gallery/index.ts",
-      "description": "The gallery"
+      "description": "The gallery core: rows in, cards out"
     },
     {
       "path": "src/lib/gallery/MIRROR.md",
@@ -20,7 +20,7 @@
   "code_analysis": {
     "index.ts": {
       "language": "typescript",
-      "lines": 117,
+      "lines": 86,
       "exported_functions": [
         "clampPreview",
         "galleryOf",
@@ -62,7 +62,7 @@
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:40.269922 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.683128 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

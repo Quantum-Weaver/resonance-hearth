@@ -1,0 +1,43 @@
+{
+  "tier": "object",
+  "object_name": ".journals",
+  "object_path": ".journals",
+  "self": "hearth/.journals/obp.ai.json",
+  "parent": "hearth/pbp.ai.json",
+  "description": "0 files, 3 subfolders",
+  "folders": [
+    {
+      "blueprint": "hearth/.journals/fbp.ai.json",
+      "folder_path": ".journals",
+      "description": "0 files, 3 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 3
+    },
+    {
+      "blueprint": "hearth/.journals/entity/fbp.ai.json",
+      "folder_path": ".journals/entity",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/.journals/proofs/fbp.ai.json",
+      "folder_path": ".journals/proofs",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "hearth/.journals/realm/fbp.ai.json",
+      "folder_path": ".journals/realm",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 4,
+  "total_files": 4,
+  "integration_timestamp": "2026-09-07T14:02:37.827013 | in sovereign time",
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

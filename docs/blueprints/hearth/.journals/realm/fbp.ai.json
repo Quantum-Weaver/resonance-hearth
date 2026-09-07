@@ -1,0 +1,122 @@
+{
+  "tier": "folder",
+  "folder_name": "realm",
+  "folder_path": ".journals/realm",
+  "self": "hearth/.journals/realm/fbp.ai.json",
+  "parent": "hearth/.journals/obp.ai.json",
+  "description": "4 files, 0 subfolders",
+  "files": [
+    {
+      "path": ".journals/realm/2026-09-01-the-checklist-pointers-re-pointed.md",
+      "description": "2026-09-01"
+    },
+    {
+      "path": ".journals/realm/2026-09-01-the-privacy-url-is-the-single-page.md",
+      "description": "2026-09-01"
+    },
+    {
+      "path": ".journals/realm/2026-09-01-the-unsigned-rebuild-of-0-1-1.md",
+      "description": "2026-09-01 \u00b7 0.1.1 rebuilt on the green tree, unsigned, for the ruled key"
+    },
+    {
+      "path": ".journals/realm/2026-09-06-old-house-paths-in-prose-made-relative.md",
+      "description": "Old-house paths in prose made relative"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "2026-09-01-the-checklist-pointers-re-pointed.md": {
+      "language": "markdown",
+      "lines": 8,
+      "words": 109,
+      "heading_count": 1,
+      "headings": [
+        "2026-09-01 \u2014 the checklist pointers re-pointed to the base"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-01-the-privacy-url-is-the-single-page.md": {
+      "language": "markdown",
+      "lines": 10,
+      "words": 134,
+      "heading_count": 1,
+      "headings": [
+        "2026-09-01 \u2014 the privacy policy URL is the single page"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-01-the-unsigned-rebuild-of-0-1-1.md": {
+      "language": "markdown",
+      "lines": 15,
+      "words": 291,
+      "heading_count": 1,
+      "headings": [
+        "2026-09-01 \u00b7 0.1.1 rebuilt on the green tree, unsigned, for the ruled key"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-06-old-house-paths-in-prose-made-relative.md": {
+      "language": "markdown",
+      "lines": 11,
+      "words": 36,
+      "heading_count": 1,
+      "headings": [
+        "Old-house paths in prose made relative"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-09-07T14:02:37.626705 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

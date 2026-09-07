@@ -8,11 +8,11 @@
   "files": [
     {
       "path": "src/lib/data/cardColor.ts",
-      "description": "The card color journey"
+      "description": "The colour journey against the temporal core's elapsed fraction:"
     },
     {
       "path": "src/lib/data/emojiFunctions.ts",
-      "description": "The function shelves"
+      "description": "Twenty emoji per function category"
     },
     {
       "path": "src/lib/data/emojis.gen.ts",
@@ -24,7 +24,7 @@
     },
     {
       "path": "src/lib/data/houseCare.ts",
-      "description": "The guidance shelf"
+      "description": "windowDays is a validity window: a done is a fresh take and state derives from the clock"
     }
   ],
   "file_count": 5,
@@ -32,7 +32,7 @@
   "code_analysis": {
     "cardColor.ts": {
       "language": "typescript",
-      "lines": 124,
+      "lines": 115,
       "exported_functions": [
         "journeyColor",
         "cardUrgencies",
@@ -59,7 +59,7 @@
     },
     "emojiFunctions.ts": {
       "language": "typescript",
-      "lines": 157,
+      "lines": 146,
       "exported_functions": [
         "shelfFor"
       ],
@@ -94,7 +94,7 @@
     },
     "hearth.ts": {
       "language": "typescript",
-      "lines": 143,
+      "lines": 129,
       "exported_functions": [],
       "exported_consts": [
         "SIGNALS",
@@ -120,7 +120,7 @@
     },
     "houseCare.ts": {
       "language": "typescript",
-      "lines": 236,
+      "lines": 222,
       "exported_functions": [
         "loopRuleFor",
         "careFor"
@@ -143,7 +143,7 @@
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:40.265301 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.679864 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

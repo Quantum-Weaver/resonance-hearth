@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/routes/settings/+page.svelte",
-      "description": "surface, 15,290 bytes"
+      "description": "surface, 14,996 bytes"
     }
   ],
   "file_count": 1,
@@ -26,7 +26,7 @@
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:40.316586 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.719015 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

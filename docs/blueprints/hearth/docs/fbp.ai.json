@@ -4,15 +4,11 @@
   "folder_path": "docs",
   "self": "hearth/docs/fbp.ai.json",
   "parent": "hearth/pbp.ai.json",
-  "description": "12 files, 0 subfolders",
+  "description": "11 files, 0 subfolders",
   "files": [
     {
       "path": "docs/AUDIT-001-echo-consistency.md",
       "description": "AUDIT-001"
-    },
-    {
-      "path": "docs/CHECKLIST.md",
-      "description": "RESONANCE HEARTH"
     },
     {
       "path": "docs/CONTRIBUTING.md",
@@ -55,7 +51,7 @@
       "description": "THE TABLE"
     }
   ],
-  "file_count": 12,
+  "file_count": 11,
   "subdirectories": [],
   "code_analysis": {
     "AUDIT-001-echo-consistency.md": {
@@ -84,46 +80,10 @@
       "has_story_block": false,
       "declares_mirror_class": false
     },
-    "CHECKLIST.md": {
-      "language": "markdown",
-      "lines": 307,
-      "words": 4837,
-      "heading_count": 15,
-      "headings": [
-        "RESONANCE HEARTH \u2014 MASTER CHECKLIST",
-        "LEGEND",
-        "PHASE STATUS",
-        "Phase 1: Cartography \u2705 (2026-07-11)",
-        "Phase 2\u20134: Indexing / Echo audit / Naming \u2705",
-        "Phase 5: Prototype \u2014 the gentle core \u2705 (2026-07-11)",
-        "Session 2026-07-12: The Sattva Door \u2705",
-        "Phase 6: Integration \u2b1c (later, deliberately)",
-        "Phase 7: Dwelling \u2b1c",
-        "KNOWN BUGS",
-        "NEXT SITTING \u2014 design notes at KP's word (2026-07-19)",
-        "NEXT SITTING \u2014 2026-07-22 (the crystal sitting)",
-        "THE BUILD SEASON \u2014 2026-07-31 (the modular plan, ruled; order is KP's)",
-        "NEXT SITTING (standing)",
-        "SESSION LOG"
-      ],
-      "links_external": 0,
-      "links_site_absolute": [],
-      "links_internal": [],
-      "links_internal_unresolved": [],
-      "links_internal_outside_checkout": [],
-      "code_fences": 0,
-      "table_rows": 27,
-      "checkboxes": {
-        "open": 21,
-        "done": 29
-      },
-      "has_story_block": false,
-      "declares_mirror_class": false
-    },
     "CONTRIBUTING.md": {
       "language": "markdown",
       "lines": 21,
-      "words": 100,
+      "words": 116,
       "heading_count": 5,
       "headings": [
         "CONTRIBUTING \u2014 Resonance Echoes",
@@ -306,8 +266,8 @@
     },
     "STORY-BLOCK.md": {
       "language": "markdown",
-      "lines": 81,
-      "words": 508,
+      "lines": 82,
+      "words": 531,
       "heading_count": 12,
       "headings": [
         "Resonance Hearth \u2014 Story Block",
@@ -433,7 +393,7 @@
       "reason": "a blueprint output tree \u2014 the forge does not blueprint blueprints"
     }
   ],
-  "scan_timestamp": "2026-08-21T15:19:40.215293 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.637985 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

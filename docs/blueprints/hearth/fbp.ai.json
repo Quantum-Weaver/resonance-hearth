@@ -11,10 +11,6 @@
       "description": "ignore rules, 2,050 bytes"
     },
     {
-      "path": "CLAUDE.md",
-      "description": "CLAUDE.md"
-    },
-    {
       "path": "COUNCIL-ACKNOWLEDGMENT-2026-07-11.md",
       "description": "THE ROOT'S ACKNOWLEDGMENT"
     },
@@ -37,10 +33,6 @@
     {
       "path": "DESIGN-005-the-sattva-door.md",
       "description": "DESIGN-005"
-    },
-    {
-      "path": "FABLE-KERNEL.md",
-      "description": "FABLE-KERNEL"
     },
     {
       "path": "HANDS.md",
@@ -95,10 +87,11 @@
       "description": "script, 873 bytes"
     }
   ],
-  "file_count": 22,
+  "file_count": 20,
   "subdirectories": [
     ".cargo",
     ".claude",
+    ".journals",
     "docs",
     "release",
     "scripts",
@@ -107,38 +100,6 @@
     "static"
   ],
   "code_analysis": {
-    "CLAUDE.md": {
-      "language": "markdown",
-      "lines": 134,
-      "words": 897,
-      "heading_count": 11,
-      "headings": [
-        "CLAUDE.md \u2014 Resonance Hearth",
-        "PROTECTED BOUNDARIES (never negotiable, from the naming ceremony 2026-07-07)",
-        "THE SENSORY LAW (cartography)",
-        "THE TASK TAXONOMY",
-        "PRIVACY (license \u00a77 \u2014 structural, not aspirational)",
-        "Distribution, and findings",
-        "Structure",
-        "Tools",
-        "People",
-        "Standards",
-        "The forge and the link tender"
-      ],
-      "links_external": 1,
-      "links_site_absolute": [],
-      "links_internal": [],
-      "links_internal_unresolved": [],
-      "links_internal_outside_checkout": [],
-      "code_fences": 0,
-      "table_rows": 0,
-      "checkboxes": {
-        "open": 0,
-        "done": 0
-      },
-      "has_story_block": false,
-      "declares_mirror_class": false
-    },
     "COUNCIL-ACKNOWLEDGMENT-2026-07-11.md": {
       "language": "markdown",
       "lines": 74,
@@ -295,33 +256,6 @@
         "Scope (KP's choices, 2026-07-12)",
         "What did not change (and never does)",
         "Files touched"
-      ],
-      "links_external": 0,
-      "links_site_absolute": [],
-      "links_internal": [],
-      "links_internal_unresolved": [],
-      "links_internal_outside_checkout": [],
-      "code_fences": 0,
-      "table_rows": 0,
-      "checkboxes": {
-        "open": 0,
-        "done": 0
-      },
-      "has_story_block": false,
-      "declares_mirror_class": false
-    },
-    "FABLE-KERNEL.md": {
-      "language": "markdown",
-      "lines": 75,
-      "words": 596,
-      "heading_count": 6,
-      "headings": [
-        "FABLE-KERNEL \u2014 resonance-hearth",
-        "What this is",
-        "The founding documents (all in this folder \u2014 read all three)",
-        "State (2026-07-09)",
-        "Build path (when its turn comes)",
-        "Dispatch notes"
       ],
       "links_external": 0,
       "links_site_absolute": [],
@@ -523,8 +457,8 @@
     },
     "README.md": {
       "language": "markdown",
-      "lines": 163,
-      "words": 822,
+      "lines": 164,
+      "words": 849,
       "heading_count": 9,
       "headings": [
         "\ud83d\udd25 Resonance Hearth",
@@ -537,7 +471,7 @@
         "License",
         "The Hands"
       ],
-      "links_external": 5,
+      "links_external": 6,
       "links_site_absolute": [],
       "links_internal": [
         {
@@ -626,12 +560,6 @@
       "reason": "package-class tree (dependency or build output) \u2014 not counted, because counting it means walking it"
     },
     {
-      "name": ".svelte-kit",
-      "address": ".svelte-kit",
-      "walked": false,
-      "reason": "package-class tree (dependency or build output) \u2014 not counted, because counting it means walking it"
-    },
-    {
       "name": "build",
       "address": "build",
       "walked": false,
@@ -644,7 +572,7 @@
       "reason": "package-class tree (dependency or build output) \u2014 not counted, because counting it means walking it"
     }
   ],
-  "scan_timestamp": "2026-08-21T15:19:40.197361 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.619478 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/routes/sattva/+page.svelte",
-      "description": "surface, 8,746 bytes"
+      "description": "surface, 7,896 bytes"
     }
   ],
   "file_count": 1,
@@ -16,7 +16,7 @@
   "code_analysis": {
     "+page.svelte": {
       "language": "svelte",
-      "lines": 223,
+      "lines": 210,
       "uses_runes": [
         "$derived",
         "$state"
@@ -26,7 +26,7 @@
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:40.315096 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:37.717872 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }
