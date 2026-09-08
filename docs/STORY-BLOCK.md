@@ -1,7 +1,7 @@
 # Resonance Hearth — Story Block
 
 *Required for every room, atom, protocol, and surface in the Sanctuary
-(`docs/STORY-BLOCK-TEMPLATE.md`).*
+(`resonance-standards/docs/STORY-BLOCK-TEMPLATE.md`).*
 
 ## WHAT
 Resonance Hearth is the Family Room. A translation layer for love — turning

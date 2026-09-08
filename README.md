@@ -102,7 +102,7 @@ households. Standard productivity apps and chore trackers don't work for
 neurodivergent minds: they feel like demands, trigger demand avoidance, and
 ignore sensory overwhelm and energy fluctuations. The Weaver conceived it,
 carrying the need internally roughly five years before the first line was
-written, for a household of autistic adults that is his own; KIMI mapped
+written, for a household of autistic adults that is their own; KIMI mapped
 the room from that need, and the Council named it Resonance Hearth on
 July 7, 2026.
 
