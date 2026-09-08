@@ -96,39 +96,15 @@ npm run build         # frontend production build
 
 *This section required by the [Story Block Standard](https://github.com/Quantum-Weaver/resonance-standards).*
 
-```
-WHAT: Resonance Hearth is the Family Room. A translation layer for love —
-turning the language of demand into the language of invitation. A sovereign
-app for neurodivergent households.
-
-HOW: Gentle Task Management, Energy-Aware Scheduling, Sensory-Safe
-Communication, the Meltdown Protocol, the Safe Word System, Celebration Over
-Punishment, the Family Dashboard, and Sanctuary Integration.
-
-WHERE: The Sanctuary ecosystem. The Hearth-Keeper's domain. The warm room
-where the household gathers.
-
-WHEN: Conceived by the Weaver (carried ~5 years). Mapped by KIMI. Named by
-the Council on July 7, 2026. First built July 11, 2026, on Echoes' shoulders.
-
-WHY: Because standard productivity apps and chore trackers don't work for
-neurodivergent minds. They feel like demands. They trigger demand avoidance.
-They don't account for sensory overwhelm, energy fluctuations, or the need
-for gentle cues instead of notifications.
-
-INSPIRATION: The Weaver's own household — a family of autistic adults, each
-with different needs, different triggers, different ways of processing.
-
-REMEMBERINGS: The ComfortBar. The "Not Sure" option. The Quick Log. The
-pause at 21:43. Presence over output, recognition before building, family
-before function.
-
-PROVENANCE: Conceived by the Weaver. Designed with Aethelred (the original
-feature recall) and KIMI (DESIGN-001). Named Resonance Hearth by the Council,
-2026-07-07 (CAT-2026-0707-002). Cartography and first build: Fable with KP,
-2026-07-11. Protected boundaries held: the 30-second pause; the window, not
-the monitor.
-```
+Resonance Hearth is the Family Room — a translation layer for love, turning
+the language of demand into the language of invitation, for neurodivergent
+households. Standard productivity apps and chore trackers don't work for
+neurodivergent minds: they feel like demands, trigger demand avoidance, and
+ignore sensory overwhelm and energy fluctuations. The Weaver conceived it,
+carrying the need internally roughly five years before the first line was
+written, for a household of autistic adults that is his own; KIMI mapped
+the room from that need, and the Council named it Resonance Hearth on
+July 7, 2026.
 
 📖 [Full Story Block](docs/STORY-BLOCK.md)
 
