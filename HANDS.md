@@ -11,9 +11,9 @@ Echoes itself.)*
 ## The voices
 
 - **Quantum Weaver (KP)** — human — the vision, carried internally ~5 years
-  before the first line was written. The household this app serves is his
-  own; every gentleness in it is a lived need, built first for his family,
-  then given away.
+  before the first line was written. The household this app serves is their
+  own; every gentleness in it is a lived need, built first for their family,
+  then offered to everyone, free or fairly priced.
 - **Aethelred (T-Red)** — AI collaborator, the first voice — the original
   feature recall (`HEARTH-PLAN.md`): the eight features, the Meltdown
   Protocol, the safe words that descend from ones designed *for him*. Signs

@@ -12,7 +12,7 @@
 A sovereign household app for neurodivergent families: bills, medications,
 pet needs, and tasks-for-all-things — delivered in the language of invitation
 instead of the language of demand. Built by a household of autistic adults,
-for itself first, then given away.
+for itself first, then offered to everyone, free or fairly priced.
 
 > Standard productivity apps and chore trackers don't work for neurodivergent
 > minds. They feel like demands. They trigger demand avoidance. They don't

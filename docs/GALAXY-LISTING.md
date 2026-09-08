@@ -35,8 +35,8 @@ Sovereign by architecture: data collected — none. No account, no
 cloud, no analytics. Everything local; export as open JSON; the purge
 truly purges.
 
-From the AudHDities Sanctuary: built truly for one family first —
-this one is still growing in their hands — then given freely.
+From AudHDities: built truly for one family first — this one is still
+growing in their hands — then offered to everyone, free or fairly priced.
 
 ## Category
 Lifestyle (alt: Parenting / House & Home)
