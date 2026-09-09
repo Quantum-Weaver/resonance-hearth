@@ -1,4 +1,4 @@
-# 🔥 Resonance Hearth
+# 🕯️ Resonance Hearth
 
 *The Family Room of the AudHDities Sanctuary — a translation layer for love.*
 
